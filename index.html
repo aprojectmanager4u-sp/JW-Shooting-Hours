@@ -7,6 +7,7 @@
 <title>WI Shooting Hours</title>
 <meta name="theme-color" content="#141a16">
 <meta name="description" content="Wisconsin legal shooting hours for your location and species.">
+<meta name="app-build" content="2026.10.01-1003">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -33,6 +34,8 @@ h1{font-size:1.15rem;text-transform:uppercase;letter-spacing:.12em;display:flex;
 h1 .dot{width:12px;height:12px;border-radius:2px;background:var(--blaze)}
 h2{font-size:.95rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:600}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.update{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--panel);border:1px solid var(--blaze);border-radius:10px;padding:10px 12px;font-size:.95rem}
+.update button{border:0;background:var(--blaze);color:var(--blaze-ink);font-weight:700;border-radius:8px;padding:8px 14px;min-height:40px;flex:none}
 button,select,input{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--blaze);outline-offset:2px}
@@ -110,6 +113,7 @@ section{display:flex;flex-direction:column;gap:10px}
 </style>
 
 <div class="wrap">
+  <div class="update" id="updateBar" role="status" hidden><span>A new version of the app is ready.</span><button type="button" id="updateBtn">Update now</button></div>
   <div class="top">
     <h1><span class="dot"></span>WI Shooting Hours</h1>
     <button class="today" id="todayBtn" type="button">Today</button>
@@ -186,6 +190,7 @@ section{display:flex;flex-direction:column;gap:10px}
   <div class="fine">
     <div>Times follow Wis. Admin. Code NR 10.06: zone A times come from sunrise and sunset at Sheboygan (southern area) or Powers, MI (northern area); each zone west adds 4 minutes. Shown in Wisconsin clock time (daylight time when in effect). For 2026 the app uses the DNR's published Zone A tables directly (all four tables, every day). Other years are calculated and match published tables within 1 minute.</div>
     <div>Always confirm with the official tables before you shoot: <a href="https://dnr.wisconsin.gov/node/119956" target="_blank" rel="noopener">DNR calculating shooting hours</a> · <a href="https://widnr.widen.net/s/mvmqkfqdxx/2023-hunting-hours-map" target="_blank" rel="noopener">zone map</a>. Property-specific closures (refuges, some wildlife areas) are not included.</div>
+    <div>App version 2026.10.01-1003</div>
   </div>
 </div>
 
@@ -545,5 +550,26 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
 
   // Offline support when installed (ignored where service workers aren't allowed)
   if('serviceWorker' in navigator){ try{ navigator.serviceWorker.register('sw.js').catch(()=>{}); }catch(e){} }
+
+  // Update check: an installed app is often resumed from memory instead of reloaded,
+  // so look for a newer version on launch and whenever the app comes back to the screen.
+  const BUILD = '2026.10.01-1003';
+  let checking = false;
+  async function checkForUpdate(){
+    if (checking || !/^https?:$/.test(location.protocol) || !navigator.onLine) return;
+    checking = true;
+    try {
+      const r = await fetch('./index.html?check=' + Date.now(), { cache: 'no-store' });
+      if (r.ok) {
+        const m = (await r.text()).match(/name="app-build" content="([^"]+)"/);
+        if (m && m[1] !== BUILD && m[1] !== '__' + 'BUILD__') $('updateBar').hidden = false;
+      }
+    } catch(e) {}
+    try { const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(); if (reg) reg.update(); } catch(e) {}
+    checking = false;
+  }
+  $('updateBtn').addEventListener('click', () => { $('updateBtn').textContent = 'Updating…'; location.reload(); });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { render(); checkForUpdate(); } });
+  setTimeout(checkForUpdate, 2000);
 })();
 </script>

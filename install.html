@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Install WI Shooting Hours</title>
+<meta name="description" content="How to install WI Shooting Hours on Android and iPhone.">
+<meta name="theme-color" content="#141a16">
+<link rel="icon" href="icon-192.png">
+<style>
+/* Layout: one narrow reading column; the two phone types as clearly separated step lists. */
+:root{
+  --bg:#f3f1ea; --panel:#fbfaf6; --line:#d9d6c9; --fg:#1e2420; --muted:#5d665e; --blaze:#c94b0b; --blaze-ink:#fff;
+  --display:"Barlow Condensed","Arial Narrow","Roboto Condensed",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{--bg:#121713;--panel:#1a211c;--line:#2e3830;--fg:#e8eadf;--muted:#9aa596;--blaze:#ff6a1f;--blaze-ink:#1a0d04;color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{margin:0;color:var(--fg);font:17px/1.55 var(--body);padding-inline:16px;padding-block:calc(20px + env(safe-area-inset-top,0px)) 48px}
+main{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance}
+h1{font-size:2.2rem}
+h2{font-size:1.6rem}
+h3{font-size:1.15rem}
+p{margin:0}
+a{color:var(--blaze)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:52px;height:52px;border-radius:12px}
+.kicker{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:.85rem;color:var(--blaze);font-weight:700}
+.open{display:block;text-align:center;background:var(--blaze);color:var(--blaze-ink);text-decoration:none;font-weight:700;border-radius:10px;padding:14px 16px;font-size:1.05rem}
+.url{font-size:.9rem;color:var(--muted);word-break:break-all;text-align:center}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 16px;display:flex;flex-direction:column;gap:12px}
+ol,ul{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:8px}
+li::marker{font-weight:700;color:var(--blaze)}
+.tip{font-size:.93rem;color:var(--muted)}
+.jump{display:flex;gap:10px;flex-wrap:wrap}
+.jump a{flex:1;min-width:140px;text-align:center;border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:10px;text-decoration:none;color:var(--fg);font-weight:600}
+section{display:flex;flex-direction:column;gap:12px}
+.fine{font-size:.88rem;color:var(--muted)}
+b{font-weight:700}
+</style>
+</head>
+<body>
+<main>
+  <header class="brand">
+    <img src="icon-192.png" alt="">
+    <div><div class="kicker">Install guide</div><h1>WI Shooting Hours</h1></div>
+  </header>
+
+  <p>Wisconsin legal shooting hours for today, your location and the species you're hunting. Free, no account, works without a signal once installed.</p>
+
+  <section>
+    <a class="open" href="./">Open the app</a>
+    <div class="url">aprojectmanager4u-sp.github.io/JW-Shooting-Hours/</div>
+  </section>
+
+  <nav class="jump" aria-label="Choose your phone"><a href="#android">Android phone</a><a href="#iphone">iPhone</a></nav>
+
+  <section id="android" class="card">
+    <h2>Android</h2>
+    <ol>
+      <li>Open the app link in <b>Chrome</b>.</li>
+      <li>When it asks to use your location, tap <b>Allow</b>.</li>
+      <li>Tap the <b>⋮</b> menu in the top right corner.</li>
+      <li>Tap <b>Install app</b>. If you see <b>Add to home screen</b> instead, tap it, then <b>Install</b>.</li>
+      <li>Tap <b>Install</b> to confirm.</li>
+      <li>Open <b>WI Shooting Hours</b> from your home screen or app drawer (orange crosshair icon).</li>
+    </ol>
+    <h3>If "Use my location" doesn't work</h3>
+    <ul>
+      <li>Make sure <b>Location</b> is on: swipe down from the top of the screen and check the Location tile.</li>
+      <li>In Chrome, tap <b>⋮ → Settings → Site settings → Location</b>. If this site is listed under <b>Blocked</b>, tap it and choose <b>Allow</b>.</li>
+      <li>Check that Chrome itself may use location: <b>Settings → Apps → Chrome → Permissions → Location → Allow only while using the app</b>.</li>
+    </ul>
+    <h3>To remove it</h3>
+    <p>Press and hold the app icon, then tap <b>Uninstall</b>.</p>
+  </section>
+
+  <section id="iphone" class="card">
+    <h2>iPhone</h2>
+    <ol>
+      <li>Open the app link in <b>Safari</b>.</li>
+      <li>When it asks to use your location, tap <b>Allow</b>.</li>
+      <li>Tap the <b>Share</b> button (the square with an arrow pointing up) at the bottom or top of the screen.</li>
+      <li>Scroll down and tap <b>Add to Home Screen</b>.</li>
+      <li>Tap <b>Add</b> in the top right corner.</li>
+      <li>Open <b>WI Shooting Hours</b> from your home screen (orange crosshair icon).</li>
+    </ol>
+    <p class="tip">iPhones never show an "Install" button for web apps. Add to Home Screen is the install. The iPhone may ask for location again from time to time; tap Allow, or tap the map instead.</p>
+    <h3>If "Use my location" doesn't work</h3>
+    <ul>
+      <li>Open <b>Settings → Privacy &amp; Security → Location Services</b>. Make sure it's on, then tap <b>Safari Websites</b> and choose <b>While Using the App</b>.</li>
+      <li>Open <b>Settings → Apps → Safari → Location</b> (on older iPhones, <b>Settings → Safari → Location</b>) and choose <b>Ask</b> or <b>Allow</b>.</li>
+    </ul>
+    <h3>To remove it</h3>
+    <p>Press and hold the app icon, tap <b>Remove App</b>, then <b>Delete from Home Screen</b>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Using the app</h2>
+    <ul>
+      <li><b>Date:</b> shows today. Tap the date to pick another day, or use the ‹ › arrows.</li>
+      <li><b>Species:</b> tap what you're hunting. Waterfowl, early teal and spring turkey have different hours from deer.</li>
+      <li><b>Location:</b> tap <b>Use my location</b>, or tap the map to set your spot. The app finds your county, Northern or Southern area, and zone A–F.</li>
+      <li><b>Next 7 days:</b> scroll down to plan ahead.</li>
+      <li><b>Updates:</b> when a new version is available, an orange bar says <b>A new version of the app is ready</b>. Tap <b>Update now</b>.</li>
+    </ul>
+    <p class="tip">The 2026 times come straight from the Wisconsin DNR's published shooting-hours tables.</p>
+  </section>
+
+  <section class="fine">
+    <p><b>Privacy:</b> no account, no server, no tracking. Your last location and settings stay on your phone. You can erase the saved location in the app with <b>Clear saved location</b>.</p>
+    <p><b>Unofficial app.</b> Always confirm with the official <a href="https://dnr.wisconsin.gov/node/119956">Wisconsin DNR shooting hours</a> before you hunt. Closures on specific properties (refuges, some wildlife areas) and pheasant opening-day hours are not included.</p>
+  </section>
+</main>
+</body>
+</html>

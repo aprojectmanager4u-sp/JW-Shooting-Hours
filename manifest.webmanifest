@@ -1,7 +1,7 @@
 {
- "name": "WI Shooting Hours",
+ "name": "Walts Legal Shooting Hours",
  "short_name": "Shoot Hours",
- "description": "Wisconsin legal shooting hours for your location and species.",
+ "description": "Legal hooting hours for your location and species.",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",

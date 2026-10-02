@@ -1,4 +1,4 @@
-# WI Shooting Hours — install on Android
+# Walters - WI Shooting Hours — install on Android
 
 This folder is a complete installable web app (PWA). It needs to be served over HTTPS once; after that it runs offline from your home screen.
 

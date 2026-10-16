@@ -37,6 +37,11 @@ li::marker{font-weight:700;color:var(--blaze)}
 .jump{display:flex;gap:10px;flex-wrap:wrap}
 .jump a{flex:1;min-width:140px;text-align:center;border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:10px;text-decoration:none;color:var(--fg);font-weight:600}
 section{display:flex;flex-direction:column;gap:12px}
+.ioshelp{position:relative;background:var(--panel);border:1px solid var(--blaze);border-radius:10px;padding:12px 40px 12px 14px;font-size:.95rem;line-height:1.45}
+.ioslink{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.ioslink span{font-size:.85rem;word-break:break-all;flex:1;min-width:0;user-select:all;-webkit-user-select:all}
+.ioslink button{border:0;background:var(--blaze);color:var(--blaze-ink);font-weight:700;border-radius:8px;padding:8px 14px;min-height:40px}
+.iosclose{position:absolute;top:4px;right:4px;width:36px;height:36px;border:0;background:none;color:var(--muted);font-size:1.4rem;line-height:1}
 .fine{font-size:.88rem;color:var(--muted)}
 b{font-weight:700}
 </style>
@@ -49,6 +54,8 @@ b{font-weight:700}
   </header>
 
   <p>Walts shooting hours for today, your location and the species you're hunting. Free, no account, works without a signal once installed.</p>
+
+  <div class="ioshelp" id="iosHelp" role="note" hidden></div>
 
   <section>
     <a class="open" href="./">Open the app</a>
@@ -80,14 +87,14 @@ b{font-weight:700}
   <section id="iphone" class="card">
     <h2>iPhone</h2>
     <ol>
-      <li>Open the app link in <b>Safari</b>.</li>
+      <li>Open the app link in <b>Safari</b>. If you tapped it in Gmail, a text or the Google app and it opened in Chrome or Google, copy the link and paste it into the <b>Safari</b> app instead.</li>
       <li>When it asks to use your location, tap <b>Allow</b>.</li>
       <li>Tap the <b>Share</b> button (the square with an arrow pointing up) at the bottom or top of the screen.</li>
       <li>Scroll down and tap <b>Add to Home Screen</b>.</li>
       <li>Tap <b>Add</b> in the top right corner.</li>
       <li>Open <b>WI Shooting Hours</b> from your home screen (orange crosshair icon).</li>
     </ol>
-    <p class="tip">iPhones never show an "Install" button for web apps. Add to Home Screen is the install. The iPhone may ask for location again from time to time; tap Allow, or tap the map instead.</p>
+    <p class="tip">If you already added an icon from Chrome or the Google app, delete that icon first, then add it again from Safari. iPhones never show an "Install" button for web apps. Add to Home Screen is the install. The iPhone may ask for location again from time to time; tap Allow, or tap the map instead.</p>
     <h3>If "Use my location" doesn't work</h3>
     <ul>
       <li>Open <b>Settings → Privacy &amp; Security → Location Services</b>. Make sure it's on, then tap <b>Safari Websites</b> and choose <b>While Using the App</b>.</li>
@@ -104,15 +111,46 @@ b{font-weight:700}
       <li><b>Species:</b> tap what you're hunting. Waterfowl, early teal and spring turkey have different hours from deer.</li>
       <li><b>Location:</b> tap <b>Use my location</b>, or tap the map to set your spot. The app finds your county, Northern or Southern area, and zone A–F.</li>
       <li><b>Next 7 days:</b> scroll down to plan ahead.</li>
+      <li><b>Weather tab:</b> current conditions, wind and where your scent drifts, the next 24 hours, and 7 days with wind, from the National Weather Service for your hunting spot.</li>
+      <li><b>Map tab:</b> Topo, Air photo or Hybrid maps from USGS. Tap the locate button to see yourself as a blue dot. Tap <b>Public land</b> to turn Wisconsin DNR public land on or off, change its transparency, or see the legend. The panel at the bottom names the property under the crosshair, and <b>Set as hunting spot</b> uses that point for your hours and weather.</li>
       <li><b>Updates:</b> when a new version is available, an orange bar says <b>A new version of the app is ready</b>. Tap <b>Update now</b>.</li>
     </ul>
     <p class="tip">The 2026 times come straight from the Wisconsin DNR's published shooting-hours tables.</p>
   </section>
 
   <section class="fine">
-    <p><b>Privacy:</b> no account, no server, no tracking. Your last location and settings stay on your phone. You can erase the saved location in the app with <b>Clear saved location</b>.</p>
-    <p><b>Unofficial app.</b> Always confirm with the official <a href="https://dnr.wisconsin.gov/node/119956">Wisconsin DNR shooting hours</a> before you hunt. Closures on specific properties (refuges, some wildlife areas) and pheasant opening-day hours are not included.</p>
+    <p><b>Privacy:</b> no account, no server, no tracking. Your hunting spot, settings and last forecast stay on your phone. The National Weather Service receives your spot rounded to about half a mile for the forecast; USGS and the Wisconsin DNR supply map images for the area you view. You can erase the saved location in the app with <b>Clear saved location</b>.</p>
+    <p><b>Unofficial app.</b> Always confirm with the official <a href="https://dnr.wisconsin.gov/node/119956">Wisconsin DNR shooting hours</a> before you hunt. Closures on specific properties (refuges, some wildlife areas) and pheasant opening-day hours are not included. Public land boundaries are for reference; check each property's rules and posted boundaries.</p>
   </section>
 </main>
+<script>
+// iPhone install helper: only Safari can add a web app to the Home Screen properly.
+(function(){
+  var ua = navigator.userAgent;
+  var iOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var standalone = navigator.standalone === true || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  if (!iOS || standalone) return;
+  var box = document.getElementById('iosHelp'); if (!box) return;
+  var names = [[/CriOS/,'Chrome'],[/FxiOS/,'Firefox'],[/EdgiOS/,'Edge'],[/OPiOS|OPT\//,'Opera'],[/DuckDuckGo/,'DuckDuckGo'],[/GSA\//,'the Google app'],[/FBAN|FBAV/,'Facebook'],[/Instagram/,'Instagram'],[/LinkedInApp/,'LinkedIn'],[/Snapchat/,'Snapchat']];
+  var other = null; for (var i = 0; i < names.length; i++) if (names[i][0].test(ua)) { other = names[i][1]; break; }
+  var link = location.origin + location.pathname.replace(/(install|index)\.html$/, '');
+  if (other) {
+    box.innerHTML = '<b>To install on iPhone, use Safari.</b> This page is open in ' + other + ', which can’t install it properly. ' +
+      'Copy the link, open the <b>Safari</b> app, paste it in the address bar, then tap <b>Share → Add to Home Screen</b>.' +
+      '<div class="ioslink"><span id="iosUrl">' + link + '</span><button type="button" id="iosCopy">Copy link</button></div>';
+    document.getElementById('iosCopy').addEventListener('click', function(){
+      var b = this, done = function(){ b.textContent = 'Copied'; };
+      try { navigator.clipboard.writeText(link).then(done, sel); } catch(e) { sel(); }
+      function sel(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('iosUrl')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected — tap Copy'; }
+    });
+  } else {
+    try { if (localStorage.getItem('wish.iosHintClosed')) return; } catch(e) {}
+    box.innerHTML = '<b>Install on your iPhone:</b> tap the <b>Share</b> button (square with an up arrow), then <b>Add to Home Screen</b> → <b>Add</b>.' +
+      '<button type="button" class="iosclose" id="iosClose" aria-label="Hide this tip">×</button>';
+    document.getElementById('iosClose').addEventListener('click', function(){ box.hidden = true; try { localStorage.setItem('wish.iosHintClosed', '1'); } catch(e) {} });
+  }
+  box.hidden = false;
+})();
+</script>
 </body>
 </html>

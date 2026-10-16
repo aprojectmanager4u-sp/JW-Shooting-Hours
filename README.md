@@ -19,6 +19,18 @@ Wrap the hosted URL as a Trusted Web Activity with Bubblewrap (`npx @bubblewrap/
 - `manifest.webmanifest`, `icon-*.png` – install metadata and icons
 - `sw.js` – offline cache
 
+## What's in the app
+- **Hours:** Wisconsin legal shooting hours for your date, location and species (2026 DNR tables built in).
+- **Weather:** National Weather Service forecast for your hunting spot: now, wind and scent, next 24 hours, 7 days with wind.
+- **Map:** USGS The National Map (Topo, Air photo, Hybrid), your GPS location, and Wisconsin DNR public land with on/off, transparency and a legend. Map areas you've viewed are saved for use without a signal.
+
+## Data sources
+- Wisconsin DNR shooting-hours tables (2026) and Wis. Admin. Code NR 10.06
+- National Weather Service API (api.weather.gov)
+- USGS The National Map base maps (basemap.nationalmap.gov)
+- Wisconsin DNR map services (dnrmaps.wi.gov): DNR Managed Lands; county, federal and BCPL public land; VPA and Turkey Hunting Access Program lands
+- Map library: Leaflet 1.9.4 (BSD-2-Clause). Fonts: Barlow Condensed and Source Sans 3 (SIL Open Font License)
+
 ## How times are computed
 For 2026 the app uses the Wisconsin DNR's published Zone A shooting-hours tables (northern and southern areas) built into index.html, and adds the zone minutes: A +0, B +4, C +8, D +12, E +16, F +20 (zones split at 88°, 89°, 90°, 91°, 92° W).
 Northern area = Pierce, Dunn, Eau Claire, Clark, Marathon, Shawano, Oconto, Door counties and everything north (Wis. Admin. Code NR 10.06).

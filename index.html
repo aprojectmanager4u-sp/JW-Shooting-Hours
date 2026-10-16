@@ -7,7 +7,7 @@
 <title>Walt's Shooting Hours</title>
 <meta name="theme-color" content="#141a16">
 <meta name="description" content="Walters Shooting Hours, Weather & Maps - DNR Didn't.">
-<meta name="app-build" content="2026.10.16-1450">
+<meta name="app-build" content="2026.10.16-1517">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -361,6 +361,7 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
     </div>
   </section>
 
+  </div>
 
   <div class="view" id="view-weather" hidden>
     <div id="wxBody" aria-live="polite"></div>
@@ -1822,7 +1823,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
 
   // Update check: an installed app is often resumed from memory instead of reloaded,
   // so look for a newer version on launch and whenever the app comes back to the screen.
-  const BUILD = '2026.10.16-1450';
+  const BUILD = '2026.10.16-1517';
   let checking = false;
   async function checkForUpdate(){
     if (PREVIEW || checking || !/^https?:$/.test(location.protocol) || !navigator.onLine) return;

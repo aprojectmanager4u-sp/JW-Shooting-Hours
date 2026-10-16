@@ -23,6 +23,10 @@ Wrap the hosted URL as a Trusted Web Activity with Bubblewrap (`npx @bubblewrap/
 - **Hours:** Wisconsin legal shooting hours for your date, location and species (2026 DNR tables built in).
 - **Weather:** National Weather Service forecast for your hunting spot: now, wind and scent, next 24 hours, 7 days with wind.
 - **Map:** USGS The National Map (Topo, Air photo, Hybrid), your GPS location, and Wisconsin DNR public land with on/off, transparency and a legend. Map areas you've viewed are saved for use without a signal.
+- **My waypoints:** add waypoints with symbol, color, style and notes; import GPX/KML (onX, Garmin, Gaia GPS, Google Earth); export GPX, KML or CSV. Tracks and areas from imported files are shown too.
+
+## Privacy
+Waypoints, tracks and areas are stored only on the phone that created or imported them (in the browser's on-device storage for this app). They are never uploaded, are not in this repository, and leave the phone only when the user exports a file. The weather service receives the hunting spot rounded to about half a mile; map and public-land services see only the map area being viewed.
 
 ## Data sources
 - Wisconsin DNR shooting-hours tables (2026) and Wis. Admin. Code NR 10.06

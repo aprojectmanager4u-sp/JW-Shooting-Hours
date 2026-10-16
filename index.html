@@ -7,7 +7,7 @@
 <title>Walt's Shooting Hours</title>
 <meta name="theme-color" content="#141a16">
 <meta name="description" content="Walters Shooting Hours, Weather & Maps - DNR Didn't.">
-<meta name="app-build" content="2026.10.16-1517">
+<meta name="app-build" content="2026.10.16-1554">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -209,6 +209,91 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
 @media (prefers-reduced-motion:no-preference){.skel i{animation:pulse 1.2s ease-in-out infinite alternate}}
 @keyframes pulse{from{opacity:.35}to{opacity:.8}}
 .credit{font-size:.8rem;color:var(--muted)}
+/* ---- waypoints ---- */
+.wmove{background:var(--panel);border-top:1px solid var(--line);padding:12px 16px;position:relative;z-index:5}
+.wmove .in{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+#lmap.nolabels .mlabel{display:none}
+.privline{display:flex;gap:8px;align-items:flex-start;margin:0;font-size:.85rem;color:var(--muted)}
+.privline svg,.privcard svg{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.privcard{display:flex;gap:10px;background:var(--panel);border:1px solid var(--open);border-radius:12px;padding:12px 14px}
+.privcard svg{width:20px;height:20px;color:var(--open)}
+.privcard b{display:block}
+.privcard span{display:block;font-size:.9rem;color:var(--muted);margin:3px 0 10px}
+.fab.add{background:var(--blaze);border-color:var(--blaze);color:var(--blaze-ink)}
+.lsec{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--blaze);font-weight:700;padding:12px 0 0}
+.lpop{max-height:calc(100% - 80px);overflow:auto}
+.wmk{background:none;border:0}
+.wmk svg{display:block;overflow:visible;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.5))}
+.wmk.sel svg{filter:drop-shadow(0 0 0 #fff) drop-shadow(0 0 3px var(--blaze)) drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+.mlabel{background:rgba(20,26,22,.82);color:#fff;border:0;border-radius:5px;padding:2px 6px;font:600 11px/1.3 var(--body);box-shadow:none;white-space:nowrap}
+.mlabel::before{display:none}
+.mlabel.hid{visibility:hidden}
+.wbadge{display:grid;place-items:center;flex:none}
+.wbadge svg{display:block}
+.wdetail{background:var(--panel);border-top:1px solid var(--line);padding:12px 16px 12px;position:relative;z-index:5}
+.wdetail .in{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.wdhead{display:flex;gap:12px;align-items:center}
+.mmeta2{font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wdnotes{margin:0;font-size:.95rem;white-space:pre-wrap;max-height:4.5em;overflow:auto}
+.wdinfo{font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:2px 14px}
+.xbtn{width:40px;height:40px;border:1px solid var(--line);background:var(--bg);border-radius:9px;display:grid;place-items:center;color:var(--fg);flex:none;padding:0}
+.xbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.wpanel{position:absolute;inset:0;z-index:20;background:var(--bg);display:flex;flex-direction:column}
+.wphead{display:grid;grid-template-columns:5.5rem 1fr 5.5rem;align-items:center;gap:8px;padding:calc(env(safe-area-inset-top,0px) + 8px) 10px 8px;background:var(--panel);border-bottom:1px solid var(--line)}
+.wphead h3{margin:0;text-align:center;font-family:var(--display);font-size:1.25rem;font-weight:600}
+.tbtn{border:0;background:none;color:var(--blaze);font-weight:600;font-size:1rem;min-height:44px;padding:0 6px;text-align:left}
+.tbtn.strong{text-align:right;font-weight:700}
+.tbtn:disabled{opacity:.4}
+.wpbody{flex:1;overflow:auto;padding:14px 16px 24px;display:flex;flex-direction:column;gap:16px;-webkit-overflow-scrolling:touch}
+.wpbody>*{max-width:560px;width:100%;margin-inline:auto;box-sizing:border-box}
+.wepreview{display:flex;gap:14px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.wprev{width:56px;height:62px;display:grid;place-items:center;flex:none}
+.weloc{font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.fld{display:flex;flex-direction:column;gap:7px}
+.fld>span,.fld.two span{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:600}
+.fld.two{display:grid;grid-template-columns:1.5fr 1fr;gap:12px}
+.fld.two>div{display:flex;flex-direction:column;gap:7px;min-width:0}
+.fld input,.fld textarea{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:11px 12px;min-height:46px;width:100%;box-sizing:border-box}
+.fld textarea{resize:vertical;min-height:80px}
+.fld input:focus,.fld textarea:focus{outline:2px solid var(--blaze);outline-offset:0;border-color:var(--blaze)}
+.symgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.sym{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px 2px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.68rem;line-height:1.1;color:var(--muted);min-height:64px;text-align:center}
+.sym svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;color:var(--fg)}
+.sym[aria-checked="true"]{border-color:var(--blaze);box-shadow:inset 0 0 0 1.5px var(--blaze);color:var(--fg)}
+.colrow{display:flex;gap:9px;flex-wrap:wrap;padding:4px 2px}
+.swc{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);padding:0;position:relative;flex:none}
+.swc[aria-checked="true"]{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--blaze)}
+.seg2{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg2 button{flex:1;border:0;background:none;border-radius:7px;min-height:38px;font-weight:600;font-size:.88rem;color:var(--muted);padding:0 4px}
+.seg2 button[aria-checked="true"]{background:var(--blaze);color:var(--blaze-ink)}
+.btn.danger{color:var(--closed);border-color:var(--closed);background:none}
+.btn.sm{min-height:40px;padding:6px 12px;display:inline-flex;align-items:center;gap:6px}
+.btn.sm svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.backup{display:flex;gap:12px;align-items:center;justify-content:space-between;background:var(--panel);border:1px solid var(--blaze);border-radius:12px;padding:12px 14px}
+.backup b{display:block}
+.backup span{display:block;font-size:.85rem;color:var(--muted)}
+.wltools{display:flex;flex-direction:column;gap:10px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 12px;font-weight:600;font-size:.85rem;color:var(--muted);min-height:36px}
+.filters button[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.searchrow{display:grid;grid-template-columns:1fr auto;gap:8px}
+.searchrow input,.searchrow select{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 11px;min-height:44px;min-width:0}
+.wlmsg{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--open);border-radius:10px;padding:10px 12px;font-size:.92rem}
+.wlmsg.err{border-left-color:var(--closed)}
+.wlitems{list-style:none;margin:0;padding:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.wlitems:empty{display:none}
+.wlitems li+li{border-top:1px solid var(--line)}
+.wlitems button{width:100%;display:flex;gap:12px;align-items:center;border:0;background:none;padding:10px 14px;text-align:left;min-height:56px}
+.wlitems .wbadge{width:34px}
+.wlitems b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wlitems small{display:block;color:var(--muted);font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+.wlitems .t{min-width:0;flex:1}
+.wlempty{color:var(--muted);text-align:center;padding:24px 8px}
+.exportbox{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.fmtrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fmt{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 8px;text-align:left;display:flex;flex-direction:column;gap:3px;min-height:72px}
+.fmt b{font-family:var(--display);font-size:1.2rem}
+.fmt span{font-size:.74rem;color:var(--muted);line-height:1.2}
 /* ---- map ---- */
 .mapview{position:fixed;left:0;right:0;top:0;bottom:calc(var(--tabbar-h) + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;background:var(--bg);z-index:5}
 .mapwrap{position:relative;flex:1;min-height:0}
@@ -240,6 +325,8 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
 .chip[aria-pressed="true"]{color:var(--fg)}
 .chip[aria-pressed="true"] svg{opacity:1;stroke:var(--blaze)}
 .chip[aria-expanded="true"]{border-color:var(--blaze)}
+#mLand{color:var(--fg)}
+#mLand svg{opacity:1;stroke:currentColor;stroke-width:1.9}
 .fab{pointer-events:auto;width:46px;height:46px;border-radius:11px;border:1px solid var(--line);background:var(--panel);color:var(--fg);display:grid;place-items:center;box-shadow:0 2px 10px var(--shadow);padding:0}
 .fab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .fab[aria-pressed="true"]{color:var(--blaze)}
@@ -356,7 +443,8 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
     <div class="privacy">
       <p><b>Walters built this but because the WI-DNR is shitty at technology. Disclaimer shit here....Your data stays on your phone.</b> There is no account, no server and no tracking. The app saves your hunting spot (if you set one), your choices and the last weather forecast, in this app's storage on your phone.</p>
       <p><b>Location is read only while the app is open:</b> when you tap Use my location, once automatically the first time you open the app, and on the Map while the locate button is on. It stops when you leave the Map or close the app. Clear saved location erases the saved spot and forecast.</p>
-      <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land on, the Wisconsin DNR's map servers draw public land for that area and look up the property at the map's crosshair. None of them needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
+      <p><b>Your waypoints stay on this phone.</b> Waypoints, tracks and areas you add or import are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. Clearing your browser's data or uninstalling the app erases them, so export a backup now and then.</p>
+      <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land on, the Wisconsin DNR's map servers draw public land for that area and look up the property at the map's crosshair. Map images and public land lookups reveal only the area you're looking at, never your waypoint names, notes or files. None of these services needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
       <p><b>Public land boundaries are for reference.</b> Check each property's rules, closures and posted boundaries before you hunt.</p>
     </div>
   </section>
@@ -376,9 +464,13 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
       <div class="seg" id="segLayer" role="group" aria-label="Map type">
         <button type="button" data-k="topo">Topo</button><button type="button" data-k="photo">Air photo</button><button type="button" data-k="hybrid">Hybrid</button>
       </div>
-      <button class="chip" id="mLand" type="button" aria-pressed="true" aria-expanded="false" aria-controls="lPop"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Public land</button>
+      <button class="chip" id="mLand" type="button" aria-expanded="false" aria-controls="lPop"><svg viewBox="0 0 24 24"><path d="M12 3.5l8.5 4.5-8.5 4.5L3.5 8z"/><path d="M3.5 12l8.5 4.5 8.5-4.5"/><path d="M3.5 16l8.5 4.5 8.5-4.5"/></svg>Layers</button>
     </div>
-    <div class="lpop" id="lPop" role="dialog" aria-label="Public land settings" hidden>
+    <div class="lpop" id="lPop" role="dialog" aria-label="Map layers" hidden>
+      <div class="lsec">My markups</div>
+      <label class="lrow" for="wOn"><span><b>Waypoints, tracks &amp; areas</b><small id="wCountTxt">Saved on this phone only</small></span><input type="checkbox" id="wOn" role="switch" checked></label>
+      <label class="lrow" for="wLbl"><span><b>Names on map</b><small>Shown when zoomed in</small></span><input type="checkbox" id="wLbl" role="switch" checked></label>
+      <div class="lsec">Public land</div>
       <label class="lrow" for="lOn"><span><b>Show public land</b><small>Wisconsin DNR, county and federal land</small></span><input type="checkbox" id="lOn" role="switch" checked></label>
       <div class="lrow col" id="lOpRow"><div class="lhead"><label for="lOp"><b>Transparency</b></label><output id="lOpV" for="lOp">45%</output></div>
         <input type="range" id="lOp" min="0" max="90" step="5" value="45" aria-describedby="lOpHint"><div class="lticks" id="lOpHint"><span>Solid</span><span>See-through</span></div></div>
@@ -386,10 +478,22 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
     </div>
     <div class="mnotice" id="mNotice" role="status" hidden></div>
     <div class="mside">
+      <button class="fab" id="wListBtn" type="button" aria-label="My waypoints" title="My waypoints"><svg viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11"/><circle cx="4.8" cy="6.5" r="1.3"/><circle cx="4.8" cy="12" r="1.3"/><circle cx="4.8" cy="17.5" r="1.3"/></svg></button>
+      <button class="fab add" id="wAddBtn" type="button" aria-label="Add waypoint" title="Add waypoint"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
       <button class="fab" id="mLocate" type="button" aria-pressed="false" aria-label="Show my location" title="Show my location"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg></button>
       <div class="zoomgrp"><button type="button" id="mZoomIn" aria-label="Zoom in"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button><button type="button" id="mZoomOut" aria-label="Zoom out"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button></div>
     </div>
   </div>
+  <div class="wdetail" id="wDetail" role="dialog" aria-label="Waypoint" hidden>
+    <div class="in">
+      <div class="wdhead"><span class="wbadge" id="wdBadge"></span><div style="min-width:0;flex:1"><div class="mname" id="wdName"></div><div class="mmeta2" id="wdMeta"></div></div>
+        <button class="xbtn" id="wdClose" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <p class="wdnotes" id="wdNotes" hidden></p>
+      <div class="wdinfo" id="wdInfo"></div>
+      <div class="btnrow"><button class="btn primary" id="wdEdit" type="button">Edit</button><button class="btn" id="wdMove" type="button">Move</button><button class="btn" id="wdSpot" type="button">Set as hunting spot</button></div>
+    </div>
+  </div>
+  <div class="wmove" id="wMoveBar" role="dialog" aria-label="Move waypoint" hidden><div class="in"><div style="min-width:0"><div class="eyebrow">Moving</div><div class="mname" id="wMoveName"></div><div class="mmeta2">Drag the map until the crosshair is on the new spot.</div></div><div class="btnrow"><button class="btn" id="wMoveCancel" type="button">Cancel</button><button class="btn primary" id="wMoveSave" type="button">Save here</button></div></div></div>
   <div class="msheet" aria-live="polite">
     <div class="in">
       <div class="mrow">
@@ -398,6 +502,48 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
       </div>
       <div class="pland" id="pLand"><i class="sw" id="pSw"></i><div style="min-width:0"><b id="pName">—</b><span id="pType"></span></div></div>
       <div class="mcredit"><span>Map: USGS · Public land: Wisconsin DNR</span><span id="mCoords"></span></div>
+    </div>
+  </div>
+
+  <div class="wpanel" id="wEditor" role="dialog" aria-labelledby="weTitle" hidden>
+    <div class="wphead"><button class="tbtn" id="weCancel" type="button">Cancel</button><h3 id="weTitle">New waypoint</h3><button class="tbtn strong" id="weSave" type="button">Save</button></div>
+    <div class="wpbody">
+      <div class="wepreview"><span class="wprev" id="wePrev"></span><div style="min-width:0"><div class="weloc" id="weLoc"></div><button class="linkbtn" id="weMove" type="button" hidden>Move to the crosshair</button></div></div>
+      <p class="privline"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span>Saved only on this phone. Never uploaded.</span></p>
+      <label class="fld" for="weName"><span>Name</span><input id="weName" type="text" maxlength="80" autocomplete="off" enterkeyhint="done"></label>
+      <div class="fld"><span>Symbol</span><div class="symgrid" id="weSyms" role="radiogroup" aria-label="Symbol"></div></div>
+      <div class="fld"><span>Color</span><div class="colrow" id="weCols" role="radiogroup" aria-label="Color"></div></div>
+      <div class="fld two"><div><span>Style</span><div class="seg2" id="weStyle" role="radiogroup" aria-label="Style"><button type="button" data-v="pin">Pin</button><button type="button" data-v="badge">Badge</button><button type="button" data-v="flag">Flag</button></div></div>
+        <div><span>Size</span><div class="seg2" id="weSize" role="radiogroup" aria-label="Size"><button type="button" data-v="m">Small</button><button type="button" data-v="l">Large</button></div></div></div>
+      <label class="fld" for="weNotes"><span>Notes</span><textarea id="weNotes" rows="3" maxlength="2000"></textarea></label>
+      <button class="btn danger" id="weDelete" type="button" hidden>Delete waypoint</button>
+    </div>
+  </div>
+
+  <div class="wpanel" id="wList" role="dialog" aria-labelledby="wlTitle" hidden>
+    <div class="wphead"><button class="tbtn" id="wlClose" type="button">Done</button><h3 id="wlTitle">My markups</h3><span class="tbtn ghost"></span></div>
+    <div class="wpbody">
+      <div class="privcard" id="wlPriv" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><div><b>Your markups stay on this phone</b><span>Waypoints, tracks and areas you add or import are saved only in this app on this phone. They're never uploaded, and no one else can see them. They leave the phone only when you export a file, and you choose where it goes.</span><button class="btn sm" id="wlPrivOk" type="button">Got it</button></div></div>
+      <div class="backup" id="wlBackup" hidden><div><b>Back up your waypoints</b><span id="wlBackupTxt"></span></div><button class="btn primary sm" type="button" data-act="export">Export</button></div>
+      <div class="wltools">
+        <div class="btnrow"><button class="btn sm" id="wlImport" type="button"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14"/></svg>Import</button><button class="btn sm" id="wlExport" type="button" data-act="export"><svg viewBox="0 0 24 24"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 19.5h14"/></svg>Export</button></div>
+        <input type="file" id="wlFile" accept=".gpx,.kml,application/gpx+xml,application/vnd.google-earth.kml+xml,text/xml,application/xml" hidden>
+        <div class="filters" id="wlFilters" role="tablist"></div>
+        <div class="searchrow"><input id="wlSearch" type="search" placeholder="Search names and notes" aria-label="Search markups"><select id="wlSort" aria-label="Sort"><option value="near">Nearest</option><option value="new">Newest</option><option value="name">Name</option></select></div>
+      </div>
+      <div class="wlmsg" id="wlMsg" role="status" hidden></div>
+      <p class="privline"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span>Saved only on this phone. Never uploaded. Export a file to back up or share.</span></p>
+      <ul class="wlitems" id="wlItems"></ul>
+      <div class="exportbox" id="wlExportBox" hidden>
+        <div class="eyebrow">Export</div>
+        <p class="muted" style="margin:0">Exports what's listed above. The file is created on this phone; you choose where it goes.</p>
+        <div class="fmtrow">
+          <button class="fmt" type="button" data-fmt="gpx"><b>GPX</b><span>onX, Garmin, Gaia GPS, most GPS apps</span></button>
+          <button class="fmt" type="button" data-fmt="kml"><b>KML</b><span>Google Earth, keeps colors</span></button>
+          <button class="fmt" type="button" data-fmt="csv"><b>CSV</b><span>Spreadsheet</span></button>
+        </div>
+      </div>
+      <button class="btn danger" id="wlDeleteAll" type="button" hidden>Delete all markups from this phone</button>
     </div>
   </div>
 </div>
@@ -1455,7 +1601,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     document.body.classList.toggle('maptab', t === 'map');
     document.body.classList.toggle('wxtab', t === 'weather');
     document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
-    if (prev === 'map') { stopWatch(); $('lPop').hidden = true; $('mLand').setAttribute('aria-expanded', 'false'); }
+    if (prev === 'map') { stopWatch(); $('lPop').hidden = true; $('mLand').setAttribute('aria-expanded', 'false'); if (movingId) endMove(false); closeDetail(); }
     window.scrollTo(0, 0);
     if (t === 'weather') { renderWeather(); loadWeather(false); }
     if (t === 'map') openMap();
@@ -1656,8 +1802,8 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     }
   });
   function initMap(){
-    lmap = L.map('lmap', { zoomControl:false, attributionControl:false, minZoom:6, maxZoom:18,
-      maxBounds: L.latLngBounds([41.2, -95.6], [48.4, -84.9]), maxBoundsViscosity:0.8, tapTolerance:20 });
+    lmap = L.map('lmap', { zoomControl:false, attributionControl:false, minZoom:4, maxZoom:18,
+      maxBounds: L.latLngBounds([18, -170], [72, -60]), maxBoundsViscosity:0.8, tapTolerance:20 });
     if (state.loc) lmap.setView([state.loc.lat, state.loc.lon], 14);
     else lmap.fitBounds([[42.49, -92.89], [47.08, -86.8]]);
     L.control.scale({ imperial:true, metric:false, position:'bottomleft', maxWidth:110 }).addTo(lmap);
@@ -1671,11 +1817,12 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     lmap.on('dragstart', () => { if (follow) { follow = false; locBtnState(); } });
     if (window.ResizeObserver) new ResizeObserver(() => lmap.invalidateSize()).observe($('lmap'));
     updateSpot();
+    attachMarks();
   }
   function setBase(k){
     layerKey = k; store.set('mapLayer', k); tileErrs = 0;
     if (baseLayer) lmap.removeLayer(baseLayer);
-    baseLayer = L.tileLayer(TILE_BASE + LAYERS[k] + '/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom:16, maxZoom:18, minZoom:6, keepBuffer:3 });
+    baseLayer = L.tileLayer(TILE_BASE + LAYERS[k] + '/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom:16, maxZoom:18, minZoom:4, keepBuffer:3 });
     baseLayer.on('tileerror', () => { tileErrs++; if (!navigator.onLine) mNotice("No signal. Areas you've already viewed still show."); else if (tileErrs > 6) mNotice("Map images aren't loading. Check your connection."); });
     baseLayer.on('tileload', () => { if (tileErrs) { tileErrs = 0; mNotice(null); } });
     baseLayer.addTo(lmap); baseLayer.bringToBack();
@@ -1689,7 +1836,6 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
   }
   function setLand(on){
     showLand = on; store.set('mapLand', on);
-    $('mLand').setAttribute('aria-pressed', String(on));
     $('lOn').checked = on; $('lPop').classList.toggle('off', !on);
     if (on) landGroup.addTo(lmap); else lmap.removeLayer(landGroup);
     $('pLand').hidden = !on;
@@ -1752,7 +1898,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     const mid = lmap.getSize().divideBy(2), near = ll => lmap.latLngToContainerPoint(ll).distanceTo(mid) < 14;
     const atMe = !!(meLL && watchId != null && near(meLL));
     const atSpot = !atMe && !!(state.loc && near([state.loc.lat, state.loc.lon]));
-    document.querySelector('.reticle').hidden = atMe || atSpot;
+    document.querySelector('.reticle').hidden = !movingId && (atMe || atSpot);
     $('mLabel').textContent = atMe ? 'Your location' + (meAccM ? ' · ±' + feet(meAccM) : '') : atSpot ? 'Your hunting spot' : 'At the crosshair';
     $('mName').textContent = info.county ? info.county.n + ' County' : 'Outside Wisconsin';
     const set = $('mSet'); set.disabled = !!atSpot; set.textContent = atSpot ? 'Hunting spot ✓' : 'Set as hunting spot';
@@ -1812,6 +1958,446 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
   });
   if (PREVIEW) $('previewBar').hidden = false;
 
+  // ===================== My markups: waypoints, tracks, areas (kept only on this phone) =====================
+  const SYMS = [
+    { id:'pin', label:'Pin', onx:['Location'], g:'<circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/>' },
+    { id:'star', label:'Point of interest', onx:['Point of Interest'], g:'<path fill="currentColor" stroke="none" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>' },
+    { id:'stand', label:'Tree stand', onx:['Tree Stand'], g:'<path d="M8.5 21V4M15.5 21V4M8.5 8.5h7M8.5 13h7M8.5 17.5h7M6 4h12"/>' },
+    { id:'blind', label:'Ground blind', onx:['Ground Blind','Blind'], g:'<path d="M3.5 19.5L12 5l8.5 14.5z"/><path d="M9.5 14.5h5"/>' },
+    { id:'lookout', label:'Lookout / glassing', onx:['Lookout','Glassing Area'], g:'<circle cx="7.5" cy="15" r="3.5"/><circle cx="16.5" cy="15" r="3.5"/><path d="M11 14.5h2M5 12l1.5-6h3l1 6M19 12l-1.5-6h-3l-1 6"/>' },
+    { id:'prepped', label:'Prepped tree', onx:['Prepped Tree'], g:'<path d="M12 3l6 9h-3.5l4 6h-13l4-6H6z"/><path d="M12 18v3"/>' },
+    { id:'buck', label:'Buck', onx:['Buck','Buck Mule Deer','Buck Elk'], g:'<path d="M9 14c0 3 1.3 6 3 6s3-3 3-6c0-1.7-1.3-3-3-3s-3 1.3-3 3z"/><path d="M10 11.5C7 10 5.5 7.5 5.5 4M5.5 7.5L3.5 6M7.5 9.5L7 6.5M14 11.5c3-1.5 4.5-4 4.5-7.5M18.5 7.5l2-1.5M16.5 9.5l.5-3"/>' },
+    { id:'doe', label:'Doe', onx:['Doe'], g:'<path d="M9 13c0 3.5 1.3 7 3 7s3-3.5 3-7c0-1.7-1.3-3-3-3s-3 1.3-3 3z"/><path d="M9.6 11.2L6 7.5l1 4.2M14.4 11.2L18 7.5l-1 4.2"/>' },
+    { id:'turkey', label:'Turkey', onx:['Turkey'], g:'<path d="M4.5 15a7.5 7.5 0 0 1 15 0"/><path d="M8.5 15a3.5 3.5 0 0 1 7 0"/><path d="M12 15v5M10 20h4"/>' },
+    { id:'scrape', label:'Scrape / tracks', onx:['Scrape','Tracks'], g:'<path d="M9.5 4.5c-2 2-2.5 6-1 9 .8 1.6 2.5 1.6 2.6-.4.2-3-.3-6.4-1.6-8.6z"/><path d="M14.5 4.5c2 2 2.5 6 1 9-.8 1.6-2.5 1.6-2.6-.4-.2-3 .3-6.4 1.6-8.6z"/><path d="M8 19h8"/>' },
+    { id:'rub', label:'Rub', onx:['Rub'], g:'<path d="M9 3v18M15 3v18"/><path d="M9 9.5l6-1.5M9 13.5l6-1.5"/>' },
+    { id:'bedding', label:'Bedding', onx:['Bedding','Bedding Area'], g:'<ellipse cx="12" cy="13" rx="8" ry="5"/><ellipse cx="12" cy="13" rx="3.5" ry="1.8"/>' },
+    { id:'camera', label:'Trail camera', onx:['Trail Camera','Camera'], g:'<rect x="5" y="4" width="14" height="16" rx="2.5"/><circle cx="12" cy="11" r="3"/><path d="M9 17h6"/>' },
+    { id:'food', label:'Food plot', onx:['Food Plot','Food Source'], g:'<path d="M12 21v-9"/><path d="M12 12C12 8 9.5 5.5 5.5 5.5 5.5 9.5 8 12 12 12z"/><path d="M12 14.5c0-3.5 2.3-5.5 6-5.5 0 3.5-2.3 5.5-6 5.5z"/>' },
+    { id:'water', label:'Water', onx:['Water','Water Source'], g:'<path d="M12 3.5s6 6.6 6 10.5a6 6 0 0 1-12 0c0-3.9 6-10.5 6-10.5z"/>' },
+    { id:'trail', label:'Trail', onx:['Trail'], g:'<path d="M6 20c2-5 1-8 4-11s6-3 8-5" stroke-dasharray="2.5 3"/>' },
+    { id:'crossing', label:'Crossing', onx:['Crossing'], g:'<path d="M4 20L20 4M20 4h-6M20 4v6M4 4l16 16M20 20h-6M20 20v-6"/>' },
+    { id:'parking', label:'Parking', onx:['Parking'], g:'<path d="M9 20V4.5h4.5a4.5 4.5 0 0 1 0 9H9"/>' },
+    { id:'access', label:'Access / gate', onx:['Access','Gate'], g:'<path d="M4 20V5M20 20V5M4 9h16M4 15h16M4 15L20 9"/>' },
+    { id:'camp', label:'Camp', onx:['Camp'], g:'<path d="M3 20h18M5.5 20L12 6l6.5 14M12 13l-2.5 7M12 13l2.5 7"/>' },
+    { id:'harvest', label:'Harvest', onx:['Meat','Harvest'], g:'<path d="M5 12.5l4.5 4.5L19 7.5"/>' },
+    { id:'blood', label:'Blood trail', onx:['Blood Trail','Blood'], g:'<path fill="currentColor" stroke="none" d="M8 6.5s3 3.3 3 5.3a3 3 0 0 1-6 0c0-2 3-5.3 3-5.3zM16 10.5s3 3.3 3 5.3a3 3 0 0 1-6 0c0-2 3-5.3 3-5.3z"/>' },
+    { id:'arrow', label:'Arrow / shot', onx:['Arrow'], g:'<path d="M5 19L19 5M19 5h-6.5M19 5v6.5M5 19l1-4M5 19l4-1"/>' },
+    { id:'pack', label:'Gear / pack', onx:['Gear','Pack'], g:'<rect x="5.5" y="7" width="13" height="13.5" rx="3"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7M8.5 13h7"/>' },
+    { id:'fish', label:'Fishing', onx:['Fishing','Fish'], g:'<path d="M3 12c3.5-4.5 9.5-5.5 14 0-4.5 5.5-10.5 4.5-14 0z"/><path d="M17 12l4-3.5v7z"/>' },
+    { id:'hazard', label:'Hazard', onx:['Hazard','Danger'], g:'<path d="M12 4l9 16H3z"/><path d="M12 10v4.5M12 17.2v.1"/>' },
+  ];
+  const SYM = Object.fromEntries(SYMS.map(x => [x.id, x]));
+  const ONX2SYM = {}; SYMS.forEach(x => x.onx.forEach(n => { ONX2SYM[n.toLowerCase()] = x.id; }));
+  const COLORS = [['#ff3300', 'Red'], ['#84d400', 'Green'], ['#087aff', 'Blue'], ['#00ffff', 'Cyan'], ['#800080', 'Purple'], ['#ffff00', 'Yellow'], ['#000000', 'Black'], ['#ffffff', 'White']];
+  const toHex = c => {
+    if (!c) return null; c = String(c).trim(); let m;
+    if ((m = c.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i))) return '#' + [m[1], m[2], m[3]].map(v => Math.min(255, +v).toString(16).padStart(2, '0')).join('');
+    if ((m = c.match(/^#?([0-9a-f]{6})$/i))) return '#' + m[1].toLowerCase();
+    if ((m = c.match(/^#([0-9a-f]{3})$/i))) return '#' + m[1].split('').map(x => x + x).join('').toLowerCase();
+    return null;
+  };
+  const alphaOf = c => { const m = String(c || '').match(/^rgba\([^)]*,\s*([\d.]+)\s*\)$/i); return m ? +m[1] : null; };
+  const lum = h => { const n = parseInt(h.slice(1), 16); return (0.299 * (n >> 16 & 255) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255)) / 255; };
+  const rgba = (h, a = 1) => { const n = parseInt(h.slice(1), 16); return `rgba(${n >> 16 & 255}, ${n >> 8 & 255}, ${n & 255}, ${a})`; };
+  const esc = t => String(t == null ? '' : t).replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch]));
+  const uid = () => (crypto.randomUUID ? crypto.randomUUID() : 'w' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10));
+
+  function markSvg(m, scale = 1){
+    const c = toHex(m.color) || '#ff3300', light = lum(c) > .62, ink = light ? '#1e2420' : '#ffffff', edge = lum(c) > .85 ? '#5d665e' : '#ffffff';
+    const sym = SYM[m.sym] || SYM.pin, k = (m.size === 'l' ? 1.3 : 1) * scale;
+    const g = `<g style="color:${ink}" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">${sym.g}</g>`;
+    if (m.style === 'badge') { const w = 30 * k; return { w, h:w, ax:w / 2, ay:w / 2, svg:`<svg width="${w}" height="${w}" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13.5" fill="${c}" stroke="${edge}" stroke-width="2"/><g transform="translate(5.4 5.4) scale(.8)">${g}</g></svg>` }; }
+    if (m.style === 'flag') { const w = 30 * k, h = 36 * k; return { w, h, ax:3 * k, ay:h - 1, svg:`<svg width="${w}" height="${h}" viewBox="0 0 30 36" aria-hidden="true"><path d="M3 35V3" stroke="${lum(c) > .85 ? '#5d665e' : '#1e2420'}" stroke-width="2.4" stroke-linecap="round"/><path d="M4 3h22l-4 8.5 4 8.5H4z" fill="${c}" stroke="${edge}" stroke-width="1.6" stroke-linejoin="round"/><g transform="translate(8 4.6) scale(.58)">${g}</g></svg>` }; }
+    const w = 30 * k, h = 40 * k;
+    return { w, h, ax:w / 2, ay:h - 1, svg:`<svg width="${w}" height="${h}" viewBox="0 0 30 40" aria-hidden="true"><path d="M15 38.5S27.5 25 27.5 15a12.5 12.5 0 0 0-25 0C2.5 25 15 38.5 15 38.5z" fill="${c}" stroke="${edge}" stroke-width="2"/><g transform="translate(6.6 6.6) scale(.7)">${g}</g></svg>` };
+  }
+  function listBadge(m, px = 32){
+    const c = toHex(m.color) || '#ff3300';
+    if (m.kind === 'trk') return `<svg width="${px}" height="${px}" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24c5-1 6-12 12-12s6 8 12 4" fill="none" stroke="${c}" stroke-width="3.5" stroke-linecap="round" ${m.line === 'dash' ? 'stroke-dasharray="5 4"' : ''}/></svg>`;
+    if (m.kind === 'area') return `<svg width="${px}" height="${px}" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 10l10-5 12 6-3 15-15 1z" fill="${toHex(m.fill) || c}" fill-opacity=".35" stroke="${c}" stroke-width="2.5" stroke-linejoin="round"/></svg>`;
+    return markSvg({ ...m, style:'badge', size:'m' }, px / 30).svg;
+  }
+
+  // ---- storage (IndexedDB, this phone only) ----
+  const DB = (() => {
+    let dbp = null;
+    const open = () => dbp || (dbp = new Promise((res, rej) => { const r = indexedDB.open('wish-markups', 1); r.onupgradeneeded = () => r.result.createObjectStore('marks', { keyPath:'id' }); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); }));
+    const tx = async (mode, fn) => { const db = await open(); return new Promise((res, rej) => { const t = db.transaction('marks', mode), st = t.objectStore('marks'); const rq = fn(st); t.oncomplete = () => res(rq && 'result' in rq ? rq.result : undefined); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error); }); };
+    return { all:() => tx('readonly', st => st.getAll()), put:m => tx('readwrite', st => st.put(m)), putMany:ms => tx('readwrite', st => { ms.forEach(m => st.put(m)); }), del:id => tx('readwrite', st => st.delete(id)), clear:() => tx('readwrite', st => st.clear()) };
+  })();
+  const persist = () => { try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {} };
+  let marks = [], markLayer = null, markObj = {}, selId = null, movingId = null, wFilter = 'all', storageOK = true;
+  let showMarks = store.get('wShow', true), showLabels = store.get('wLbl', true);
+  let lastStyle = store.get('wLast', { sym:'pin', color:'#ff3300', style:'pin', size:'m' });
+  const changed = n => store.set('wChanges', store.get('wChanges', 0) + n);
+  DB.all().then(a => { marks = a || []; drawMarks(); countText(); }).catch(() => { storageOK = false; countText(); });
+
+  // ---- geometry helpers ----
+  const R_EARTH = 6371008.8, rad = d => d * Math.PI / 180;
+  const dist = (a, b) => { const dLa = rad(b[0] - a[0]), dLo = rad(b[1] - a[1]); const h = Math.sin(dLa / 2) ** 2 + Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dLo / 2) ** 2; return 2 * R_EARTH * Math.asin(Math.min(1, Math.sqrt(h))); };
+  const bearing = (a, b) => { const y = Math.sin(rad(b[1] - a[1])) * Math.cos(rad(b[0])), x = Math.cos(rad(a[0])) * Math.sin(rad(b[0])) - Math.sin(rad(a[0])) * Math.cos(rad(b[0])) * Math.cos(rad(b[1] - a[1])); return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360; };
+  const DIR8S = ['N','NE','E','SE','S','SW','W','NW'];
+  const miles = m => { const mi = m / 1609.344; return mi < 0.1 ? Math.round(m * 3.281) + ' ft' : mi < 10 ? mi.toFixed(1) + ' mi' : Math.round(mi) + ' mi'; };
+  const markPt = m => m.kind === 'wpt' ? [m.lat, m.lon] : m.kind === 'area' ? centroid(m.pts) : m.segs[0][0];
+  const centroid = pts => { let a = 0, b = 0; pts.forEach(p => { a += p[0]; b += p[1]; }); return [a / pts.length, b / pts.length]; };
+  const trkLen = m => m.segs.reduce((t, s) => t + s.reduce((u, p, i) => i ? u + dist(s[i - 1], p) : 0, 0), 0);
+  const areaAcres = pts => { const c = centroid(pts), kx = 111320 * Math.cos(rad(c[0])), ky = 110540; let s = 0; for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[(i + 1) % pts.length]; s += (p[1] * kx) * (q[0] * ky) - (q[1] * kx) * (p[0] * ky); } return Math.abs(s / 2) / 4046.86; };
+  const refPoint = () => meLL && watchId != null ? { p:meLL, what:'you' } : lmap ? { p:[lmap.getCenter().lat, lmap.getCenter().lng], what:'the crosshair' } : state.loc ? { p:[state.loc.lat, state.loc.lon], what:'your hunting spot' } : null;
+  const relTxt = m => { const r = refPoint(); if (!r) return ''; const p = markPt(m), d = dist(r.p, p); return d < 15 ? 'Here' : miles(d) + ' ' + DIR8S[Math.round(bearing(r.p, p) / 45) % 8]; };
+  const when = ms => new Date(ms).toLocaleString('en-US', { timeZone:'America/Chicago', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit' });
+  const dayOf = ms => new Date(ms).toLocaleDateString('en-US', { timeZone:'America/Chicago', month:'short', day:'numeric', year:'numeric' });
+  const kindTxt = m => m.kind === 'trk' ? 'Track · ' + miles(trkLen(m)) : m.kind === 'area' ? 'Area · ' + Math.round(areaAcres(m.pts)).toLocaleString() + ' acres' : (SYM[m.sym] || SYM.pin).label;
+  const dateTxt = m => m.created ? dayOf(m.created) : m.imported ? 'Imported' + (m.src && m.src.app ? ' from ' + m.src.app : '') + ' ' + dayOf(m.imported) : '';
+
+  // ---- map drawing ----
+  function attachMarks(){
+    markLayer = L.layerGroup(); if (showMarks) markLayer.addTo(lmap);
+    lmap.on('click', () => { if (!movingId) closeDetail(); });
+    lmap.on('zoomend', labelVis); lmap.on('moveend', declutter); labelVis(); drawMarks(); countText();
+  }
+  function labelVis(){ if (lmap) { $('lmap').classList.toggle('nolabels', !showLabels || lmap.getZoom() < 14); declutter(); } }
+  let declRaf = 0;
+  function declutter(){
+    // show a name only where it has room; the selected waypoint's name wins
+    clearTimeout(declRaf);
+    declRaf = setTimeout(() => requestAnimationFrame(() => {
+      declRaf = 0; if (!lmap || $('lmap').classList.contains('nolabels')) return;
+      const box = $('lmap').getBoundingClientRect(), placed = [];
+      const els = [...document.querySelectorAll('#lmap .mlabel')]; els.forEach(e => e.classList.remove('hid'));
+      const sel = selId && markObj[selId] && markObj[selId].getTooltip && markObj[selId].getTooltip();
+      const order = sel && sel.getElement() ? [sel.getElement(), ...els.filter(e => e !== sel.getElement())] : els;
+      for (const e of order) {
+        const r = e.getBoundingClientRect();
+        if (r.right < box.left || r.left > box.right || r.bottom < box.top || r.top > box.bottom) continue;
+        if (placed.some(q => r.left < q.right + 3 && r.right > q.left - 3 && r.top < q.bottom + 2 && r.bottom > q.top - 2)) { e.classList.add('hid'); continue; }
+        placed.push(r);
+      }
+    }), 60);
+  }
+  function drawMarks(){
+    if (!lmap || !markLayer) return;
+    markLayer.clearLayers(); markObj = {};
+    for (const m of marks) {
+      if (m.id === movingId) continue;
+      let o;
+      if (m.kind === 'wpt') {
+        const s = markSvg(m);
+        o = L.marker([m.lat, m.lon], { keyboard:false, riseOnHover:true, zIndexOffset:m.id === selId ? 800 : 0,
+          icon:L.divIcon({ className:'wmk' + (m.id === selId ? ' sel' : ''), html:s.svg, iconSize:[s.w, s.h], iconAnchor:[s.ax, s.ay] }) });
+        o.bindTooltip(esc(m.name), { permanent:true, direction:'right', offset:[s.w - s.ax + 2, -s.h / 2 + s.ay - s.h / 2 + (m.style === 'badge' ? 0 : s.h / 2 - 6)], className:'mlabel', interactive:false });
+      } else if (m.kind === 'trk') {
+        o = L.featureGroup(m.segs.map(sg => L.polyline(sg.map(p => [p[0], p[1]]), { color:toHex(m.color) || '#00ffff', weight:(m.weight || 3) + (m.id === selId ? 2 : 0), opacity:.95, dashArray:m.line === 'dash' ? '8 7' : null })));
+      } else if (m.kind === 'area') {
+        o = L.polygon(m.pts.map(p => [p[0], p[1]]), { color:toHex(m.color) || '#ff3300', weight:m.id === selId ? 4 : 2, fillColor:toHex(m.fill) || toHex(m.color) || '#4a90e2', fillOpacity:m.fillOp != null ? Math.max(.08, m.fillOp) : .15 });
+      }
+      if (!o) continue;
+      o.on('click', e => { L.DomEvent.stopPropagation(e); selectMark(m.id); });
+      o.addTo(markLayer); markObj[m.id] = o;
+    }
+    declutter();
+  }
+  function countText(){
+    const n = k => marks.filter(m => m.kind === k).length;
+    const parts = [[n('wpt'), 'waypoint'], [n('trk'), 'track'], [n('area'), 'area']].filter(x => x[0]).map(([c, w]) => c + ' ' + w + (c === 1 ? '' : 's'));
+    $('wCountTxt').textContent = !storageOK ? "This browser won't let the app save waypoints" : (parts.length ? parts.join(' · ') + ' · ' : '') + 'saved on this phone only';
+  }
+
+  // ---- detail card ----
+  function selectMark(id){
+    const m = marks.find(x => x.id === id); if (!m) return;
+    selId = id; drawMarks();
+    $('wdBadge').innerHTML = listBadge(m, 40);
+    $('wdName').textContent = m.name || 'Untitled';
+    $('wdMeta').textContent = [kindTxt(m), dateTxt(m)].filter(Boolean).join(' · ');
+    $('wdNotes').hidden = !m.notes; $('wdNotes').textContent = m.notes || '';
+    const p = markPt(m), r = refPoint(), info = [];
+    if (r) { const d = dist(r.p, p); info.push(d < 15 ? 'At ' + r.what : miles(d) + ' ' + DIR8S[Math.round(bearing(r.p, p) / 45) % 8] + ' of ' + r.what); }
+    info.push(p[0].toFixed(5) + '°, ' + p[1].toFixed(5) + '°');
+    if (m.ele != null) info.push(Math.round(m.ele * 3.281).toLocaleString() + ' ft elevation');
+    if (m.acc) info.push('GPS ±' + feet(m.acc));
+    $('wdInfo').innerHTML = info.map(t => `<span>${esc(t)}</span>`).join('');
+    $('wdSpot').hidden = m.kind !== 'wpt';
+    $('wDetail').hidden = false; document.querySelector('.msheet').hidden = true;
+  }
+  function closeDetail(){
+    if ($('wDetail').hidden && !selId) return;
+    $('wDetail').hidden = true; document.querySelector('.msheet').hidden = false;
+    if (selId) { selId = null; drawMarks(); }
+  }
+  $('wdClose').addEventListener('click', closeDetail);
+  $('wdSpot').addEventListener('click', () => { const m = marks.find(x => x.id === selId); if (m) { setLoc({ lat:m.lat, lon:m.lon, src:'map' }); closeDetail(); } });
+  $('wdEdit').addEventListener('click', () => { const m = marks.find(x => x.id === selId); if (m) openEditor(m); });
+
+  // ---- editor ----
+  let draft = null, isNew = false;
+  $('weSyms').innerHTML = SYMS.map(x => `<button type="button" class="sym" role="radio" data-v="${x.id}" aria-checked="false"><svg viewBox="0 0 24 24">${x.g}</svg>${esc(x.label)}</button>`).join('');
+  $('weCols').innerHTML = COLORS.map(([c, n]) => `<button type="button" class="swc" role="radio" data-v="${c}" aria-checked="false" aria-label="${n}" title="${n}" style="background:${c}"></button>`).join('');
+  function paintEditor(){
+    const wp = draft.kind === 'wpt';
+    $('weSyms').closest('.fld').hidden = !wp; $('weStyle').closest('.fld').hidden = !wp;
+    document.querySelectorAll('#weSyms .sym').forEach(b => b.setAttribute('aria-checked', String(b.dataset.v === draft.sym)));
+    const ch = toHex(draft.color);
+    document.querySelectorAll('#weCols .swc').forEach(b => b.setAttribute('aria-checked', String(b.dataset.v === ch)));
+    document.querySelectorAll('#weStyle button').forEach(b => b.setAttribute('aria-checked', String(b.dataset.v === draft.style)));
+    document.querySelectorAll('#weSize button').forEach(b => b.setAttribute('aria-checked', String(b.dataset.v === draft.size)));
+    $('wePrev').innerHTML = wp ? markSvg(draft).svg : listBadge(draft, 48);
+  }
+  function openEditor(m){
+    isNew = !m;
+    if (isNew) {
+      const gps = meLL && watchId != null && follow, c = lmap.getCenter(), at = gps ? meLL : [c.lat, c.lng];
+      const now = Date.now(), lbl = new Date(now).toLocaleString('en-US', { timeZone:'America/Chicago', month:'numeric', day:'numeric', hour:'numeric', minute:'2-digit' });
+      draft = { id:uid(), kind:'wpt', name:'Waypoint ' + lbl, notes:'', lat:at[0], lon:at[1], created:now, updated:now, sym:lastStyle.sym, color:lastStyle.color, style:lastStyle.style, size:lastStyle.size, acc:gps ? meAccM : null, from:gps ? 'gps' : 'map' };
+    } else draft = JSON.parse(JSON.stringify(m));
+    $('weTitle').textContent = isNew ? 'New waypoint' : draft.kind === 'wpt' ? 'Edit waypoint' : draft.kind === 'trk' ? 'Edit track' : 'Edit area';
+    $('weName').value = draft.name || ''; $('weNotes').value = draft.notes || '';
+    const p = markPt(draft);
+    $('weLoc').textContent = (isNew ? (draft.from === 'gps' ? 'Your GPS location' + (draft.acc ? ' (±' + feet(draft.acc) + ')' : '') : 'At the map crosshair') : kindTxt(draft)) + ' · ' + p[0].toFixed(5) + '°, ' + p[1].toFixed(5) + '°';
+    const del = $('weDelete'); del.hidden = isNew; del.textContent = 'Delete ' + (draft.kind === 'wpt' ? 'waypoint' : draft.kind === 'trk' ? 'track' : 'area'); del.dataset.armed = '';
+    paintEditor(); $('wEditor').hidden = false;
+    if (isNew) setTimeout(() => { try { $('weName').select(); } catch (e) {} }, 50);
+  }
+  $('weSyms').addEventListener('click', e => { const b = e.target.closest('.sym'); if (b) { draft.sym = b.dataset.v; paintEditor(); } });
+  $('weCols').addEventListener('click', e => { const b = e.target.closest('.swc'); if (b) { draft.color = b.dataset.v; paintEditor(); } });
+  $('weStyle').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { draft.style = b.dataset.v; paintEditor(); } });
+  $('weSize').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { draft.size = b.dataset.v; paintEditor(); } });
+  $('weCancel').addEventListener('click', () => { $('wEditor').hidden = true; draft = null; });
+  $('weSave').addEventListener('click', async () => {
+    draft.name = $('weName').value.trim() || (draft.kind === 'wpt' ? 'Waypoint' : draft.kind === 'trk' ? 'Track' : 'Area');
+    draft.notes = $('weNotes').value.trim(); draft.updated = Date.now();
+    if (draft.kind === 'wpt') { lastStyle = { sym:draft.sym, color:toHex(draft.color), style:draft.style, size:draft.size }; store.set('wLast', lastStyle); }
+    try { await DB.put(draft); } catch (e) { mNotice("Couldn't save. This browser may be blocking storage."); return; }
+    const i = marks.findIndex(x => x.id === draft.id); if (i >= 0) marks[i] = draft; else marks.push(draft);
+    changed(1); persist(); $('wEditor').hidden = true;
+    if (!showMarks) setMarks(true);
+    const id = draft.id; draft = null; countText(); selectMark(id);
+  });
+  $('weDelete').addEventListener('click', async e => {
+    const b = e.currentTarget;
+    if (!b.dataset.armed) { b.dataset.armed = '1'; b.textContent = 'Tap again to delete'; return; }
+    try { await DB.del(draft.id); } catch (err) { return; }
+    marks = marks.filter(x => x.id !== draft.id); changed(1);
+    $('wEditor').hidden = true; draft = null; selId = null; closeDetail(); drawMarks(); countText();
+  });
+  $('wAddBtn').addEventListener('click', () => { if (lmap) { closeDetail(); openEditor(null); } });
+
+  // ---- layers panel: my markups ----
+  function setMarks(on){ showMarks = on; store.set('wShow', on); $('wOn').checked = on; if (markLayer) { if (on) markLayer.addTo(lmap); else lmap.removeLayer(markLayer); } if (!on) closeDetail(); }
+  $('wOn').checked = showMarks; $('wLbl').checked = showLabels;
+  $('wOn').addEventListener('change', e => setMarks(e.target.checked));
+  $('wLbl').addEventListener('change', e => { showLabels = e.target.checked; store.set('wLbl', showLabels); labelVis(); });
+
+  // ---- list ----
+  function listRows(){
+    const q = $('wlSearch').value.trim().toLowerCase(), sort = $('wlSort').value, r = refPoint();
+    let rows = marks.filter(m => (wFilter === 'all' || m.kind === wFilter) && (!q || (m.name || '').toLowerCase().includes(q) || (m.notes || '').toLowerCase().includes(q)));
+    if (sort === 'near' && r) rows = rows.map(m => [dist(r.p, markPt(m)), m]).sort((a, b) => a[0] - b[0]).map(x => x[1]);
+    else if (sort === 'new') rows.sort((a, b) => (b.created || b.imported || 0) - (a.created || a.imported || 0));
+    else rows.sort((a, b) => (a.name || '').localeCompare(b.name || '', undefined, { numeric:true, sensitivity:'base' }));
+    return rows;
+  }
+  function renderList(){
+    const n = k => marks.filter(m => m.kind === k).length;
+    const tabs = [['all', 'All', marks.length], ['wpt', 'Waypoints', n('wpt')], ['trk', 'Tracks', n('trk')], ['area', 'Areas', n('area')]].filter(t => t[0] === 'all' || t[2]);
+    if (!tabs.some(t => t[0] === wFilter)) wFilter = 'all';
+    $('wlFilters').innerHTML = tabs.map(([k, l, c]) => `<button type="button" role="tab" data-f="${k}" aria-selected="${k === wFilter}">${l} ${c}</button>`).join('');
+    const rows = listRows();
+    $('wlItems').innerHTML = rows.map(m => `<li><button type="button" data-id="${esc(m.id)}"><span class="wbadge">${listBadge(m, 34)}</span><span class="t"><b>${esc(m.name || 'Untitled')}</b><small>${esc([relTxt(m), m.kind === 'wpt' ? (SYM[m.sym] || SYM.pin).label : kindTxt(m)].filter(Boolean).join(' · '))}</small></span></button></li>`).join('');
+    const none = !marks.length ? 'No waypoints yet. Tap + on the map to add one where you stand or at the crosshair, or import a GPX or KML file from another app.' : !rows.length ? 'Nothing matches your search.' : '';
+    let em = document.getElementById('wlEmpty'); if (!em) { em = document.createElement('p'); em.id = 'wlEmpty'; em.className = 'wlempty'; $('wlItems').after(em); }
+    em.textContent = none; em.hidden = !none;
+    const ch = store.get('wChanges', 0), ex = store.get('wExported', 0), bk = $('wlBackup');
+    const nag = marks.length && (ch >= 3 || (!ex && ch >= 1));
+    bk.hidden = !nag; if (nag) $('wlBackupTxt').textContent = (ex ? ch + ' change' + (ch === 1 ? '' : 's') + ' since your last export on ' + dayOf(ex) + '.' : "You haven't exported a backup yet.") + ' Clearing browser data or uninstalling the app erases them.';
+    $('wlExport').disabled = !marks.length;
+    const da = $('wlDeleteAll'); da.hidden = !marks.length; if (!da.dataset.armed) da.textContent = 'Delete all markups from this phone';
+  }
+  function openList(){ closeDetail(); $('wlMsg').hidden = true; $('wlExportBox').hidden = true; $('wlPriv').hidden = !!store.get('wPrivSeen', false); renderList(); $('wList').hidden = false; }
+  $('wlPrivOk').addEventListener('click', () => { store.set('wPrivSeen', true); $('wlPriv').hidden = true; });
+  $('wlDeleteAll').addEventListener('click', async e => {
+    const b = e.currentTarget;
+    if (!b.dataset.armed) { b.dataset.armed = '1'; b.textContent = 'Tap again to permanently delete ' + marks.length + ' item' + (marks.length === 1 ? '' : 's'); return; }
+    try { await DB.clear(); } catch (err) { listMsg("Couldn't delete. Try again.", true); return; }
+    marks = []; selId = null; b.dataset.armed = ''; store.set('wChanges', 0); closeDetail(); drawMarks(); countText(); renderList();
+    listMsg('All markups were deleted from this phone.');
+  });
+  $('wListBtn').addEventListener('click', () => { if (lmap) openList(); });
+  $('wlClose').addEventListener('click', () => { $('wList').hidden = true; });
+  $('wlFilters').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { wFilter = b.dataset.f; renderList(); } });
+  $('wlSearch').addEventListener('input', renderList); $('wlSort').addEventListener('change', renderList);
+  $('wlItems').addEventListener('click', e => {
+    const b = e.target.closest('button[data-id]'); if (!b) return;
+    const m = marks.find(x => x.id === b.dataset.id); if (!m) return;
+    $('wList').hidden = true; if (!showMarks) setMarks(true);
+    if (m.kind === 'wpt') lmap.setView([m.lat, m.lon], Math.max(lmap.getZoom(), 15));
+    else lmap.fitBounds(L.latLngBounds((m.kind === 'trk' ? m.segs.flat() : m.pts).map(p => [p[0], p[1]])), { padding:[40, 40], maxZoom:16 });
+    selectMark(m.id);
+  });
+  function listMsg(t, err){ const el = $('wlMsg'); el.textContent = t; el.hidden = !t; el.classList.toggle('err', !!err); }
+  document.querySelectorAll('[data-act=export]').forEach(b => b.addEventListener('click', () => { const box = $('wlExportBox'); box.hidden = !box.hidden; if (!box.hidden) box.scrollIntoView({ block:'nearest', behavior:'smooth' }); }));
+
+  // ---- export ----
+  const X = t => esc(t);
+  const cf = v => String(+(+v).toFixed(9));  // coordinates at full precision (as received)
+  const isoT = ms => new Date(ms).toISOString();
+  const onxIcon = m => (m.src && m.src.icon && ONX2SYM[m.src.icon.toLowerCase()] === m.sym) ? m.src.icon : ((SYM[m.sym] || SYM.pin).onx[0] || 'Location');
+  function toGPX(rows){
+    const o = ['<?xml version="1.0" encoding="UTF-8"?>', '<gpx version="1.1" creator="Shooting Hours app" xmlns="http://www.topografix.com/GPX/1/1" xmlns:onx="https://wwww.onxmaps.com/">', `<metadata><name>My markups</name><time>${isoT(Date.now())}</time></metadata>`];
+    for (const m of rows.filter(m => m.kind === 'wpt')) {
+      const c = toHex(m.color) || '#ff3300';
+      o.push(`<wpt lat="${cf(m.lat)}" lon="${cf(m.lon)}">${m.ele != null ? `<ele>${(+m.ele).toFixed(1)}</ele>` : ''}${m.created ? `<time>${isoT(m.created)}</time>` : ''}<name>${X(m.name)}</name>${m.notes ? `<desc>${X(m.notes)}</desc>` : ''}<sym>${X((SYM[m.sym] || SYM.pin).label)}</sym><type>${X(m.sym)}</type><extensions><onx:color>${rgba(c)}</onx:color><onx:icon>${X(onxIcon(m))}</onx:icon></extensions></wpt>`);
+    }
+    for (const m of rows.filter(m => m.kind === 'area')) {
+      const c = toHex(m.color) || '#ff3300', f = toHex(m.fill) || '#4a90e2';
+      o.push(`<rte><name>${X(m.name)}</name>${m.notes ? `<desc>${X(m.notes)}</desc>` : ''}<type>Area</type><extensions><onx:color>${rgba(c)}</onx:color><onx:fill_color>${rgba(f, m.fillOp != null ? m.fillOp : .1)}</onx:fill_color></extensions>` + m.pts.map(p => `<rtept lat="${cf(p[0])}" lon="${cf(p[1])}"/>`).join('') + '</rte>');
+    }
+    for (const m of rows.filter(m => m.kind === 'trk')) {
+      const c = toHex(m.color) || '#00ffff';
+      o.push(`<trk><name>${X(m.name)}</name>${m.notes ? `<desc>${X(m.notes)}</desc>` : ''}<extensions><onx:color>${rgba(c)}</onx:color>${m.line === 'dash' ? '<onx:style>dash</onx:style>' : ''}${m.weight ? `<onx:weight>${(+m.weight).toFixed(1)}</onx:weight>` : ''}</extensions>` +
+        m.segs.map(sg => '<trkseg>' + sg.map(p => `<trkpt lat="${cf(p[0])}" lon="${cf(p[1])}">${p[2] != null ? `<ele>${(+p[2]).toFixed(1)}</ele>` : ''}${p[3] ? `<time>${isoT(p[3])}</time>` : ''}</trkpt>`).join('') + '</trkseg>').join('') + '</trk>');
+    }
+    o.push('</gpx>'); return o.join('\n');
+  }
+  const kmlColor = (h, a = 1) => { const n = parseInt(h.slice(1), 16), hx = v => v.toString(16).padStart(2, '0'); return hx(Math.round(a * 255)) + hx(n & 255) + hx(n >> 8 & 255) + hx(n >> 16 & 255); };
+  function toKML(rows){
+    const st = new Map(), sid = (k, xml) => { if (!st.has(k)) st.set(k, `<Style id="s${st.size}">${xml}</Style>`); return '#s' + [...st.keys()].indexOf(k); };
+    const pm = [];
+    for (const m of rows) {
+      const c = toHex(m.color) || '#ff3300';
+      const ext = `<ExtendedData><Data name="symbol"><value>${X(m.sym || '')}</value></Data><Data name="color"><value>${c}</value></Data>${m.style ? `<Data name="style"><value>${X(m.style)}</value></Data>` : ''}</ExtendedData>`;
+      const head = `<name>${X(m.name)}</name>${m.notes ? `<description>${X(m.notes)}</description>` : ''}${m.created ? `<TimeStamp><when>${isoT(m.created)}</when></TimeStamp>` : ''}`;
+      if (m.kind === 'wpt') pm.push(`<Placemark>${head}<styleUrl>${sid('p' + c, `<IconStyle><color>${kmlColor(c)}</color><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png</href></Icon></IconStyle>`)}</styleUrl>${ext}<Point><coordinates>${cf(m.lon)},${cf(m.lat)}${m.ele != null ? ',' + (+m.ele).toFixed(1) : ''}</coordinates></Point></Placemark>`);
+      else if (m.kind === 'trk') pm.push(`<Placemark>${head}<styleUrl>${sid('l' + c, `<LineStyle><color>${kmlColor(c)}</color><width>3</width></LineStyle>`)}</styleUrl>${ext}<MultiGeometry>${m.segs.map(sg => `<LineString><tessellate>1</tessellate><coordinates>${sg.map(p => cf(p[1]) + ',' + cf(p[0])).join(' ')}</coordinates></LineString>`).join('')}</MultiGeometry></Placemark>`);
+      else { const f = toHex(m.fill) || c; pm.push(`<Placemark>${head}<styleUrl>${sid('a' + c + f, `<LineStyle><color>${kmlColor(c)}</color><width>2</width></LineStyle><PolyStyle><color>${kmlColor(f, .3)}</color></PolyStyle>`)}</styleUrl>${ext}<Polygon><outerBoundaryIs><LinearRing><coordinates>${m.pts.concat([m.pts[0]]).map(p => cf(p[1]) + ',' + cf(p[0])).join(' ')}</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>`); }
+    }
+    return `<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>My markups</name>${[...st.values()].join('')}\n${pm.join('\n')}\n</Document></kml>`;
+  }
+  function toCSV(rows){
+    const q = v => { const t = v == null ? '' : String(v); return /[",\n\r]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+    const out = [['type', 'name', 'latitude', 'longitude', 'symbol', 'color', 'created', 'notes', 'elevation_ft', 'gps_accuracy_ft', 'length_mi', 'acres'].join(',')];
+    for (const m of rows) { const p = markPt(m); out.push([m.kind === 'wpt' ? 'waypoint' : m.kind === 'trk' ? 'track (start point)' : 'area (center)', m.name, cf(p[0]), cf(p[1]), m.kind === 'wpt' ? (SYM[m.sym] || SYM.pin).label : '', toHex(m.color) || '', m.created ? isoT(m.created) : '', m.notes, m.ele != null ? Math.round(m.ele * 3.281) : '', m.acc ? Math.round(m.acc * 3.281) : '', m.kind === 'trk' ? (trkLen(m) / 1609.344).toFixed(2) : '', m.kind === 'area' ? Math.round(areaAcres(m.pts)) : ''].map(q).join(',')); }
+    return '﻿' + out.join('\r\n');
+  }
+  async function deliver(name, mime, text){
+    const blob = new Blob([text], { type:mime });
+    let file = null; try { file = new File([blob], name, { type:mime }); } catch (e) {}
+    if (file && navigator.canShare && navigator.share) {
+      let ok = false; try { ok = navigator.canShare({ files:[file] }); } catch (e) {}
+      if (ok) { try { await navigator.share({ files:[file], title:name }); return 'shared'; } catch (e) { if (e && e.name === 'AbortError') return 'cancel'; } }
+    }
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.rel = 'noopener'; document.body.append(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 5000); return 'saved';
+  }
+  $('wlExportBox').addEventListener('click', async e => {
+    const b = e.target.closest('.fmt'); if (!b) return;
+    const rows = listRows(); if (!rows.length) { listMsg('Nothing to export. Clear the search or pick another filter.', true); return; }
+    const fmt = b.dataset.fmt, d = chiNow(), stamp = `${d.y}-${String(d.m).padStart(2, '0')}-${String(d.d).padStart(2, '0')}`;
+    const [mime, text] = fmt === 'gpx' ? ['application/gpx+xml', toGPX(rows)] : fmt === 'kml' ? ['application/vnd.google-earth.kml+xml', toKML(rows)] : ['text/csv', toCSV(rows)];
+    const name = `markups-${stamp}.${fmt}`;
+    const res = await deliver(name, mime, text);
+    if (res === 'cancel') return;
+    if (rows.length === marks.length) { store.set('wExported', Date.now()); store.set('wChanges', 0); }
+    $('wlExportBox').hidden = true; renderList();
+    listMsg((res === 'shared' ? 'Shared ' : 'Saved ') + name + ' (' + rows.length + ' item' + (rows.length === 1 ? '' : 's') + ')' + (res === 'saved' ? ' to your Downloads.' : '.') + (fmt === 'csv' ? ' Tracks and areas are listed by one point each in CSV; use GPX or KML to keep their shapes.' : ''));
+  });
+
+  // ---- import ----
+  const kids = (el, name) => [...el.children].filter(c => c.localName === name);
+  const kid = (el, name) => kids(el, name)[0] || null;
+  const txt = (el, name) => { const c = el && kid(el, name); return c ? c.textContent.trim() : ''; };
+  const extTxt = (el, name) => { const ex = kid(el, 'extensions'); if (!ex) return ''; const f = ex.getElementsByTagNameNS('*', name)[0]; return f ? f.textContent.trim() : ''; };
+  const num = v => (v === '' || v == null || isNaN(+v)) ? null : +v;
+  const nameOf = (el, d) => { const c = kid(el, 'name'), t = c ? c.textContent : ''; return t.trim() ? t : d; };  // keep names exactly as written
+  const timeOf = v => { const t = Date.parse(v); return isNaN(t) ? null : t; };
+  function onxDesc(desc){ // onX writes "name=…\nnotes=…\nid=…\ncolor=…\nicon=…"
+    if (!/^name=/m.test(desc) || !/^notes=/m.test(desc)) return null;
+    const notes = (desc.match(/^notes=([\s\S]*?)(?:\n(?:id|color|icon)=|$)/m) || [])[1] || '';
+    return { notes:notes.trim(), id:(desc.match(/^id=(.*)$/m) || [])[1] || null };
+  }
+  function parseGPX(doc, now){
+    const root = doc.documentElement, app = /onx/i.test(root.getAttribute('creator') || '') ? 'onX' : (root.getAttribute('creator') || 'GPX file').slice(0, 40), out = [];
+    for (const w of root.getElementsByTagNameNS('*', 'wpt')) {
+      const lat = num(w.getAttribute('lat')), lon = num(w.getAttribute('lon')); if (lat == null || lon == null || Math.abs(lat) > 90 || Math.abs(lon) > 180) continue;
+      const desc = txt(w, 'desc') || txt(w, 'cmt'), od = onxDesc(desc), icon = extTxt(w, 'icon'), symName = txt(w, 'sym'), type = txt(w, 'type');
+      const sym = SYM[type] ? type : ONX2SYM[(icon || '').toLowerCase()] || ONX2SYM[(symName || '').toLowerCase()] || (SYMS.find(s => s.label.toLowerCase() === (symName || '').toLowerCase()) || {}).id || 'pin';
+      out.push({ id:uid(), kind:'wpt', name:nameOf(w, 'Waypoint'), notes:od ? od.notes : desc, lat, lon, ele:num(txt(w, 'ele')), created:timeOf(txt(w, 'time')), imported:now, sym, color:toHex(extTxt(w, 'color')) || toHex(extTxt(w, 'DisplayColor')) || '#ff3300', style:'pin', size:'m', src:{ app, id:od && od.id, icon:icon || symName || null } });
+    }
+    const ptsOf = (el, tag) => [...el.getElementsByTagNameNS('*', tag)].map(p => { const a = num(p.getAttribute('lat')), b = num(p.getAttribute('lon')); return a == null || b == null ? null : [a, b, num(txt(p, 'ele')), timeOf(txt(p, 'time'))].map((v, i) => i > 1 && v == null ? undefined : v).filter((v, i) => i < 2 || v !== undefined); }).filter(Boolean);
+    for (const t of root.getElementsByTagNameNS('*', 'trk')) {
+      const segs = kids(t, 'trkseg').map(sg => ptsOf(sg, 'trkpt')).filter(s => s.length > 1); if (!segs.length) continue;
+      const desc = txt(t, 'desc'), od = onxDesc(desc);
+      out.push({ id:uid(), kind:'trk', name:nameOf(t, 'Track'), notes:od ? od.notes : desc, segs, created:segs[0][0][3] || null, imported:now, color:toHex(extTxt(t, 'color')) || '#00ffff', line:extTxt(t, 'style') === 'dash' ? 'dash' : 'solid', weight:num(extTxt(t, 'weight')) || 3, src:{ app, id:od && od.id } });
+    }
+    for (const r of root.getElementsByTagNameNS('*', 'rte')) {
+      const pts = ptsOf(r, 'rtept'); if (pts.length < 2) continue;
+      const desc = txt(r, 'desc'), od = onxDesc(desc), isArea = /area/i.test(txt(r, 'type')) && pts.length > 2, fc = extTxt(r, 'fill_color');
+      if (isArea) out.push({ id:uid(), kind:'area', name:nameOf(r, 'Area'), notes:od ? od.notes : desc, pts:pts.map(p => [p[0], p[1]]), imported:now, color:toHex(extTxt(r, 'color')) || '#ff3300', fill:toHex(fc) || null, fillOp:alphaOf(fc), src:{ app, id:od && od.id } });
+      else out.push({ id:uid(), kind:'trk', name:nameOf(r, 'Route'), notes:od ? od.notes : desc, segs:[pts], imported:now, color:toHex(extTxt(r, 'color')) || '#00ffff', line:'solid', weight:3, src:{ app, id:od && od.id } });
+    }
+    return out;
+  }
+  function parseKML(doc, now){
+    const root = doc.documentElement, out = [], styles = {};
+    const abgr = v => { const m = String(v || '').trim().match(/^([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i); return m ? { hex:'#' + m[4] + m[3] + m[2], a:parseInt(m[1], 16) / 255 } : null; };
+    for (const s of root.getElementsByTagNameNS('*', 'Style')) { const id = s.getAttribute('id'); if (!id) continue; const g = n => { const e = s.getElementsByTagNameNS('*', n)[0]; return e ? abgr((e.getElementsByTagNameNS('*', 'color')[0] || {}).textContent) : null; }; styles['#' + id] = { icon:g('IconStyle'), line:g('LineStyle'), poly:g('PolyStyle') }; }
+    for (const s of root.getElementsByTagNameNS('*', 'StyleMap')) { const id = s.getAttribute('id'), p = s.getElementsByTagNameNS('*', 'styleUrl')[0]; if (id && p) styles['#' + id] = styles[p.textContent.trim()] || null; }
+    const coords = t => t.trim().split(/\s+/).map(c => c.split(',').map(Number)).filter(c => c.length >= 2 && !isNaN(c[0]) && !isNaN(c[1])).map(c => c.length > 2 && !isNaN(c[2]) ? [c[1], c[0], c[2]] : [c[1], c[0]]);
+    for (const pm of root.getElementsByTagNameNS('*', 'Placemark')) {
+      const name = nameOf(pm, 'Placemark'), notes = (txt(pm, 'description') || '').replace(/<[^>]+>/g, ' ').replace(/\s+\n/g, '\n').trim();
+      const data = {}; for (const d of pm.getElementsByTagNameNS('*', 'Data')) data[d.getAttribute('name')] = (d.getElementsByTagNameNS('*', 'value')[0] || {}).textContent;
+      const st = styles[(txt(pm, 'styleUrl') || '').trim()] || {}, when = timeOf((pm.getElementsByTagNameNS('*', 'when')[0] || {}).textContent || '');
+      const pt = pm.getElementsByTagNameNS('*', 'Point')[0], lines = [...pm.getElementsByTagNameNS('*', 'LineString')], poly = pm.getElementsByTagNameNS('*', 'Polygon')[0];
+      if (pt) { const c = coords((pt.getElementsByTagNameNS('*', 'coordinates')[0] || {}).textContent || '')[0]; if (!c) continue;
+        out.push({ id:uid(), kind:'wpt', name, notes, lat:c[0], lon:c[1], ele:c[2] != null ? c[2] : null, created:when, imported:now, sym:SYM[data.symbol] ? data.symbol : 'pin', color:toHex(data.color) || (st.icon && st.icon.hex) || '#ff3300', style:['pin', 'badge', 'flag'].includes(data.style) ? data.style : 'pin', size:'m', src:{ app:'KML file' } }); }
+      else if (poly) { const ring = coords(((poly.getElementsByTagNameNS('*', 'outerBoundaryIs')[0] || poly).getElementsByTagNameNS('*', 'coordinates')[0] || {}).textContent || ''); if (ring.length < 3) continue;
+        if (ring.length > 3 && ring[0][0] === ring[ring.length - 1][0] && ring[0][1] === ring[ring.length - 1][1]) ring.pop();
+        out.push({ id:uid(), kind:'area', name, notes, pts:ring.map(p => [p[0], p[1]]), created:when, imported:now, color:toHex(data.color) || (st.line && st.line.hex) || '#ff3300', fill:(st.poly && st.poly.hex) || null, fillOp:st.poly ? st.poly.a : null, src:{ app:'KML file' } }); }
+      else if (lines.length) { const segs = lines.map(l => coords((l.getElementsByTagNameNS('*', 'coordinates')[0] || {}).textContent || '')).filter(s => s.length > 1); if (!segs.length) continue;
+        out.push({ id:uid(), kind:'trk', name, notes, segs, created:when, imported:now, color:toHex(data.color) || (st.line && st.line.hex) || '#00ffff', line:'solid', weight:3, src:{ app:'KML file' } }); }
+    }
+    return out;
+  }
+  const dupKey = m => (m.src && m.src.id) ? 'id:' + m.src.id : [m.kind, (m.name || '').trim().toLowerCase(), ...markPt(m).map(v => v.toFixed(5))].join('|');
+  $('wlImport').addEventListener('click', () => $('wlFile').click());
+  $('wlFile').addEventListener('change', async e => {
+    const f = e.target.files && e.target.files[0]; e.target.value = ''; if (!f) return;
+    if (f.size > 25 * 1024 * 1024) { listMsg('That file is too large to import (over 25 MB).', true); return; }
+    let items;
+    try {
+      const text = await f.text(), doc = new DOMParser().parseFromString(text, 'application/xml');
+      if (doc.getElementsByTagName('parsererror').length) throw new Error('xml');
+      const root = doc.documentElement.localName.toLowerCase();
+      items = root === 'gpx' ? parseGPX(doc, Date.now()) : root === 'kml' ? parseKML(doc, Date.now()) : null;
+      if (!items) throw new Error('type');
+    } catch (err) { listMsg("That file couldn't be read. Choose a GPX or KML file (KMZ files need to be unzipped first).", true); return; }
+    if (!items.length) { listMsg('No waypoints, tracks or areas were found in ' + f.name + '.', true); return; }
+    const have = new Set(marks.map(dupKey)), fresh = [], seen = new Set();
+    for (const m of items) { const k = dupKey(m); if (have.has(k) || seen.has(k)) continue; seen.add(k); fresh.push(m); }
+    try { if (fresh.length) await DB.putMany(fresh); } catch (err) { listMsg("Couldn't save the imported items. This browser may be blocking storage.", true); return; }
+    marks = marks.concat(fresh); persist(); if (!showMarks) setMarks(true); drawMarks(); countText(); renderList();
+    const n = k => fresh.filter(m => m.kind === k).length, pl = (c, w) => c + ' ' + w + (c === 1 ? '' : 's');
+    const parts = [[n('wpt'), 'waypoint'], [n('trk'), 'track'], [n('area'), 'area']].filter(x => x[0]).map(x => pl(x[0], x[1]));
+    const skipped = items.length - fresh.length;
+    listMsg(fresh.length ? 'Imported ' + parts.join(', ').replace(/, ([^,]*)$/, ' and $1') + ' from ' + f.name + '.' + (skipped ? ' ' + pl(skipped, 'item') + ' already saved were skipped.' : '') + ' Saved only on this phone.' : 'Everything in ' + f.name + ' is already saved.');
+  });
+
+  // ---- move a waypoint ----
+  function startMove(){
+    const m = marks.find(x => x.id === selId); if (!m || m.kind !== 'wpt') return;
+    movingId = m.id; $('wDetail').hidden = true; document.querySelector('.msheet').hidden = true; drawMarks();
+    lmap.setView([m.lat, m.lon], Math.max(lmap.getZoom(), 16)); document.querySelector('.reticle').hidden = false;
+    $('wMoveBar').hidden = false; $('wMoveName').textContent = m.name;
+  }
+  function endMove(save){
+    const m = marks.find(x => x.id === movingId); $('wMoveBar').hidden = true;
+    if (save && m) { const c = lmap.getCenter(); m.lat = c.lat; m.lon = c.lng; m.acc = null; m.updated = Date.now(); DB.put(m).catch(() => {}); changed(1); }
+    const id = movingId; movingId = null; document.querySelector('.msheet').hidden = false; updateSheet(); drawMarks(); if (id) selectMark(id);
+  }
+  $('wdMove').addEventListener('click', startMove);
+  $('wMoveSave').addEventListener('click', () => endMove(true));
+  $('wMoveCancel').addEventListener('click', () => endMove(false));
+
   render();
   setInterval(render, 30000);
   if (state.loc) setTimeout(() => loadWeather(false), 600);
@@ -1823,7 +2409,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
 
   // Update check: an installed app is often resumed from memory instead of reloaded,
   // so look for a newer version on launch and whenever the app comes back to the screen.
-  const BUILD = '2026.10.16-1517';
+  const BUILD = '2026.10.16-1554';
   let checking = false;
   async function checkForUpdate(){
     if (PREVIEW || checking || !/^https?:$/.test(location.protocol) || !navigator.onLine) return;

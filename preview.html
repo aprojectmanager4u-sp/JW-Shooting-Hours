@@ -7,7 +7,7 @@
 <title>WI Shooting Hours</title>
 <meta name="theme-color" content="#141a16">
 <meta name="description" content="Wisconsin legal shooting hours for your location and species.">
-<meta name="app-build" content="2026.10.16-1414">
+<meta name="app-build" content="2026.10.16-1437">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -192,7 +192,10 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
 .drow{display:grid;grid-template-columns:4.4rem 26px minmax(0,1fr) 2.8rem 4.6rem;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line)}
 .drow:last-child{border-bottom:0}
 .dname{font-weight:600}
-.dshort{color:var(--muted);font-size:.88rem;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.dshort{display:flex;flex-direction:column;gap:3px;min-width:0}
+.dtxt{color:var(--fg);font-size:.88rem;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.dwind{display:flex;align-items:center;gap:3px;color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dwind .warr{width:12px;height:12px}
 .dpop{font-size:.84rem;color:var(--rain);text-align:right;font-variant-numeric:tabular-nums}
 .dpop.zero{color:var(--muted);opacity:.7}
 .dtemp{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -237,17 +240,22 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
 .mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .mname{font-family:var(--display);font-size:1.4rem;font-weight:600;line-height:1.15}
 .mmeta{font-size:.88rem;color:var(--muted)}
-.msheet .mname,.msheet .mmeta,.msheet .eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.msheet .mname,.msheet .eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mset{border:0;background:var(--blaze);color:var(--blaze-ink);font-weight:700;border-radius:9px;padding:0 14px;min-height:42px;white-space:nowrap;flex:none}
 .mset:disabled{background:none;color:var(--open);border:1px solid var(--line);cursor:default}
 .mhours{display:flex;justify-content:space-between;gap:8px;align-items:baseline;border-top:1px solid var(--line);padding-top:9px}
 .mhours span{color:var(--muted);font-size:.9rem}
 .mhours b{font-family:var(--display);font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
-.mcredit{border-top:1px solid var(--line);padding-top:8px;display:flex;justify-content:space-between;gap:8px;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.pland{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:9px;min-height:44px}
+.pland b{display:block;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pland span{display:block;font-size:.84rem;color:var(--muted);line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pland .sw{width:22px;height:22px;border-radius:5px;flex:none;border:1px solid var(--line);background:var(--bg)}
+.pland .sw.hatch{background-image:repeating-linear-gradient(135deg,rgba(0,0,0,.35) 0 2px,transparent 2px 6px)}
+.pland.none b{font-weight:400;color:var(--muted)}
+.mcredit{display:flex;justify-content:space-between;gap:8px;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .leaflet-container{font:inherit;background:var(--bg)}
 .leaflet-control-scale{margin:0 0 12px 10px!important}
 .leaflet-control-scale-line{background:rgba(255,255,255,.85);border-color:#2a2f2b;color:#1e2420;font:600 11px var(--body);padding:1px 6px}
-.zlabel span{position:absolute;transform:translate(-50%,0);background:rgba(20,26,22,.78);color:#fff;font:700 11px/1 var(--body);letter-spacing:.08em;padding:4px 7px;border-radius:5px;white-space:nowrap;text-transform:uppercase}
 .medot{width:18px;height:18px;border-radius:50%;background:var(--you);border:3px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25),0 1px 5px rgba(0,0,0,.45)}
 .meicon.stale .medot{background:#8a948c}
 .spotpin svg{display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
@@ -329,14 +337,15 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
     <div class="privacy">
       <p><b>Your data stays on this phone.</b> There is no account, no server and no tracking. The app saves your hunting spot (if you set one), your choices and the last weather forecast, in this app's storage on your phone.</p>
       <p><b>Location is read only while the app is open:</b> when you tap Use my location, once automatically the first time you open the app, and on the Map while the locate button is on. It stops when you leave the Map or close the app. Clear saved location erases the saved spot and forecast.</p>
-      <p><b>Two U.S. government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies the map images for the area you're viewing. Neither needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
+      <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land on, the Wisconsin DNR's map servers draw public land for that area and look up the property at the map's crosshair. None of them needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
+      <p><b>Public land boundaries are for reference.</b> Check each property's rules, closures and posted boundaries before you hunt.</p>
     </div>
   </section>
 
   <div class="fine">
     <div>Times follow Wis. Admin. Code NR 10.06: zone A times come from sunrise and sunset at Sheboygan (southern area) or Powers, MI (northern area); each zone west adds 4 minutes. Shown in Wisconsin clock time (daylight time when in effect). For 2026 the app uses the DNR's published Zone A tables directly (all four tables, every day). Other years are calculated and match published tables within 1 minute.</div>
     <div>Always confirm with the official tables before you shoot: <a href="https://dnr.wisconsin.gov/node/119956" target="_blank" rel="noopener">DNR calculating shooting hours</a> · <a href="https://widnr.widen.net/s/mvmqkfqdxx/2023-hunting-hours-map" target="_blank" rel="noopener">zone map</a>. Property-specific closures (refuges, some wildlife areas) are not included.</div>
-    <div>App version 2026.10.16-1414</div>
+    <div>App version 2026.10.16-1437</div>
   </div>
   </div>
 
@@ -353,7 +362,7 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
       <div class="seg" id="segLayer" role="group" aria-label="Map type">
         <button type="button" data-k="topo">Topo</button><button type="button" data-k="photo">Air photo</button><button type="button" data-k="hybrid">Hybrid</button>
       </div>
-      <button class="chip" id="mZones" type="button" aria-pressed="true" title="Show zone and county lines"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Zones</button>
+      <button class="chip" id="mLand" type="button" aria-pressed="true" title="Show public land"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Public land</button>
     </div>
     <div class="mnotice" id="mNotice" role="status" hidden></div>
     <div class="mside">
@@ -364,10 +373,11 @@ body.wxtab #dateBar,body.wxtab #todayBtn{display:none}
   <div class="msheet" aria-live="polite">
     <div class="in">
       <div class="mrow">
-        <div style="min-width:0"><div class="eyebrow" id="mLabel">Map center</div><div class="mname" id="mName">—</div><div class="mmeta" id="mMeta"></div></div>
+        <div style="min-width:0"><div class="eyebrow" id="mLabel">At the crosshair</div><div class="mname" id="mName">—</div></div>
         <button class="mset" id="mSet" type="button">Set as hunting spot</button>
       </div>
-      <div class="mcredit"><span>Map: USGS The National Map</span><span id="mCoords"></span></div>
+      <div class="pland" id="pLand"><i class="sw" id="pSw"></i><div style="min-width:0"><b id="pName">—</b><span id="pType"></span></div></div>
+      <div class="mcredit"><span>Map: USGS · Public land: Wisconsin DNR</span><span id="mCoords"></span></div>
     </div>
   </div>
 </div>
@@ -1568,7 +1578,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
       if (p.day) { const n = P[i + 1] && !P[i + 1].day ? P[i + 1] : null; rows.push({ nm, p, hi:p.temp, lo:n ? n.temp : null, pop:Math.max(p.pop, n ? n.pop : 0) }); if (n) i++; }
       else rows.push({ nm: first ? nm : nm + ' night', p, hi:null, lo:p.temp, pop:p.pop });
     }
-    const dayRows = rows.map(r => `<div class="drow"><span class="dname">${r.nm}</span>${wxIcon(r.p.short, r.p.day)}<span class="dshort">${r.p.short}</span><span class="dpop${r.pop ? '' : ' zero'}">${r.pop}%</span><span class="dtemp">${r.hi != null ? '<b>' + r.hi + '°</b>' : ''}${r.lo != null ? '<span>' + r.lo + '°</span>' : ''}</span></div>`).join('');
+    const dayRows = rows.map(r => `<div class="drow"><span class="dname">${r.nm}</span>${wxIcon(r.p.short, r.p.day)}<span class="dshort"><span class="dtxt">${r.p.short}</span><span class="dwind">${arrow(dirDeg(r.p.wdir))}${windTxt(r.p.wdir, r.p.wspd)}</span></span><span class="dpop${r.pop ? '' : ' zero'}">${r.pop}%</span><span class="dtemp">${r.hi != null ? '<b>' + r.hi + '°</b>' : ''}${r.lo != null ? '<span>' + r.lo + '°</span>' : ''}</span></div>`).join('');
     box.innerHTML = `
       <div class="view">
       <div class="card wxnow">
@@ -1595,44 +1605,50 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     else if (b.dataset.act === 'locate') { showTab('hours'); locate(); }
   });
 
-  // ===================== Map (USGS The National Map) =====================
+  // ===================== Map (USGS The National Map + Wisconsin DNR public land) =====================
   const TILE_BASE = 'https://basemap.nationalmap.gov/arcgis/rest/services/';
   const LAYERS = { topo:'USGSTopo', photo:'USGSImageryOnly', hybrid:'USGSImageryTopo' };
-  let lmap = null, baseLayer = null, zoneGroup = null, zoneLabels = null, spotMk = null, meMk = null, meAcc = null, meLL = null, meAccM = 0;
-  let watchId = null, follow = false, firstFix = true, tileErrs = 0, sheetRaf = 0;
+  const DNR = 'https://dnrmaps.wi.gov/arcgis/rest/services/';
+  // Wisconsin DNR map services; colors below match each service's own symbols (used for the panel swatch)
+  const LAND = [
+    { url: DNR + 'LF_DML/LF_DNR_PUBLIC_LAND_WTM_Ext/MapServer', layers: '0,1,2,3,4', opacity: .55 },
+    { url: DNR + 'LF_DML/LF_DNR_MGD_PROP_WTM_Ext/MapServer', layers: '9,7,8', opacity: .55 },
+    { url: DNR + 'WM_VPA/WM_VPA_HUNT_LEASE_LAND_WTM/MapServer', layers: '0', opacity: .7 },
+  ];
+  let lmap = null, baseLayer = null, landGroup = null, spotMk = null, meMk = null, meAcc = null, meLL = null, meAccM = 0;
+  let watchId = null, follow = false, firstFix = true, tileErrs = 0, sheetRaf = 0, landTimer = 0, landSeq = 0;
   let layerKey = store.get('mapLayer', 'topo'); if (!LAYERS[layerKey]) layerKey = 'topo';
-  let showZones = store.get('mapZones', true);
-  const lineSets = { county:[], zone:[], ns:[] };
+  let showLand = store.get('mapLand', true);
   function mNotice(msg){ const n = $('mNotice'); n.textContent = msg || ''; n.hidden = !msg; }
   function openMap(){
     if (!window.L) { mNotice("The map couldn't start on this device."); return; }
     if (!lmap) initMap();
-    requestAnimationFrame(() => { lmap.invalidateSize(); updateSheet(); updateZoneLabels(); });
+    requestAnimationFrame(() => { lmap.invalidateSize(); updateSheet(); checkLand(); });
   }
+  // Tiles drawn on demand by an ArcGIS map service (512 px, Web Mercator)
+  const ExportTiles = L.TileLayer.extend({
+    initialize(svc, layers, opts){ this._svc = svc; this._lyr = layers; L.TileLayer.prototype.initialize.call(this, '', opts); },
+    getTileUrl(c){
+      const ts = this.getTileSize(), nw = c.scaleBy(ts), m = this._map;
+      const a = L.CRS.EPSG3857.project(m.unproject(nw, c.z)), b = L.CRS.EPSG3857.project(m.unproject(nw.add(ts), c.z));
+      return `${this._svc}/export?bbox=${a.x.toFixed(1)},${b.y.toFixed(1)},${b.x.toFixed(1)},${a.y.toFixed(1)}&bboxSR=3857&imageSR=3857&size=${ts.x},${ts.y}&dpi=96&format=png32&transparent=true&layers=show:${this._lyr}&f=image`;
+    }
+  });
   function initMap(){
     lmap = L.map('lmap', { zoomControl:false, attributionControl:false, minZoom:6, maxZoom:18,
       maxBounds: L.latLngBounds([41.2, -95.6], [48.4, -84.9]), maxBoundsViscosity:0.8, tapTolerance:20 });
     if (state.loc) lmap.setView([state.loc.lat, state.loc.lon], 14);
     else lmap.fitBounds([[42.49, -92.89], [47.08, -86.8]]);
     L.control.scale({ imperial:true, metric:false, position:'bottomleft', maxWidth:110 }).addTo(lmap);
-    zoneGroup = L.layerGroup(); zoneLabels = L.layerGroup();
-    const ll = r => r.map(([x, y]) => [y, x]);
-    GEO.counties.forEach(c => c.r.forEach(r => lineSets.county.push(L.polyline(ll(r), { interactive:false, weight:1.2 }).addTo(zoneGroup))));
-    [-88, -89, -90, -91, -92].forEach(lon => lineSets.zone.push(L.polyline([[42.3, lon], [47.4, lon]], { interactive:false, weight:2.2, dashArray:'7 6' }).addTo(zoneGroup)));
-    (GEO.ns || []).forEach(line => lineSets.ns.push(L.polyline(ll(line), { interactive:false, weight:3.5 }).addTo(zoneGroup)));
-    setBase(layerKey); setZones(showZones);
+    lmap.createPane('land'); lmap.getPane('land').style.zIndex = 250;
+    landGroup = L.layerGroup(LAND.map(l => new ExportTiles(l.url, l.layers, { pane:'land', tileSize:512, minZoom:7, maxZoom:18, opacity:l.opacity, keepBuffer:1 })));
+    setBase(layerKey); setLand(showLand);
     lmap.on('move', () => { if (!sheetRaf) sheetRaf = requestAnimationFrame(() => { sheetRaf = 0; updateSheet(); }); });
-    lmap.on('moveend', () => { updateSheet(); updateZoneLabels(); });
+    lmap.on('movestart', () => { clearTimeout(landTimer); });
+    lmap.on('moveend', () => { updateSheet(); checkLand(); });
     lmap.on('dragstart', () => { if (follow) { follow = false; locBtnState(); } });
-    if (window.ResizeObserver) new ResizeObserver(() => { lmap.invalidateSize(); updateZoneLabels(); }).observe($('lmap'));
+    if (window.ResizeObserver) new ResizeObserver(() => lmap.invalidateSize()).observe($('lmap'));
     updateSpot();
-  }
-  function styleZones(){
-    const photo = layerKey !== 'topo';
-    const blaze = getComputedStyle(document.documentElement).getPropertyValue('--blaze').trim() || '#e2570f';
-    lineSets.county.forEach(l => l.setStyle({ color: photo ? '#ffffff' : '#3b443d', opacity: photo ? .7 : .55 }));
-    lineSets.zone.forEach(l => l.setStyle({ color: blaze, opacity: .95 }));
-    lineSets.ns.forEach(l => l.setStyle({ color: blaze, opacity: .95 }));
   }
   function setBase(k){
     layerKey = k; store.set('mapLayer', k); tileErrs = 0;
@@ -1642,23 +1658,56 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     baseLayer.on('tileload', () => { if (tileErrs) { tileErrs = 0; mNotice(null); } });
     baseLayer.addTo(lmap); baseLayer.bringToBack();
     document.querySelectorAll('#segLayer button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.k === k)));
-    styleZones();
   }
-  function setZones(on){
-    showZones = on; store.set('mapZones', on);
-    $('mZones').setAttribute('aria-pressed', String(on));
-    if (on) { zoneGroup.addTo(lmap); zoneLabels.addTo(lmap); } else { lmap.removeLayer(zoneGroup); lmap.removeLayer(zoneLabels); }
-    updateZoneLabels();
+  function setLand(on){
+    showLand = on; store.set('mapLand', on);
+    $('mLand').setAttribute('aria-pressed', String(on));
+    if (on) landGroup.addTo(lmap); else lmap.removeLayer(landGroup);
+    $('pLand').hidden = !on;
+    checkLand();
   }
-  function updateZoneLabels(){
-    if (!lmap || !zoneLabels) return; zoneLabels.clearLayers(); if (!showZones) return;
-    const size = lmap.getSize(), top = $('mTop').getBoundingClientRect().bottom - $('lmap').getBoundingClientRect().top + 10;
-    const lat = lmap.containerPointToLatLng([size.x / 2, top]).lat, b = lmap.getBounds();
-    [['A', -86.0, -88], ['B', -88, -89], ['C', -89, -90], ['D', -90, -91], ['E', -91, -92], ['F', -92, -93.5]].forEach(([z, e, w]) => {
-      const lo = Math.max(w, b.getWest()), hi = Math.min(e, b.getEast()); if (hi <= lo) return;
-      const px = lmap.latLngToContainerPoint([lat, hi]).x - lmap.latLngToContainerPoint([lat, lo]).x; if (px < 70) return;
-      zoneLabels.addLayer(L.marker([lat, (lo + hi) / 2], { interactive:false, keyboard:false, icon: L.divIcon({ className:'zlabel', html:`<span>Zone ${z}</span>`, iconSize:[0, 0] }) }));
-    });
+  // What public land is under the crosshair? Asks the DNR services (only while Public land is on).
+  const LAND_TYPES = {
+    'County Forests': ['County forest', '#ded1af'], 'US Forest Service': ['National forest', '#abf587'],
+    'US Fish & Wildlife Service': ['U.S. Fish & Wildlife Service', '#e6cef2'], 'National Park Service': ['National Park Service', '#b9d7a9'],
+    'Board of Commissioners of Public Lands': ['State trust land (BCPL)', '#a28800'],
+  };
+  function landInfo(svcIdx, r){
+    const a = r.attributes || {};
+    if (svcIdx === 2) { const thap = String(a.PROGRAM || '').toUpperCase() === 'THP';
+      return { name: thap ? 'Turkey Hunting Access Program' : 'Voluntary Public Access land', type: thap ? 'Leased for spring turkey hunting only' : 'Leased for public hunting, fishing and trapping', color: thap ? '#d7c29e' : '#ffebaf' }; }
+    if (svcIdx === 1) { const restricted = String(a.EASE_OPEN || '').toLowerCase() === 'restricted';
+      const kind = /easement/i.test(r.layerName) ? 'DNR easement' : /lease/i.test(r.layerName) ? 'DNR leased land' : 'DNR land';
+      return { name: a.PROP_NAME || r.value || 'DNR property', type: kind + (restricted ? ' · restricted public access' : ' · open to the public'), color: /easement/i.test(r.layerName) ? '#86f096' : '#72b072', hatch: restricted }; }
+    const t = LAND_TYPES[r.layerName] || ['Public land', '#ded1af'];
+    const nm = r.layerName === 'Board of Commissioners of Public Lands' ? 'State trust land' : (r.value && r.value !== 'Null' ? r.value : t[0]);
+    return { name: nm, type: t[0], color: t[1] };
+  }
+  function showLandRow(info, state_){
+    const row = $('pLand'), sw = $('pSw');
+    row.classList.toggle('none', !info);
+    sw.style.background = info ? info.color : ''; sw.classList.toggle('hatch', !!(info && info.hatch));
+    $('pName').textContent = info ? info.name : state_;
+    $('pType').textContent = info ? info.type : '';
+  }
+  function checkLand(){
+    clearTimeout(landTimer);
+    if (!lmap || !showLand || tab !== 'map') return;
+    if (lmap.getZoom() < 9) { showLandRow(null, 'Zoom in to see public land here'); return; }
+    if (!navigator.onLine) { showLandRow(null, 'Public land details need a signal'); return; }
+    showLandRow(null, 'Checking public land…');
+    landTimer = setTimeout(async () => {
+      const seq = ++landSeq, c = lmap.getCenter(), b = lmap.getBounds(), sz = lmap.getSize();
+      const q = `identify?geometry=${c.lng.toFixed(6)},${c.lat.toFixed(6)}&geometryType=esriGeometryPoint&sr=4326&tolerance=0&returnGeometry=false&mapExtent=${b.getWest().toFixed(5)},${b.getSouth().toFixed(5)},${b.getEast().toFixed(5)},${b.getNorth().toFixed(5)}&imageDisplay=${sz.x},${sz.y},96&f=json&layers=all:`;
+      try {
+        const res = await Promise.all(LAND.map(l => fetch(`${l.url}/${q}${l.layers}`).then(r => r.ok ? r.json() : { results: [] }).catch(() => null)));
+        if (seq !== landSeq) return;
+        if (res.every(x => x === null)) { showLandRow(null, "Couldn't check public land here"); return; }
+        let hit = null;
+        for (const k of [2, 1, 0]) { const r = res[k] && res[k].results && res[k].results[0]; if (r) { hit = landInfo(k, r); break; } }
+        showLandRow(hit, 'No public land mapped here');
+      } catch (e) { if (seq === landSeq) showLandRow(null, "Couldn't check public land here"); }
+    }, 450);
   }
   const PIN = () => L.divIcon({ className:'spotpin', iconSize:[30, 40], iconAnchor:[15, 39],
     html:'<svg width="30" height="40" viewBox="0 0 30 40" aria-hidden="true"><path d="M15 38.5S27 25 27 15.5a12 12 0 0 0-24 0C3 25 15 38.5 15 38.5z" style="fill:var(--blaze)" stroke="#fff" stroke-width="2"/><circle cx="15" cy="15.5" r="4.6" fill="#fff"/></svg>' });
@@ -1677,7 +1726,6 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     document.querySelector('.reticle').hidden = atMe || atSpot;
     $('mLabel').textContent = atMe ? 'Your location' + (meAccM ? ' · ±' + feet(meAccM) : '') : atSpot ? 'Your hunting spot' : 'At the crosshair';
     $('mName').textContent = info.county ? info.county.n + ' County' : 'Outside Wisconsin';
-    $('mMeta').textContent = info.county ? `${info.area === 'north' ? 'Northern' : 'Southern'} area · Zone ${info.zone}` : 'Outside the Wisconsin zone map';
     const set = $('mSet'); set.disabled = !!atSpot; set.textContent = atSpot ? 'Hunting spot ✓' : 'Set as hunting spot';
     $('mCoords').textContent = c.lat.toFixed(4) + '°, ' + c.lng.toFixed(4) + '°';
   }
@@ -1711,14 +1759,14 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
   $('mLocate').addEventListener('click', () => { if (watchId != null && follow) { stopWatch(); mNotice(null); } else startWatch(); });
   $('mZoomIn').addEventListener('click', () => lmap && lmap.zoomIn());
   $('mZoomOut').addEventListener('click', () => lmap && lmap.zoomOut());
-  $('mZones').addEventListener('click', () => lmap && setZones(!showZones));
+  $('mLand').addEventListener('click', () => lmap && setLand(!showLand));
   document.querySelectorAll('#segLayer button').forEach(b => b.addEventListener('click', () => lmap && setBase(b.dataset.k)));
   $('mSet').addEventListener('click', () => {
     if (!lmap) return; const c = lmap.getCenter();
     const gps = meLL && watchId != null && lmap.latLngToContainerPoint(meLL).distanceTo(lmap.getSize().divideBy(2)) < 14;
     setLoc(gps ? { lat:meLL[0], lon:meLL[1], src:'gps', acc:meAccM } : { lat:c.lat, lon:c.lng, src:'map' });
   });
-  addEventListener('resize', () => { if (lmap && tab === 'map') { lmap.invalidateSize(); updateZoneLabels(); } });
+  addEventListener('resize', () => { if (lmap && tab === 'map') lmap.invalidateSize(); });
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') stopWatch();
     else if (tab === 'weather' || state.loc) loadWeather(false);
@@ -1736,7 +1784,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
 
   // Update check: an installed app is often resumed from memory instead of reloaded,
   // so look for a newer version on launch and whenever the app comes back to the screen.
-  const BUILD = '2026.10.16-1414';
+  const BUILD = '2026.10.16-1437';
   let checking = false;
   async function checkForUpdate(){
     if (PREVIEW || checking || !/^https?:$/.test(location.protocol) || !navigator.onLine) return;

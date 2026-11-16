@@ -20,13 +20,14 @@ Wrap the hosted URL as a Trusted Web Activity with Bubblewrap (`npx @bubblewrap/
 - `sw.js` – offline cache
 
 ## What's in the app
-- **Hours:** Wisconsin legal shooting hours for your date, location and species (2026 DNR tables built in).
+- **Hours:** Wisconsin legal shooting hours for your date, location and species: Deer, Small game, Waterfowl, Spring turkey. 2026 DNR tables are built in; other years (2027 on) are calculated from the same rule and match published tables within a minute.
 - **Weather:** National Weather Service forecast for your hunting spot: now, wind and scent, next 24 hours, 7 days with wind.
 - **Map:** USGS The National Map (Topo, Air photo, Hybrid), your GPS location, and Wisconsin DNR public land with on/off, transparency and a legend. Map areas you've viewed are saved for use without a signal.
 - **My waypoints:** add waypoints with symbol, color, style and notes; import GPX/KML (onX, Garmin, Gaia GPS, Google Earth); export GPX, KML or CSV. Tracks and areas from imported files are shown too.
+- **Hunts:** a hunt log (date, species, location, observations, harvest) that adds the day's high/low, average wind and direction, barometric pressure (from the nearest National Weather Service station) and moon phase (computed on the phone). CSV export and import.
 
 ## Privacy
-Waypoints, tracks and areas are stored only on the phone that created or imported them (in the browser's on-device storage for this app). They are never uploaded, are not in this repository, and leave the phone only when the user exports a file. The weather service receives the hunting spot rounded to about half a mile; map and public-land services see only the map area being viewed.
+The hunt log, waypoints, tracks and areas are stored only on the phone that created or imported them (in the browser's on-device storage for this app). They are never uploaded, are not in this repository, and leave the phone only when the user exports a file. The weather service receives the hunting spot rounded to about half a mile; map and public-land services see only the map area being viewed.
 
 ## Data sources
 - Wisconsin DNR shooting-hours tables (2026) and Wis. Admin. Code NR 10.06

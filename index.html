@@ -7,7 +7,7 @@
 <title>Walt's Shooting Hours</title>
 <meta name="theme-color" content="#141a16">
 <meta name="description" content="Walters Shooting Hours, Weather & Maps - DNR Didn't.">
-<meta name="app-build" content="2026.11.16-1409">
+<meta name="app-build" content="2026.11.16-1528">
 <link rel="preconnect" href="https://basemap.nationalmap.gov" crossorigin>
 <link rel="preconnect" href="https://dnrmaps.wi.gov" crossorigin>
 <link rel="manifest" href="manifest.webmanifest">
@@ -281,6 +281,8 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
 #lmap.drawing .wmk{opacity:.45}
 .omsg{font-size:.8rem;color:var(--muted);margin:8px 0 0;line-height:1.3}
 .omsg.warn{color:var(--closed)}
+#mCredit{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pland .sw.pvsw{background:transparent;border:2px solid #e0b400}
 #oLegend img{border-radius:3px;flex:none}
 .fab.add{background:var(--blaze);border-color:var(--blaze);color:var(--blaze-ink)}
 .lsec{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--blaze);font-weight:700;padding:12px 0 0}
@@ -509,7 +511,7 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
       <p><b>Your waypoints stay on this phone.</b> Waypoints, tracks and areas you add or import are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. Clearing your browser's data or uninstalling the app erases them, so export a backup now and then.</p>
       <p><b>Your hunt log stays on this phone.</b> Hunts you log, with your observations, harvest notes and locations, are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. To fill in a hunt's conditions, the National Weather Service receives that hunt's location rounded to about half a mile and returns readings from the nearest weather station. The moon phase is worked out on your phone. Clearing your browser's data or uninstalling the app erases the log, so export a backup now and then.</p>
       <p><b>Tracks, measurements and the compass stay on this phone.</b> Tracks you draw or record are saved with your waypoints, only on this phone. Measuring and the compass use your phone's own sensors and send nothing anywhere.</p>
-      <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land or Oak forest on, the Wisconsin DNR's map servers draw those layers for that area and look up the property at the map's crosshair. Map images and public land lookups reveal only the area you're looking at, never your waypoint names, notes or files. None of these services needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
+      <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land or Oak forest on, the Wisconsin DNR's map servers draw those layers for that area and look up the property at the map's crosshair. With Property lines on, the Wisconsin State Cartographer's Office parcel map (hosted on Esri's ArcGIS Online) sends the property lines and owner names on record for that area; the owner at the crosshair is worked out on your phone. Map images, property lines and public land lookups reveal only the area you're looking at, never your waypoint names, notes or files. None of these services needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
       <p><b>Public land boundaries are for reference.</b> Check each property's rules, closures and posted boundaries before you hunt.</p>
     </div>
   </section>
@@ -544,6 +546,10 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
       <div class="lrow col" id="lOpRow"><div class="lhead"><label for="lOp"><b>Transparency</b></label><output id="lOpV" for="lOp">45%</output></div>
         <input type="range" id="lOp" min="0" max="90" step="5" value="45" aria-describedby="lOpHint"><div class="lticks" id="lOpHint"><span>Solid</span><span>See-through</span></div></div>
       <ul class="legend2" id="lLegend" aria-label="Legend"></ul>
+      <div class="lsec">Private land</div>
+      <label class="lrow" for="pvOn"><span><b>Property lines &amp; owners</b><small>Wisconsin Statewide Parcel Map (2026)</small></span><input type="checkbox" id="pvOn" role="switch"></label>
+      <div id="pvBox" hidden><p class="omsg" id="pvMsg" role="status" hidden></p>
+        <p class="omsg">Shown when zoomed in. Put the crosshair on a parcel to see the owner on record. Lines come from county tax maps and can be off by many feet; they are not a survey. An owner's name is not permission to hunt.</p></div>
       <div class="lsec">Land cover</div>
       <label class="lrow" for="oOn"><span><b>Oak forest</b><small>Wisconsin DNR land cover map (Wiscland 2)</small></span><input type="checkbox" id="oOn" role="switch"></label>
       <div id="oBox" hidden><p class="omsg" id="oMsg" role="status"></p><ul class="legend2" id="oLegend" aria-label="Oak layer legend"></ul>
@@ -596,7 +602,8 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
         <button class="mset" id="mSet" type="button">Set as hunting spot</button>
       </div>
       <div class="pland" id="pLand"><i class="sw" id="pSw"></i><div style="min-width:0"><b id="pName">—</b><span id="pType"></span></div></div>
-      <div class="mcredit"><span>Map: USGS · Public land: Wisconsin DNR</span><span id="mCoords"></span></div>
+      <div class="pland none" id="pvRow" hidden><i class="sw pvsw"></i><div style="min-width:0"><b id="pvName">—</b><span id="pvType"></span></div></div>
+      <div class="mcredit"><span id="mCredit">Map: USGS · Public land: Wisconsin DNR</span><span id="mCoords"></span></div>
     </div>
   </div>
 
@@ -1936,7 +1943,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     lmap.createPane('land'); lmap.getPane('land').style.zIndex = 250;
     landGroup = L.layerGroup(LAND.map(l => new ExportTiles(l.url, l.layers, { pane:'land', tileSize:512, minZoom:7, maxZoom:18, keepBuffer:1 })));
     setLandT(landT);
-    setBase(layerKey); setLand(showLand); setOak(showOak);
+    setBase(layerKey); setLand(showLand); setOak(showOak); setPv(showPv);
     lmap.on('move', () => { if (!sheetRaf) sheetRaf = requestAnimationFrame(() => { sheetRaf = 0; updateSheet(); }); });
     lmap.on('movestart', () => { clearTimeout(landTimer); });
     lmap.on('moveend', () => { updateSheet(); checkLand(); });
@@ -2988,6 +2995,74 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
   }
   $('oOn').addEventListener('change', e => setOak(e.target.checked));
 
+  // ===== Private land: property lines and owners (Wisconsin Statewide Parcel Map) ===============
+  // Off until switched on. Lines are fetched for the area in view (zoomed in) and the owner at the crosshair is found on the phone.
+  const PV_SVC = 'https://services3.arcgis.com/n6uYoouQZW75n5WI/arcgis/rest/services/Wisconsin_Statewide_Parcels_DB/FeatureServer/0';
+  const PV_MINZ = 14;
+  let showPv = store.get('mapPv', false), pvLayer = null, pvFeats = [], pvBox = null, pvSeq = 0, pvTimer = 0, pvMore = false;
+  const pvNote = (t, warn) => { const el = $('pvMsg'); el.textContent = t || ''; el.hidden = !t; el.classList.toggle('warn', !!warn); };
+  function pvRow(name, sub){ $('pvRow').classList.toggle('none', sub === undefined); $('pvName').textContent = name; $('pvType').textContent = sub || ''; }
+  const pvRing = (r, x, y) => { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const a = r[i], b = r[j]; if ((a[1] > y) !== (b[1] > y) && x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0]) c = !c; } return c; };
+  const pvPoly = (p, x, y) => p.length && pvRing(p[0], x, y) && !p.slice(1).some(h => pvRing(h, x, y));
+  function pvAt(lat, lon){
+    for (const f of pvFeats) { const g = f.geometry; if (!g) continue;
+      if (g.type === 'Polygon' ? pvPoly(g.coordinates, lon, lat) : g.type === 'MultiPolygon' && g.coordinates.some(p => pvPoly(p, lon, lat))) return f; }
+    return null;
+  }
+  const pvClean = v => { v = String(v == null ? '' : v).replace(/\s+/g, ' ').trim(); return /^(null|n\/?a|not available|unknown|none)?$/i.test(v) ? '' : v; };
+  function pvCross(){
+    if (!lmap || !showPv) return;
+    if (lmap.getZoom() < PV_MINZ) { pvRow('Zoom in to see property lines'); return; }
+    if (!pvBox) return;
+    const c = lmap.getCenter();
+    if (!pvBox.contains(c)) return;
+    const f = pvAt(c.lat, c.lng);
+    if (!f) { pvRow(pvMore ? 'Zoom in for the owner here' : 'No parcel mapped here'); return; }
+    const p = f.properties || {}, o1 = pvClean(p.OWNERNME1), o2 = pvClean(p.OWNERNME2), ac = Number(p.GISACRES);
+    const co = pvClean(p.CONAME);
+    pvRow(o1 ? o1 + (o2 ? ' & ' + o2 : '') : 'Owner not listed by the county',
+      [ac > 0 ? (ac < 10 ? ac.toFixed(1) : Math.round(ac)) + ' acres' : '', co ? co.replace(/\w\S*/g, w => w[0].toUpperCase() + w.slice(1).toLowerCase()) + ' County records' : 'County records'].filter(Boolean).join(' · '));
+  }
+  function pvLoad(){
+    clearTimeout(pvTimer);
+    if (!lmap || !showPv || tab !== 'map') return;
+    if (lmap.getZoom() < PV_MINZ) { ++pvSeq; pvNote('Zoom in to see property lines.'); pvCross(); return; }
+    const b = lmap.getBounds();
+    if (pvBox && pvBox.contains(b) && !pvMore) { pvNote(''); pvCross(); return; }
+    if (!navigator.onLine) { pvNote('No signal. Property lines load when you have a connection.', true); if (!pvBox || !pvBox.contains(lmap.getCenter())) pvRow('Property lines need a signal'); return; }
+    pvTimer = setTimeout(async () => {
+      const seq = ++pvSeq, box = b.pad(.35);
+      if (!pvFeats.length) pvRow('Loading property lines…');
+      const q = PV_SVC + '/query?f=geojson&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&returnGeometry=true&geometryPrecision=6&outFields=OWNERNME1,OWNERNME2,GISACRES,CONAME&resultRecordCount=2000'
+        + '&geometry=' + [box.getWest(), box.getSouth(), box.getEast(), box.getNorth()].map(v => v.toFixed(5)).join(',');
+      try {
+        const r = await fetch(q); if (!r.ok) throw new Error('http ' + r.status);
+        const gj = await r.json(); if (seq !== pvSeq) return;
+        if (!gj || !Array.isArray(gj.features)) throw new Error('bad reply');
+        pvFeats = gj.features; pvBox = box; pvMore = !!(gj.exceededTransferLimit || (gj.properties && gj.properties.exceededTransferLimit));
+        pvLayer.clearLayers(); pvLayer.addData({ type:'FeatureCollection', features:gj.features.map(f => ({ type:'Feature', properties:{ _case:1 }, geometry:f.geometry })) }); pvLayer.addData(gj);
+        pvNote(pvMore ? 'Lots of parcels here. Zoom in to see them all.' : '');
+        pvCross();
+      } catch (e) {
+        if (seq !== pvSeq) return;
+        pvNote(navigator.onLine ? "Property lines aren't loading right now." : 'No signal. Property lines load when you have a connection.', true);
+        if (!pvBox || !pvBox.contains(lmap.getCenter())) pvRow("Couldn't load property lines here");
+      }
+    }, 350);
+  }
+  function setPv(on){
+    showPv = on; store.set('mapPv', on); $('pvOn').checked = on; $('pvBox').hidden = !on; $('pvRow').hidden = !on;
+    $('mCredit').textContent = on ? 'USGS · WI DNR · Parcels: State of WI' : 'Map: USGS · Public land: Wisconsin DNR';
+    if (!lmap) return;
+    if (!pvLayer) { lmap.createPane('pv'); const pn = lmap.getPane('pv'); pn.style.zIndex = 270; pn.style.pointerEvents = 'none';
+      const rn = L.canvas({ pane:'pv', padding:.4 });
+      pvLayer = L.geoJSON(null, { pane:'pv', renderer:rn, interactive:false, style:f => f.properties && f.properties._case ? { color:'#000', weight:3.6, opacity:.38, fill:false } : { color:'#ffe23d', weight:1.6, opacity:1, fill:false } });
+      lmap.on('moveend', pvLoad); lmap.on('move', () => { if (showPv && pvBox) pvCross(); }); }
+    if (on) { pvLayer.addTo(lmap); pvLoad(); } else { ++pvSeq; clearTimeout(pvTimer); lmap.removeLayer(pvLayer); }
+  }
+  $('pvOn').addEventListener('change', e => setPv(e.target.checked));
+  window.addEventListener('online', () => { if (showPv) pvLoad(); });
+
   render();
   setInterval(render, 30000);
   if (state.loc) setTimeout(() => loadWeather(false), 600);
@@ -2999,7 +3074,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
 
   // Update check: an installed app is often resumed from memory instead of reloaded,
   // so look for a newer version on launch and whenever the app comes back to the screen.
-  const BUILD = '2026.11.16-1409';
+  const BUILD = '2026.11.16-1528';
   let checking = false;
   async function checkForUpdate(){
     if (PREVIEW || checking || !/^https?:$/.test(location.protocol) || !navigator.onLine) return;

@@ -7,7 +7,7 @@
 <title>Walt's Shooting Hours</title>
 <meta name="theme-color" content="#141a16">
 <meta name="description" content="Walters Shooting Hours, Weather & Maps - DNR Didn't.">
-<meta name="app-build" content="2026.11.16-1345">
+<meta name="app-build" content="2026.11.16-1409">
 <link rel="preconnect" href="https://basemap.nationalmap.gov" crossorigin>
 <link rel="preconnect" href="https://dnrmaps.wi.gov" crossorigin>
 <link rel="manifest" href="manifest.webmanifest">
@@ -253,6 +253,35 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
 .privcard svg{width:20px;height:20px;color:var(--open)}
 .privcard b{display:block}
 .privcard span{display:block;font-size:.9rem;color:var(--muted);margin:3px 0 10px}
+.tpop{position:absolute;right:66px;bottom:12px;z-index:4;width:min(270px,calc(100% - 86px));background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 24px var(--shadow);padding:4px;display:flex;flex-direction:column}
+.tpop button{display:flex;gap:12px;align-items:center;border:0;background:none;text-align:left;padding:9px 10px;border-radius:8px;min-height:50px;color:var(--fg)}
+.tpop button+button{border-top:1px solid var(--line);border-radius:0}
+.tpop svg{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tpop b{display:block;font-weight:600} .tpop small{display:block;font-size:.8rem;color:var(--muted);line-height:1.2}
+.cpop{position:absolute;left:10px;top:calc(env(safe-area-inset-top,0px) + 64px);z-index:4;width:min(300px,calc(100% - 20px));box-sizing:border-box;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 24px var(--shadow);padding:10px;display:flex;gap:12px;align-items:center}
+.cdial{width:92px;height:92px;flex:none}
+.cdial .cring{fill:var(--bg);stroke:var(--line);stroke-width:2}
+.cdial .ctick{stroke:var(--fg);stroke-width:2.5} .cdial .ctick2{stroke:var(--muted);stroke-width:1.5}
+.cdial text{font:700 11px var(--body);fill:var(--muted)} .cdial text.cn{fill:var(--closed)}
+.cdial .cnorth{fill:var(--closed)} .cdial .csouth{fill:var(--muted)}
+.cdial .clubber{stroke:var(--fg);stroke-width:3;stroke-linecap:round}
+.cdial .ctarget{fill:var(--you);stroke:#fff;stroke-width:1.5;stroke-linejoin:round}
+.cinfo{min-width:0;flex:1}
+.chead{font:700 1.7rem/1.1 var(--display);font-variant-numeric:tabular-nums}
+.cto{font-size:.82rem;color:var(--muted);line-height:1.25;margin-top:3px}
+.cto.warn{color:var(--closed)}
+.cpop .xbtn{align-self:flex-start;width:34px;height:34px}
+.dstat{font-variant-numeric:tabular-nums;white-space:normal}
+.dhint{white-space:normal}
+#dBar .btnrow{align-items:center}
+#dBar .btn{padding:8px 12px;min-height:42px}
+#dBar .grow{flex:1}
+.dvert{cursor:pointer}
+#lmap.drawing .mlabel{display:none}
+#lmap.drawing .wmk{opacity:.45}
+.omsg{font-size:.8rem;color:var(--muted);margin:8px 0 0;line-height:1.3}
+.omsg.warn{color:var(--closed)}
+#oLegend img{border-radius:3px;flex:none}
 .fab.add{background:var(--blaze);border-color:var(--blaze);color:var(--blaze-ink)}
 .lsec{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--blaze);font-weight:700;padding:12px 0 0}
 .lpop{max-height:calc(100% - 80px);overflow:auto}
@@ -479,7 +508,8 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
       <p><b>Location is read only while the app is open:</b> when you tap Use my location, once automatically the first time you open the app, and on the Map while the locate button is on. It stops when you leave the Map or close the app. Clear saved location erases the saved spot and forecast.</p>
       <p><b>Your waypoints stay on this phone.</b> Waypoints, tracks and areas you add or import are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. Clearing your browser's data or uninstalling the app erases them, so export a backup now and then.</p>
       <p><b>Your hunt log stays on this phone.</b> Hunts you log, with your observations, harvest notes and locations, are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. To fill in a hunt's conditions, the National Weather Service receives that hunt's location rounded to about half a mile and returns readings from the nearest weather station. The moon phase is worked out on your phone. Clearing your browser's data or uninstalling the app erases the log, so export a backup now and then.</p>
-      <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land on, the Wisconsin DNR's map servers draw public land for that area and look up the property at the map's crosshair. Map images and public land lookups reveal only the area you're looking at, never your waypoint names, notes or files. None of these services needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
+      <p><b>Tracks, measurements and the compass stay on this phone.</b> Tracks you draw or record are saved with your waypoints, only on this phone. Measuring and the compass use your phone's own sensors and send nothing anywhere.</p>
+      <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land or Oak forest on, the Wisconsin DNR's map servers draw those layers for that area and look up the property at the map's crosshair. Map images and public land lookups reveal only the area you're looking at, never your waypoint names, notes or files. None of these services needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
       <p><b>Public land boundaries are for reference.</b> Check each property's rules, closures and posted boundaries before you hunt.</p>
     </div>
   </section>
@@ -514,9 +544,31 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
       <div class="lrow col" id="lOpRow"><div class="lhead"><label for="lOp"><b>Transparency</b></label><output id="lOpV" for="lOp">45%</output></div>
         <input type="range" id="lOp" min="0" max="90" step="5" value="45" aria-describedby="lOpHint"><div class="lticks" id="lOpHint"><span>Solid</span><span>See-through</span></div></div>
       <ul class="legend2" id="lLegend" aria-label="Legend"></ul>
+      <div class="lsec">Land cover</div>
+      <label class="lrow" for="oOn"><span><b>Oak forest</b><small>Wisconsin DNR land cover map (Wiscland 2)</small></span><input type="checkbox" id="oOn" role="switch"></label>
+      <div id="oBox" hidden><p class="omsg" id="oMsg" role="status"></p><ul class="legend2" id="oLegend" aria-label="Oak layer legend"></ul>
+        <p class="omsg">Mapped from satellite images (2010–2014) in 100-foot squares, 2-acre minimum. It shows stands where oak dominates, not single trees, and can be wrong in places.</p></div>
     </div>
     <div class="mnotice" id="mNotice" role="status" hidden></div>
+    <div class="tpop" id="tPop" role="menu" aria-label="Map tools" hidden>
+      <button type="button" role="menuitem" data-tool="track"><svg viewBox="0 0 24 24"><path d="M4 19c4-1 3-9 8-9s4 6 8 4"/><circle cx="4" cy="19" r="1.6"/><circle cx="20" cy="14" r="1.6"/></svg><span><b>Draw a track</b><small>Tap points on the map</small></span></button>
+      <button type="button" role="menuitem" data-tool="rec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"/></svg><span><b>Record my walk</b><small>GPS track while this screen is open</small></span></button>
+      <button type="button" role="menuitem" data-tool="dist"><svg viewBox="0 0 24 24"><path d="M3.5 16.5l13-13 4 4-13 13z"/><path d="M7.5 12.5l2 2M10.5 9.5l2 2M13.5 6.5l2 2"/></svg><span><b>Measure distance</b><small>Feet or miles, with bearing</small></span></button>
+      <button type="button" role="menuitem" data-tool="area"><svg viewBox="0 0 24 24"><path d="M4.5 8l8-4 7 5-2.5 10.5-11 .5z"/></svg><span><b>Measure area</b><small>Acres and distance around</small></span></button>
+      <button type="button" role="menuitem" data-tool="compass"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg><span><b>Compass</b><small>Heading and direction to a waypoint</small></span></button>
+    </div>
+    <div class="cpop" id="cPop" role="dialog" aria-label="Compass" hidden>
+      <svg viewBox="0 0 100 100" class="cdial" aria-hidden="true"><circle cx="50" cy="50" r="46" class="cring"/>
+        <g id="cRose"><path class="ctick" d="M50 6v8M94 50h-8M50 94v-8M6 50h8"/><path class="ctick2" d="M81.1 18.9l-4.2 4.2M81.1 81.1l-4.2-4.2M18.9 81.1l4.2-4.2M18.9 18.9l4.2 4.2"/>
+          <text x="50" y="27" text-anchor="middle" class="cn">N</text><text x="78" y="54" text-anchor="middle">E</text><text x="50" y="82" text-anchor="middle">S</text><text x="22" y="54" text-anchor="middle">W</text>
+          <path class="cnorth" d="M50 30l5 20h-10z"/><path class="csouth" d="M50 70l5-20h-10z"/></g>
+        <g id="cTarget" style="display:none"><path class="ctarget" d="M50 1l7 12H43z"/></g>
+        <path class="clubber" d="M50 0v9"/></svg>
+      <div class="cinfo"><div class="eyebrow">Heading (magnetic)</div><div class="chead" id="cHead">—</div><div class="cto" id="cTo"></div><div class="cto warn" id="cMsg" hidden></div></div>
+      <button class="xbtn" id="cClose" type="button" aria-label="Close compass"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
     <div class="mside">
+      <button class="fab" id="tBtn" type="button" aria-label="Map tools" aria-expanded="false" title="Map tools"><svg viewBox="0 0 24 24"><path d="M3.5 16.5l13-13 4 4-13 13z"/><path d="M7.5 12.5l2 2M10.5 9.5l2 2M13.5 6.5l2 2"/></svg></button>
       <button class="fab" id="wListBtn" type="button" aria-label="My waypoints" title="My waypoints"><svg viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11"/><circle cx="4.8" cy="6.5" r="1.3"/><circle cx="4.8" cy="12" r="1.3"/><circle cx="4.8" cy="17.5" r="1.3"/></svg></button>
       <button class="fab add" id="wAddBtn" type="button" aria-label="Add waypoint" title="Add waypoint"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
       <button class="fab" id="mLocate" type="button" aria-pressed="false" aria-label="Show my location" title="Show my location"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg></button>
@@ -533,6 +585,10 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
     </div>
   </div>
   <div class="wmove" id="wMoveBar" role="dialog" aria-label="Move waypoint" hidden><div class="in"><div style="min-width:0"><div class="eyebrow">Moving</div><div class="mname" id="wMoveName"></div><div class="mmeta2">Drag the map until the crosshair is on the new spot.</div></div><div class="btnrow"><button class="btn" id="wMoveCancel" type="button">Cancel</button><button class="btn primary" id="wMoveSave" type="button">Save here</button></div></div></div>
+  <div class="wmove" id="dBar" role="dialog" aria-label="Drawing" hidden><div class="in">
+    <div style="min-width:0"><div class="eyebrow" id="dTitle"></div><div class="mname dstat" id="dStat" aria-live="polite"></div><div class="mmeta2 dhint" id="dHint"></div></div>
+    <div class="btnrow"><button class="btn primary" id="dAdd" type="button">Add point</button><button class="btn" id="dMove" type="button" hidden>Move here</button><button class="btn" id="dDel" type="button" hidden>Remove</button><button class="btn" id="dUndo" type="button">Undo</button><span class="grow"></span><button class="btn" id="dCancel" type="button">Cancel</button><button class="btn primary" id="dSave" type="button">Save</button></div>
+  </div></div>
   <div class="msheet" aria-live="polite">
     <div class="in">
       <div class="mrow">
@@ -1672,6 +1728,8 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     window.scrollTo(0, 0);
     if (t === 'weather') { renderWeather(); loadWeather(false); }
     if (t === 'map') openMap();
+    if (t === 'map' && draw && draw.mode === 'rec') { startWatch(); wake(true); }
+    if (prev === 'map') { toolsPop(false); stopCompass(); }
     if (t === 'hunts') renderHunts();
   }
   document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
@@ -1878,7 +1936,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     lmap.createPane('land'); lmap.getPane('land').style.zIndex = 250;
     landGroup = L.layerGroup(LAND.map(l => new ExportTiles(l.url, l.layers, { pane:'land', tileSize:512, minZoom:7, maxZoom:18, keepBuffer:1 })));
     setLandT(landT);
-    setBase(layerKey); setLand(showLand);
+    setBase(layerKey); setLand(showLand); setOak(showOak);
     lmap.on('move', () => { if (!sheetRaf) sheetRaf = requestAnimationFrame(() => { sheetRaf = 0; updateSheet(); }); });
     lmap.on('movestart', () => { clearTimeout(landTimer); });
     lmap.on('moveend', () => { updateSheet(); checkLand(); });
@@ -1970,7 +2028,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     const mid = lmap.getSize().divideBy(2), near = ll => lmap.latLngToContainerPoint(ll).distanceTo(mid) < 14;
     const atMe = !!(meLL && watchId != null && near(meLL));
     const atSpot = !atMe && !!(state.loc && near([state.loc.lat, state.loc.lon]));
-    document.querySelector('.reticle').hidden = !movingId && (atMe || atSpot);
+    document.querySelector('.reticle').hidden = draw ? draw.mode === 'rec' : (!movingId && (atMe || atSpot));
     $('mLabel').textContent = atMe ? 'Your location' + (meAccM ? ' · ±' + feet(meAccM) : '') : atSpot ? 'Your hunting spot' : 'At the crosshair';
     $('mName').textContent = info.county ? info.county.n + ' County' : 'Outside Wisconsin';
     const set = $('mSet'); set.disabled = !!atSpot; set.textContent = atSpot ? 'Hunting spot ✓' : 'Set as hunting spot';
@@ -1983,7 +2041,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     if (watchId != null) { follow = true; if (meLL) lmap.setView(meLL, Math.max(lmap.getZoom(), 15)); locBtnState(); updateSheet(); return; }
     follow = true; firstFix = true; mNotice('Finding your location…');
     const ok = pos => {
-      const p = [pos.coords.latitude, pos.coords.longitude]; meLL = p; meAccM = Math.round(pos.coords.accuracy || 0);
+      const p = [pos.coords.latitude, pos.coords.longitude]; meLL = p; meAccM = Math.round(pos.coords.accuracy || 0); recFix(pos);
       if (!meMk) {
         meAcc = L.circle(p, { radius:meAccM, interactive:false, weight:1, color:'#1a73e8', fillColor:'#1a73e8', fillOpacity:.12 }).addTo(lmap);
         meMk = L.marker(p, { interactive:false, keyboard:false, zIndexOffset:1000, icon:L.divIcon({ className:'meicon', html:'<div class="medot"></div>', iconSize:[18, 18], iconAnchor:[9, 9] }) }).addTo(lmap);
@@ -1992,7 +2050,11 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
       if (follow) lmap.setView(p, firstFix ? Math.max(lmap.getZoom(), 15) : lmap.getZoom(), { animate:!firstFix });
       firstFix = false; mNotice(null); updateSheet();
     };
-    const bad = err => { stopWatch(); mNotice(err && err.code === 1 ? 'Location is blocked for this app. Allow it in your browser settings.' : "Couldn't get a GPS fix. Try again with a clearer view of the sky."); };
+    const bad = err => {
+      if (err && err.code === 1) { stopWatch(); mNotice('Location is blocked for this app. Allow it in your browser settings.'); return; }
+      if (watchId === -1) { stopWatch(); mNotice("Couldn't get a GPS fix. Try again with a clearer view of the sky."); return; }
+      if (firstFix) mNotice('Still looking for a GPS fix. A clearer view of the sky helps.');  // temporary dropouts: keep trying
+    };
     if (typeof g.watchPosition === 'function') watchId = g.watchPosition(ok, bad, { enableHighAccuracy:true, maximumAge:5000, timeout:30000 });
     else { watchId = -1; g.getCurrentPosition(ok, bad, { enableHighAccuracy:true, maximumAge:60000, timeout:20000 }); }
     locBtnState();
@@ -2125,7 +2187,8 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
   // ---- map drawing ----
   function attachMarks(){
     markLayer = L.layerGroup(); if (showMarks) markLayer.addTo(lmap);
-    lmap.on('click', () => { if (!movingId) closeDetail(); });
+    lmap.on('click', e => { if (draw) { addPoint([e.latlng.lat, e.latlng.lng]); return; } if (!movingId) closeDetail(); });
+    lmap.on('move', moveDraw);
     lmap.on('zoomend', labelVis); lmap.on('moveend', declutter); labelVis(); drawMarks(); countText();
   }
   function labelVis(){ if (lmap) { $('lmap').classList.toggle('nolabels', !showLabels || lmap.getZoom() < 14); declutter(); } }
@@ -2151,7 +2214,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     if (!lmap || !markLayer) return;
     markLayer.clearLayers(); markObj = {};
     for (const m of marks) {
-      if (m.id === movingId) continue;
+      if (m.id === movingId || (draw && draw.editId === m.id)) continue;
       let o;
       if (m.kind === 'wpt') {
         const s = markSvg(m);
@@ -2159,12 +2222,13 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
           icon:L.divIcon({ className:'wmk' + (m.id === selId ? ' sel' : ''), html:s.svg, iconSize:[s.w, s.h], iconAnchor:[s.ax, s.ay] }) });
         o.bindTooltip(esc(m.name), { permanent:true, direction:'right', offset:[s.w - s.ax + 2, -s.h / 2 + s.ay - s.h / 2 + (m.style === 'badge' ? 0 : s.h / 2 - 6)], className:'mlabel', interactive:false });
       } else if (m.kind === 'trk') {
-        o = L.featureGroup(m.segs.map(sg => L.polyline(sg.map(p => [p[0], p[1]]), { color:toHex(m.color) || '#00ffff', weight:(m.weight || 3) + (m.id === selId ? 2 : 0), opacity:.95, dashArray:m.line === 'dash' ? '8 7' : null })));
+        o = L.featureGroup(m.segs.map(sg => L.polyline(sg.map(p => [p[0], p[1]]), { color:toHex(m.color) || '#00ffff', weight:(m.weight || 3) + (m.id === selId ? 2 : 0), opacity:.95, dashArray:m.line === 'dash' ? '8 7' : null }))
+          .concat(m.segs.map(sg => L.polyline(sg.map(p => [p[0], p[1]]), { color:'#000', opacity:0, weight:26 }))));  // wide invisible line so a track is easy to tap
       } else if (m.kind === 'area') {
         o = L.polygon(m.pts.map(p => [p[0], p[1]]), { color:toHex(m.color) || '#ff3300', weight:m.id === selId ? 4 : 2, fillColor:toHex(m.fill) || toHex(m.color) || '#4a90e2', fillOpacity:m.fillOp != null ? Math.max(.08, m.fillOp) : .15 });
       }
       if (!o) continue;
-      o.on('click', e => { L.DomEvent.stopPropagation(e); selectMark(m.id); });
+      o.on('click', e => { L.DomEvent.stopPropagation(e); if (draw) { addPoint(m.kind === 'wpt' ? [m.lat, m.lon] : [e.latlng.lat, e.latlng.lng]); return; } selectMark(m.id); });  // while drawing, a tap on a waypoint snaps to it
       o.addTo(markLayer); markObj[m.id] = o;
     }
     declutter();
@@ -2178,6 +2242,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
   // ---- detail card ----
   function selectMark(id){
     const m = marks.find(x => x.id === id); if (!m) return;
+    if (draw) return;
     selId = id; drawMarks();
     $('wdBadge').innerHTML = listBadge(m, 40);
     $('wdName').textContent = m.name || 'Untitled';
@@ -2189,12 +2254,12 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     if (m.ele != null) info.push(Math.round(m.ele * 3.281).toLocaleString() + ' ft elevation');
     if (m.acc) info.push('GPS ±' + feet(m.acc));
     $('wdInfo').innerHTML = info.map(t => `<span>${esc(t)}</span>`).join('');
-    $('wdSpot').hidden = m.kind !== 'wpt';
+    $('wdSpot').hidden = m.kind !== 'wpt'; $('wdMove').textContent = m.kind === 'wpt' ? 'Move' : 'Edit shape';
     $('wDetail').hidden = false; document.querySelector('.msheet').hidden = true;
   }
   function closeDetail(){
     if ($('wDetail').hidden && !selId) return;
-    $('wDetail').hidden = true; document.querySelector('.msheet').hidden = false;
+    $('wDetail').hidden = true; document.querySelector('.msheet').hidden = !!draw;
     if (selId) { selId = null; drawMarks(); }
   }
   $('wdClose').addEventListener('click', closeDetail);
@@ -2728,6 +2793,201 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     hMsg(fresh.length ? 'Imported ' + fresh.length + ' hunt' + (fresh.length === 1 ? '' : 's') + ' from ' + f.name + '. Saved only on this phone.' : 'Every hunt in ' + f.name + ' is already in your log.');
   });
 
+  // ===================== Map tools: draw and edit tracks, record, measure, compass =====================
+  var draw = null, drawLayer = null, wakeLock = null;
+  const DRAW_COL = '#ff6a1f';
+  const lenOf = pts => pts.reduce((t, p, i) => i ? t + dist(pts[i - 1], p) : 0, 0);
+  const fmtLen = m => { const ft = m * 3.28084; return ft < 1000 ? Math.round(ft).toLocaleString() + ' ft' : (m / 1609.344).toFixed(2) + ' mi'; };
+  const fmtAcres = a => (a < 10 ? a.toFixed(2) : a < 100 ? a.toFixed(1) : Math.round(a).toLocaleString()) + ' acres';
+  const brgTxt = b => String(Math.round(b) % 360).padStart(3, '0') + '° ' + DIR8S[Math.round(b / 45) % 8];
+  function toolsPop(open){ $('tPop').hidden = !open; $('tBtn').setAttribute('aria-expanded', String(open)); }
+  $('tBtn').addEventListener('click', e => { e.stopPropagation(); if (lmap) { landPanel(false); toolsPop($('tPop').hidden); } });
+  $('view-map').addEventListener('pointerdown', e => { if (!$('tPop').hidden && !e.target.closest('#tPop,#tBtn')) toolsPop(false); });
+  $('tPop').addEventListener('click', e => { const b = e.target.closest('button[data-tool]'); if (!b) return; toolsPop(false); if (b.dataset.tool === 'compass') startCompass(); else startDraw(b.dataset.tool); });
+
+  async function wake(on){
+    try { if (on) { if (!wakeLock && navigator.wakeLock) { wakeLock = await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release', () => { wakeLock = null; }); } } else if (wakeLock) { const w = wakeLock; wakeLock = null; await w.release(); } } catch (e) { wakeLock = null; }
+  }
+  function startDraw(mode, m){
+    if (!lmap) return;
+    if (draw) endDraw(false);
+    closeDetail(); landPanel(false);
+    draw = { mode, pts:[], sel:null, undo:[], editId:null, poly: mode === 'area', name:'' };
+    if (m) { draw.mode = 'edit'; draw.editId = m.id; draw.name = m.name || 'Untitled'; draw.poly = m.kind === 'area'; draw.pts = JSON.parse(JSON.stringify(m.kind === 'area' ? m.pts : m.segs[0])); }
+    if (!drawLayer) drawLayer = L.layerGroup().addTo(lmap);
+    document.querySelector('.msheet').hidden = true; $('dBar').hidden = false; $('lmap').classList.add('drawing');
+    if (m) { drawMarks(); lmap.fitBounds(L.latLngBounds(draw.pts.map(p => [p[0], p[1]])), { padding:[40, 40], maxZoom:18 }); }
+    if (mode === 'rec') { startWatch(); wake(true); }
+    paintDraw();
+  }
+  function addPoint(p){
+    if (!draw || draw.mode === 'rec') return;
+    draw.undo.push(JSON.stringify(draw.pts)); if (draw.undo.length > 60) draw.undo.shift();
+    if (draw.sel != null) { draw.pts.splice(draw.sel + 1, 0, p); draw.sel++; } else draw.pts.push(p);
+    paintDraw();
+  }
+  function recFix(pos){
+    if (!draw || draw.mode !== 'rec') return;
+    const c = pos.coords; if (c.accuracy > 50) { paintDraw(); return; }
+    const p = [c.latitude, c.longitude, typeof c.altitude === 'number' ? +c.altitude.toFixed(1) : null, Date.now()], last = draw.pts[draw.pts.length - 1];
+    if (!last || dist(last, p) >= 8) { draw.pts.push(p); paintDraw(); }
+  }
+  function drawStats(){
+    const pts = draw.pts, n = pts.length, c = lmap.getCenter(), ctr = [c.lat, c.lng];
+    let main, hint = '';
+    if (draw.poly) {
+      main = n >= 3 ? fmtAcres(areaAcres(pts)) + ' · ' + fmtLen(lenOf(pts.concat([pts[0]]))) + ' around' : n + ' of 3 points needed';
+      hint = n < 3 ? 'Tap the map or use Add point to mark each corner.' : 'Tap a point to move or remove it.';
+    } else {
+      main = (n >= 2 ? fmtLen(lenOf(pts)) : '0 ft') + ' · ' + n + ' point' + (n === 1 ? '' : 's');
+      if (draw.mode === 'rec') hint = (watchId == null ? 'Waiting for GPS… ' : '') + 'Keep this screen open. Recording pauses if you leave the app.';
+      else { const a = draw.sel != null ? pts[draw.sel] : pts[n - 1]; hint = a ? 'Crosshair: ' + fmtLen(dist(a, ctr)) + ' at ' + brgTxt(bearing(a, ctr)) + ' from the ' + (draw.sel != null ? 'selected' : 'last') + ' point' : 'Tap the map, or drag it and use Add point at the crosshair.'; }
+    }
+    $('dStat').textContent = main; $('dHint').textContent = hint;
+  }
+  function paintDraw(){
+    if (!draw) return;
+    const pts = draw.pts, ll = pts.map(p => [p[0], p[1]]), rec = draw.mode === 'rec';
+    drawLayer.clearLayers(); draw.rub = null;
+    if (draw.poly && ll.length >= 3) { L.polygon(ll, { color:'#fff', weight:6, fill:false, interactive:false }).addTo(drawLayer); L.polygon(ll, { color:DRAW_COL, weight:3, fillColor:DRAW_COL, fillOpacity:.18, interactive:false }).addTo(drawLayer); }
+    else if (ll.length >= 2) { L.polyline(ll, { color:'#fff', weight:7, interactive:false }).addTo(drawLayer); L.polyline(ll, { color:DRAW_COL, weight:4, interactive:false }).addTo(drawLayer); }
+    if (!rec) {
+      draw.rub = L.polyline([], { color:DRAW_COL, weight:2, dashArray:'5 6', interactive:false }).addTo(drawLayer);
+      ll.forEach((p, i) => L.circleMarker(p, { radius: i === draw.sel ? 10 : ll.length > 25 ? 5 : 7, color:'#fff', weight:2, fillColor: i === draw.sel ? '#1a73e8' : DRAW_COL, fillOpacity:1, bubblingMouseEvents:false, className:'dvert' })
+        .on('click', () => { draw.sel = draw.sel === i ? null : i; paintDraw(); }).addTo(drawLayer));
+    }
+    const T = { track:'Drawing a track', dist:'Measuring distance', area:'Measuring an area', rec:'Recording your walk', edit:'Editing ' + draw.name };
+    $('dTitle').textContent = T[draw.mode];
+    const need = draw.poly ? 3 : 2, sel = draw.sel != null;
+    $('dAdd').hidden = rec; $('dAdd').textContent = sel ? 'Insert point' : 'Add point';
+    $('dUndo').hidden = rec; $('dUndo').disabled = !draw.undo.length;
+    $('dMove').hidden = !sel; $('dDel').hidden = !sel;
+    $('dCancel').textContent = draw.mode === 'dist' || draw.mode === 'area' ? 'Close' : 'Cancel';
+    $('dSave').textContent = { track:'Save', dist:'Save as track', area:'Save as area', rec:'Stop & save', edit:'Save changes' }[draw.mode];
+    $('dSave').disabled = pts.length < need;
+    document.querySelector('.reticle').hidden = rec;
+    moveDraw();
+  }
+  function moveDraw(){
+    if (!draw || !lmap) return;
+    if (draw.rub) { const n = draw.pts.length, a = draw.sel != null ? draw.pts[draw.sel] : draw.pts[n - 1], c = lmap.getCenter(); draw.rub.setLatLngs(a ? [[a[0], a[1]], [c.lat, c.lng]] : []); }
+    drawStats();
+  }
+  async function endDraw(save){
+    const d = draw; if (!d) return;
+    let saved = null;
+    if (save && d.pts.length >= (d.poly ? 3 : 2)) {
+      const now = Date.now(), lbl = new Date(now).toLocaleString('en-US', { timeZone:'America/Chicago', month:'numeric', day:'numeric', hour:'numeric', minute:'2-digit' });
+      if (d.editId) { const m = marks.find(x => x.id === d.editId); if (m) { if (m.kind === 'area') m.pts = d.pts.map(p => [p[0], p[1]]); else m.segs = [d.pts]; m.updated = now; saved = m; } }
+      else if (d.poly) saved = { id:uid(), kind:'area', name:'Area ' + lbl, notes:'', pts:d.pts.map(p => [p[0], p[1]]), created:now, updated:now, color:'#ff3300', fill:'#4a90e2', fillOp:.15 };
+      else saved = { id:uid(), kind:'trk', name:(d.mode === 'rec' ? 'Walk ' : 'Track ') + lbl, notes:'', segs:[d.pts], created:now, updated:now, color:'#00ffff', line:'solid', weight:3, from: d.mode === 'rec' ? 'gps' : 'drawn' };
+      try { await DB.put(saved); } catch (e) { mNotice("Couldn't save. This browser may be blocking storage."); return; }
+      if (!d.editId) marks.push(saved);
+      changed(1); persist();
+    }
+    if (d.mode === 'rec') wake(false);
+    draw = null; if (drawLayer) drawLayer.clearLayers(); $('lmap').classList.remove('drawing');
+    $('dBar').hidden = true; document.querySelector('.msheet').hidden = false;
+    if (!showMarks && saved) setMarks(true);
+    drawMarks(); countText(); updateSheet();
+    if (saved) { selectMark(saved.id); if (!d.editId) { openEditor(saved); $('weTitle').textContent = saved.kind === 'trk' ? 'Name your track' : 'Name your area'; } }
+  }
+  $('dAdd').addEventListener('click', () => { const c = lmap.getCenter(); addPoint([c.lat, c.lng]); });
+  $('dUndo').addEventListener('click', () => { if (draw && draw.undo.length) { draw.pts = JSON.parse(draw.undo.pop()); draw.sel = null; paintDraw(); } });
+  $('dMove').addEventListener('click', () => { if (!draw || draw.sel == null) return; draw.undo.push(JSON.stringify(draw.pts)); const c = lmap.getCenter(); draw.pts[draw.sel] = [c.lat, c.lng]; paintDraw(); });
+  $('dDel').addEventListener('click', () => { if (!draw || draw.sel == null) return; draw.undo.push(JSON.stringify(draw.pts)); draw.pts.splice(draw.sel, 1); draw.sel = null; paintDraw(); });
+  $('dCancel').addEventListener('click', () => endDraw(false));
+  $('dSave').addEventListener('click', () => endDraw(true));
+  $('wdMove').addEventListener('click', () => {
+    const m = marks.find(x => x.id === selId); if (!m || m.kind === 'wpt') return;
+    if (m.kind === 'trk' && m.segs.length !== 1) { mNotice('This track has ' + m.segs.length + ' separate parts, so its shape can’t be edited here. You can still rename, recolor or delete it with Edit.'); setTimeout(() => mNotice(null), 6000); return; }
+    startDraw('edit', m);
+  });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && draw && draw.mode === 'rec' && tab === 'map') { startWatch(); wake(true); } });
+
+  // ---- compass ----
+  let compOn = false, heading = null, compTimer = 0;
+  function onOrient(e){
+    let h = null;
+    if (typeof e.webkitCompassHeading === 'number') h = e.webkitCompassHeading;
+    else if (e.absolute && typeof e.alpha === 'number') h = (360 - e.alpha) % 360;
+    if (h == null || isNaN(h)) return;
+    if (heading == null) heading = h; else { const dlt = ((h - heading + 540) % 360) - 180; heading = (heading + dlt * .35 + 360) % 360; }
+    paintCompass();
+  }
+  function paintCompass(){
+    if (!compOn) return;
+    const has = heading != null;
+    $('cHead').textContent = has ? brgTxt(heading) : '—';
+    $('cRose').setAttribute('transform', `rotate(${has ? -heading : 0} 50 50)`);
+    const m = selId ? marks.find(x => x.id === selId) : null, tgt = m ? { p:markPt(m), name:m.name || 'Untitled' } : state.loc ? { p:[state.loc.lat, state.loc.lon], name:'Hunting spot' } : null;
+    const from = meLL && watchId != null ? meLL : null, arrow = $('cTarget');
+    if (tgt && from) { const b = bearing(from, tgt.p), dd = dist(from, tgt.p); $('cTo').textContent = dd < 10 ? 'You are at ' + tgt.name : tgt.name + ': ' + brgTxt(b) + ' · ' + fmtLen(dd); arrow.style.display = has && dd >= 10 ? '' : 'none'; arrow.setAttribute('transform', `rotate(${b - (heading || 0)} 50 50)`); }
+    else { arrow.style.display = 'none'; $('cTo').textContent = tgt ? 'Turn on location to point to ' + tgt.name + '.' : 'Tap a waypoint to see its direction.'; }
+  }
+  async function startCompass(){
+    compOn = true; heading = null; $('cPop').hidden = false; $('cMsg').hidden = true; paintCompass();
+    addEventListener('deviceorientationabsolute', onOrient, true); addEventListener('deviceorientation', onOrient, true);
+    let denied = false;
+    clearTimeout(compTimer); compTimer = setTimeout(() => { if (compOn && heading == null) { $('cMsg').textContent = denied ? 'Compass access was not allowed. Allow Motion & Orientation for this app, then open the compass again.' : "This phone or browser isn't sharing a compass reading. Bearings to waypoints still work with location on."; $('cMsg').hidden = false; } }, 3000);
+    // iPhones (and some other browsers) ask before sharing the compass
+    try { if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') { const r = await DeviceOrientationEvent.requestPermission(); if (r !== 'granted') denied = true; } } catch (e) { denied = true; }
+  }
+  function stopCompass(){ compOn = false; $('cPop').hidden = true; clearTimeout(compTimer); removeEventListener('deviceorientationabsolute', onOrient, true); removeEventListener('deviceorientation', onOrient, true); }
+  $('cClose').addEventListener('click', stopCompass);
+  setInterval(() => { if (compOn) paintCompass(); }, 1500);
+
+  // ===================== Oak forest layer (Wisconsin DNR Wiscland 2 land cover) =====================
+  const OAK_SVC = 'https://dnrmaps.wi.gov/arcgis_image/rest/services/DW_Land_Cover/EN_Land_Cover2_Lev3_Broadlv_Deciduous/MapServer';
+  const OAK_SHOW = [255, 176, 0];
+  let oakLayer = null, showOak = store.get('mapOak', false), oakRGB = null, oakMode = 'probe', oakLegend = null, oakErrs = 0;
+  const exportUrl = (map, svc, coords, ts) => { const nw = coords.scaleBy(ts), a = L.CRS.EPSG3857.project(map.unproject(nw, coords.z)), b = L.CRS.EPSG3857.project(map.unproject(nw.add(ts), coords.z));
+    return `${svc}/export?bbox=${a.x.toFixed(1)},${b.y.toFixed(1)},${b.x.toFixed(1)},${a.y.toFixed(1)}&bboxSR=3857&imageSR=3857&size=${ts.x},${ts.y}&dpi=96&format=png32&transparent=true&layers=show:0&f=image`; };
+  const OakTiles = L.GridLayer.extend({
+    createTile(coords, done){
+      const ts = this.getTileSize(), url = exportUrl(this._map, OAK_SVC, coords, ts);
+      if (oakMode !== 'only') { const im = document.createElement('img'); im.alt = ''; im.onload = () => done(null, im); im.onerror = () => { oakFail(); done(new Error('load'), im); }; im.src = url; return im; }
+      const cv = document.createElement('canvas'); cv.width = ts.x; cv.height = ts.y;
+      const im = new Image(); im.crossOrigin = 'anonymous';
+      im.onload = () => { try { const g = cv.getContext('2d', { willReadFrequently:true }); g.drawImage(im, 0, 0, ts.x, ts.y); const d = g.getImageData(0, 0, ts.x, ts.y), px = d.data, [r0, g0, b0] = oakRGB;
+          for (let i = 0; i < px.length; i += 4) { if (px[i + 3] > 40 && Math.abs(px[i] - r0) < 20 && Math.abs(px[i + 1] - g0) < 20 && Math.abs(px[i + 2] - b0) < 20) { px[i] = OAK_SHOW[0]; px[i + 1] = OAK_SHOW[1]; px[i + 2] = OAK_SHOW[2]; px[i + 3] = 255; } else px[i + 3] = 0; }
+          g.putImageData(d, 0, 0); oakErrs = 0; done(null, cv); } catch (e) { oakToAll(); done(e, cv); } };
+      im.onerror = () => { oakFail(); done(new Error('load'), cv); };
+      im.src = url; return cv;
+    }
+  });
+  function oakFail(){ if (++oakErrs === 4) oakNote(navigator.onLine ? "Oak forest images aren't loading from the DNR right now." : "No signal. Oak areas you've already viewed still show.", true); }
+  function oakNote(t, warn){ const el = $('oMsg'); el.textContent = t; el.classList.toggle('warn', !!warn); }
+  function oakLegendPaint(){
+    const el = $('oLegend');
+    if (oakMode === 'only') el.innerHTML = `<li><i style="background-color:rgb(${OAK_SHOW.join(',')})"></i><span>Oak forest</span></li>`;
+    else if (oakLegend) el.innerHTML = oakLegend.map(x => `<li><img alt="" src="data:${esc(x.contentType || 'image/png')};base64,${esc(x.imageData)}" width="16" height="16"><span>${/oak/i.test(x.label) ? '<b>' + esc(x.label) + '</b>' : esc(x.label)}</span></li>`).join('');
+    else el.innerHTML = '';
+  }
+  function oakToAll(){ if (oakMode === 'all') return; oakMode = 'all'; oakNote('Showing all five hardwood forest types. The oak-only view isn’t available on this connection.'); oakLegendPaint(); if (oakLayer) oakLayer.redraw(); }
+  async function oakProbe(){
+    // The DNR's own legend tells us which color it draws oak in; with it, the app keeps only the oak areas.
+    oakNote('Loading oak forest from the Wisconsin DNR…');
+    try {
+      const lg = await (await fetch(OAK_SVC + '/legend?f=json')).json(), items = (lg.layers && lg.layers[0] && lg.layers[0].legend) || [];
+      oakLegend = items.filter(x => x.imageData); const oak = items.find(x => /^\s*oak\b/i.test(x.label || '')) || items.find(x => /oak/i.test(x.label || ''));
+      if (!oak) throw new Error('no oak class');
+      oakRGB = await new Promise((res, rej) => { const im = new Image(); im.onload = () => { try { const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height; const g = cv.getContext('2d'); g.drawImage(im, 0, 0); const d = g.getImageData(Math.floor(im.width / 2), Math.floor(im.height / 2), 1, 1).data; d[3] > 0 ? res([d[0], d[1], d[2]]) : rej(new Error('blank')); } catch (e) { rej(e); } }; im.onerror = rej; im.src = 'data:' + (oak.contentType || 'image/png') + ';base64,' + oak.imageData; });
+      oakMode = 'only'; oakNote('Showing oak forest only.');
+    } catch (e) { oakMode = 'all'; oakNote(navigator.onLine ? 'Showing all five hardwood forest types. The oak-only view isn’t available on this connection.' : 'No signal. Oak forest loads when you have a connection.', !navigator.onLine); }
+    oakLegendPaint();
+  }
+  async function setOak(on){
+    showOak = on; store.set('mapOak', on); $('oOn').checked = on; $('oBox').hidden = !on;
+    if (!lmap) return;
+    if (!on) { if (oakLayer) lmap.removeLayer(oakLayer); return; }
+    if (oakMode === 'probe' || (oakMode === 'all' && !oakLegend)) await oakProbe();
+    if (!showOak) return;
+    if (!oakLayer) { lmap.createPane('oak'); lmap.getPane('oak').style.zIndex = 260; oakLayer = new OakTiles({ pane:'oak', tileSize:512, minZoom:8, maxZoom:18, opacity:.6, keepBuffer:1, className:'oaktiles' }); }
+    oakLayer.addTo(lmap); oakLayer.redraw();
+  }
+  $('oOn').addEventListener('change', e => setOak(e.target.checked));
+
   render();
   setInterval(render, 30000);
   if (state.loc) setTimeout(() => loadWeather(false), 600);
@@ -2739,7 +2999,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
 
   // Update check: an installed app is often resumed from memory instead of reloaded,
   // so look for a newer version on launch and whenever the app comes back to the screen.
-  const BUILD = '2026.11.16-1345';
+  const BUILD = '2026.11.16-1409';
   let checking = false;
   async function checkForUpdate(){
     if (PREVIEW || checking || !/^https?:$/.test(location.protocol) || !navigator.onLine) return;

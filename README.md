@@ -24,10 +24,12 @@ Wrap the hosted URL as a Trusted Web Activity with Bubblewrap (`npx @bubblewrap/
 - **Weather:** National Weather Service forecast for your hunting spot: now, wind and scent, next 24 hours, 7 days with wind.
 - **Map:** USGS The National Map (Topo, Air photo, Hybrid), your GPS location, and Wisconsin DNR public land with on/off, transparency and a legend. Map areas you've viewed are saved for use without a signal.
 - **My waypoints:** add waypoints with symbol, color, style and notes; import GPX/KML (onX, Garmin, Gaia GPS, Google Earth); export GPX, KML or CSV. Tracks and areas from imported files are shown too.
+- **Map tools:** draw a track or record one as you walk, measure distance or area, reshape saved tracks and areas, rename/recolor/delete anything, and a compass with bearing to a selected waypoint. Recording needs the app open with the screen on.
+- **Oak forest layer:** oak-dominated stands from the Wisconsin DNR Wiscland 2 land cover (2016, 30 m resolution, about 2-acre minimum). It shows stands, not individual trees. If oak can't be separated on a phone, all five hardwood types are shown with a legend.
 - **Hunts:** a hunt log (date, species, location, observations, harvest) that adds the day's high/low, average wind and direction, barometric pressure (from the nearest National Weather Service station) and moon phase (computed on the phone). CSV export and import.
 
 ## Privacy
-The hunt log, waypoints, tracks and areas are stored only on the phone that created or imported them (in the browser's on-device storage for this app). They are never uploaded, are not in this repository, and leave the phone only when the user exports a file. The weather service receives the hunting spot rounded to about half a mile; map and public-land services see only the map area being viewed.
+The hunt log, waypoints, tracks and areas are stored only on the phone that created or imported them (in the browser's on-device storage for this app). They are never uploaded, are not in this repository, and leave the phone only when the user exports a file. The weather service receives the hunting spot rounded to about half a mile; map, public-land and oak-forest services see only the map area being viewed. The compass and measurements are worked out on the phone.
 
 ## Data sources
 - Wisconsin DNR shooting-hours tables (2026) and Wis. Admin. Code NR 10.06

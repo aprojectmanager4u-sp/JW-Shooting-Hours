@@ -7,7 +7,7 @@
 <title>Walt's Shooting Hours</title>
 <meta name="theme-color" content="#141a16">
 <meta name="description" content="Walters Shooting Hours, Weather & Maps - DNR Didn't.">
-<meta name="app-build" content="2026.11.16-1528">
+<meta name="app-build" content="2026.11.19-1240">
 <link rel="preconnect" href="https://basemap.nationalmap.gov" crossorigin>
 <link rel="preconnect" href="https://dnrmaps.wi.gov" crossorigin>
 <link rel="manifest" href="manifest.webmanifest">
@@ -358,6 +358,71 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
 .fmtrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .fmt{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 8px;text-align:left;display:flex;flex-direction:column;gap:3px;min-height:72px}
 .fmt b{font-family:var(--display);font-size:1.2rem}
+.wpbody>*{flex-shrink:0}
+.hsec{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.hsec h4{margin:0;font:600 1.15rem/1.2 var(--display);letter-spacing:.01em}
+.hsec .fld input,.hsec .fld select,.hsec .fld textarea,.hsec .seg2{background:var(--bg)}
+.hpanel .fld input[type=time]{font:inherit;color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:10px 11px;min-height:46px;width:100%;box-sizing:border-box;min-width:0}
+.hpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.hpair.hwide{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.hpair .fld{min-width:0}
+.hhint{margin:-2px 0 0;font-size:.82rem;color:var(--muted)}
+.hhint:empty{display:none}
+.hkill{display:flex;flex-direction:column;gap:12px}
+.hkill[hidden]{display:none}
+.hcount{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.hcrow{display:flex;align-items:center;gap:6px;padding:6px 8px 6px 14px}
+.hcrow+.hcrow{border-top:1px solid var(--line)}
+.hcrow span{flex:1;font-weight:600;min-width:0}
+.hcrow button{flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--fg);font:600 1.5rem/1 var(--body);display:grid;place-items:center;padding:0;touch-action:manipulation}
+.hcrow button.plus{background:var(--blaze);border-color:var(--blaze);color:var(--blaze-ink)}
+.hcrow input{flex:none;width:58px;text-align:center;font:700 1.35rem/1 var(--display);font-variant-numeric:tabular-nums;border:0;background:none;color:var(--fg);padding:6px 0;-moz-appearance:textfield;appearance:textfield}
+.hcrow input::-webkit-inner-spin-button,.hcrow input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.hcond h4{margin:0}
+.hauto{font-size:.78rem;font-weight:700;color:var(--open);display:inline-flex;align-items:center;gap:5px}
+.hauto::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.hauto.man{color:var(--muted)}
+.hauto[hidden]{display:none}
+#heCondSum{display:flex;flex-direction:column;gap:8px}
+.hclbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:600}
+.hcbig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:4px}
+.hcbig div{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:9px 10px;min-width:0}
+.hcbig b{display:block;font:700 1.4rem/1.1 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hcbig span{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-top:3px}
+.hcday{font-size:.95rem;font-variant-numeric:tabular-nums}
+.hmanual{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.hmanual[hidden]{display:none}
+.hgrid.h3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hsave{width:100%;min-height:52px;font-size:1.05rem}
+.hitems small.hseen{color:var(--fg);font-size:.86rem}
+#wlItems li{display:flex;align-items:stretch;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#wlItems button.wlrow{flex:1;min-width:0;-webkit-touch-callout:none}
+#wlItems button.wlrow.press{background:var(--line)}
+#wlItems b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;line-height:1.25}
+#wlItems .wlmore{flex:none;width:48px;min-height:56px;padding:0;justify-content:center;color:var(--muted);border-left:1px solid var(--line)}
+#wlItems .wlmore:focus:not(:focus-visible){outline:none}
+#wlItems .wlmore svg{width:22px;height:22px;fill:currentColor}
+.wlhint{margin:-6px 0 0;font-size:.82rem;color:var(--muted)}
+.asheet{position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;justify-content:flex-end}
+.asheet[hidden]{display:none}
+.asbg{position:absolute;inset:0;background:rgba(0,0,0,.42);border:0;padding:0}
+.asbox{position:relative;background:var(--bg);border-radius:16px 16px 0 0;padding:8px 12px calc(14px + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 24px rgba(0,0,0,.25);max-height:85%;overflow:auto;animation:asup .18s ease-out}
+@keyframes asup{from{transform:translateY(30px);opacity:.4}to{transform:none;opacity:1}}
+.asgrip{width:38px;height:4px;border-radius:2px;background:var(--line);margin:2px auto 10px}
+.ashead{display:flex;gap:12px;align-items:center;padding:0 4px 12px;border-bottom:1px solid var(--line)}
+.ashead .wbadge{width:40px;flex:none}
+.ashead b{display:block;font-weight:700;font-size:1.05rem;overflow-wrap:anywhere}
+.ashead small{display:block;color:var(--muted);font-size:.84rem}
+.aslist{list-style:none;margin:6px 0 0;padding:0}
+.aslist button{width:100%;display:flex;align-items:center;gap:14px;border:0;background:none;padding:0 8px;min-height:52px;font:inherit;font-weight:600;color:var(--fg);text-align:left;border-radius:9px}
+.aslist button:active{background:var(--panel)}
+.aslist svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;color:var(--muted)}
+.aslist button.del,.aslist button.del svg{color:var(--closed)}
+.asren{display:flex;flex-direction:column;gap:10px;padding:12px 4px 2px}
+.asren[hidden]{display:none}
+.asren input{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:11px 12px;min-height:46px;width:100%;box-sizing:border-box}
+.asren input:focus{outline:2px solid var(--blaze);border-color:var(--blaze)}
+.asren .btnrow{justify-content:flex-end}
 .fmt span{font-size:.74rem;color:var(--muted);line-height:1.2}
 /* ---- map ---- */
 .mapview{position:fixed;left:0;right:0;top:0;bottom:calc(var(--tabbar-h) + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;background:var(--bg);z-index:5}
@@ -509,7 +574,7 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
       <p><b>Walters built this but because the WI-DNR is shitty at technology. Disclaimer shit here....Your data stays on your phone.</b> There is no account, no server and no tracking. The app saves your hunting spot (if you set one), your choices and the last weather forecast, in this app's storage on your phone.</p>
       <p><b>Location is read only while the app is open:</b> when you tap Use my location, once automatically the first time you open the app, and on the Map while the locate button is on. It stops when you leave the Map or close the app. Clear saved location erases the saved spot and forecast.</p>
       <p><b>Your waypoints stay on this phone.</b> Waypoints, tracks and areas you add or import are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. Clearing your browser's data or uninstalling the app erases them, so export a backup now and then.</p>
-      <p><b>Your hunt log stays on this phone.</b> Hunts you log, with your observations, harvest notes and locations, are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. To fill in a hunt's conditions, the National Weather Service receives that hunt's location rounded to about half a mile and returns readings from the nearest weather station. The moon phase is worked out on your phone. Clearing your browser's data or uninstalling the app erases the log, so export a backup now and then.</p>
+      <p><b>Your hunt log stays on this phone.</b> Hunts you log, with your sit times, game counts, observations, harvest details and locations, are saved only in this app's storage on this phone. They are never uploaded and leave the phone only when you export a file. To fill in a hunt's conditions, the National Weather Service receives that hunt's location rounded to about half a mile and returns readings from the nearest weather station, for your sit and for the whole day. If there's no signal when you log a hunt, the app asks again the next time it's open with a signal. The moon phase is worked out on your phone. Clearing your browser's data or uninstalling the app erases the log, so export a backup now and then.</p>
       <p><b>Tracks, measurements and the compass stay on this phone.</b> Tracks you draw or record are saved with your waypoints, only on this phone. Measuring and the compass use your phone's own sensors and send nothing anywhere.</p>
       <p><b>Government services, only for the features you use.</b> The National Weather Service receives your hunting spot rounded to about half a mile, to return the forecast. USGS The National Map supplies map images for the area you're viewing. With Public land or Oak forest on, the Wisconsin DNR's map servers draw those layers for that area and look up the property at the map's crosshair. With Property lines on, the Wisconsin State Cartographer's Office parcel map (hosted on Esri's ArcGIS Online) sends the property lines and owner names on record for that area; the owner at the crosshair is worked out on your phone. Map images, property lines and public land lookups reveal only the area you're looking at, never your waypoint names, notes or files. None of these services needs an account or tracks you. The app also checks GitHub Pages, where it's hosted, for updates. Fonts, DNR tables and the county map are built in.</p>
       <p><b>Public land boundaries are for reference.</b> Check each property's rules, closures and posted boundaries before you hunt.</p>
@@ -635,6 +700,7 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
       </div>
       <div class="wlmsg" id="wlMsg" role="status" hidden></div>
       <p class="privline"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span>Saved only on this phone. Never uploaded. Export a file to back up or share.</span></p>
+      <p class="wlhint" id="wlHint" hidden>Tap to show on the map. Press and hold, or tap ⋮, to rename, delete and more.</p>
       <ul class="wlitems" id="wlItems"></ul>
       <div class="exportbox" id="wlExportBox" hidden>
         <div class="eyebrow">Export</div>
@@ -647,6 +713,13 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
       </div>
       <button class="btn danger" id="wlDeleteAll" type="button" hidden>Delete all markups from this phone</button>
     </div>
+    <div class="asheet" id="wlAct" hidden><button class="asbg" type="button" tabindex="-1" aria-label="Close"></button>
+      <div class="asbox" role="dialog" aria-modal="true" aria-labelledby="waName"><div class="asgrip"></div>
+        <div class="ashead"><span class="wbadge" id="waBadge"></span><div style="min-width:0"><b id="waName"></b><small id="waMeta"></small></div></div>
+        <ul class="aslist" id="waList"></ul>
+        <div class="asren" id="waRen" hidden><label class="fld" for="waInput"><span>New name</span><input id="waInput" type="text" maxlength="120" autocomplete="off" enterkeyhint="done"></label>
+          <div class="btnrow"><button class="btn" id="waCancel" type="button">Back</button><button class="btn primary" id="waSave" type="button">Save name</button></div></div>
+      </div></div>
   </div>
 </div>
 
@@ -654,28 +727,65 @@ body.wxtab #dateBar,body.wxtab #todayBtn,body.logtab #dateBar,body.logtab #today
   <div class="wphead"><button class="tbtn" id="heCancel" type="button">Cancel</button><h3 id="heTitle">Log a hunt</h3><button class="tbtn strong" id="heSave" type="button">Save</button></div>
   <div class="wpbody">
     <p class="privline"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span>Saved only on this phone. Never uploaded.</span></p>
-    <div class="fld two"><label for="heDate" style="display:flex;flex-direction:column;gap:7px;min-width:0"><span>Date</span><input id="heDate" type="date"></label>
-      <label for="heSeen" style="display:flex;flex-direction:column;gap:7px;min-width:0"><span>Game seen</span><input id="heSeen" type="number" inputmode="numeric" min="0" max="9999" placeholder="Optional"></label></div>
-    <div class="fld"><span>Time of day</span><div class="seg2" id="heTod" role="radiogroup" aria-label="Time of day"></div></div>
-    <div class="fld"><span>Species</span><div class="seg2" id="heSpecies" role="radiogroup" aria-label="Species"></div></div>
-    <label class="fld" for="heWhere"><span>Where (used for the day's conditions)</span><select id="heWhere"></select></label>
-    <label class="fld" for="hePlace"><span>General location</span><input id="hePlace" type="text" maxlength="120" autocomplete="off" placeholder="Stand, property or nearest town"></label>
-    <label class="fld" for="heObs"><span>Observations</span><textarea id="heObs" rows="4" maxlength="4000" placeholder="What you saw and heard, deer movement, sign, pressure from other hunters…"></textarea></label>
-    <div class="fld"><span>Harvest</span><div class="seg2" id="heHarvest" role="radiogroup" aria-label="Harvest"><button type="button" role="radio" data-v="n">No harvest</button><button type="button" role="radio" data-v="y">Harvest</button></div></div>
-    <label class="fld" for="heHarvestNote" id="heHarvestRow" hidden><span>Harvest details</span><input id="heHarvestNote" type="text" maxlength="200" autocomplete="off" placeholder="8-point buck, 7:40 AM, 22 yards"></label>
-    <div class="hcond">
-      <div class="hcondhead"><b>Conditions that day</b><button class="btn sm" id="heWxGet" type="button">Get conditions</button></div>
-      <div class="hgrid">
-        <label for="heHi"><span>High °F</span><input id="heHi" type="number" inputmode="numeric" step="1"></label>
-        <label for="heLo"><span>Low °F</span><input id="heLo" type="number" inputmode="numeric" step="1"></label>
-        <label for="heWind"><span>Avg wind mph</span><input id="heWind" type="number" inputmode="numeric" step="1" min="0"></label>
-        <label for="heWdir"><span>Wind from</span><select id="heWdir"></select></label>
-        <label for="hePres"><span>Pressure inHg</span><input id="hePres" type="number" inputmode="decimal" step="0.01"></label>
-        <label for="heTrend"><span>Pressure trend</span><select id="heTrend"><option value="">—</option><option value="rising">Rising</option><option value="steady">Steady</option><option value="falling">Falling</option></select></label>
+    <section class="hsec" aria-labelledby="hsWhere">
+      <h4 id="hsWhere">Where</h4>
+      <label class="fld" for="heWhere"><span>Map location</span><select id="heWhere"></select></label>
+      <label class="fld" for="hePlace"><span>Stand or spot name</span><input id="hePlace" type="text" maxlength="120" autocomplete="off" placeholder="Stand, blind, property or nearest town"></label>
+    </section>
+    <section class="hsec" aria-labelledby="hsWhen">
+      <h4 id="hsWhen">When</h4>
+      <label class="fld" for="heDate"><span>Date</span><input id="heDate" type="date"></label>
+      <div class="fld"><span>Sit</span><div class="seg2" id="heTod" role="radiogroup" aria-label="Time of day"></div></div>
+      <div class="hpair"><label class="fld" for="heStart"><span>Started</span><input id="heStart" type="time" step="300"></label><label class="fld" for="heEnd"><span>Ended</span><input id="heEnd" type="time" step="300"></label></div>
+      <p class="hhint" id="heLegal"></p>
+    </section>
+    <section class="hsec" aria-labelledby="hsHunt">
+      <h4 id="hsHunt">Hunting</h4>
+      <div class="seg2" id="heSpecies" role="radiogroup" aria-labelledby="hsHunt"></div>
+    </section>
+    <section class="hsec" aria-labelledby="hsSaw">
+      <h4 id="hsSaw">What you saw</h4>
+      <div class="hcount" id="heSeenBox"></div>
+      <label class="fld" for="heObs"><span>Observations</span><textarea id="heObs" rows="4" maxlength="4000" placeholder="Movement and times, direction of travel, sign, other hunters…"></textarea></label>
+    </section>
+    <section class="hsec" aria-labelledby="hsHarv">
+      <h4 id="hsHarv">Harvest</h4>
+      <div class="seg2" id="heHarvest" role="radiogroup" aria-labelledby="hsHarv"><button type="button" role="radio" data-v="n">No harvest</button><button type="button" role="radio" data-v="y">Harvest</button></div>
+      <div class="hkill" id="heHarvestRow" hidden>
+        <div class="hpair hwide"><label class="fld" for="heKWhat"><span>What</span><input id="heKWhat" type="text" list="heKList" maxlength="80" autocomplete="off" placeholder="8-point buck"><datalist id="heKList"></datalist></label>
+          <label class="fld" for="heKWeapon"><span>Weapon</span><select id="heKWeapon"></select></label></div>
+        <div class="hpair">
+          <label class="fld" for="heKTime"><span>Time</span><input id="heKTime" type="time"></label>
+          <label class="fld" for="heKYds"><span>Yards</span><input id="heKYds" type="number" inputmode="numeric" min="0" max="2000" placeholder="22"></label>
+        </div>
+        <label class="fld" for="heHarvestNote"><span>Notes</span><input id="heHarvestNote" type="text" maxlength="200" autocomplete="off" placeholder="Shot placement, blood trail, recovery…"></label>
       </div>
-      <p class="hwxmsg" id="heWxMsg" role="status"></p>
+    </section>
+    <section class="hsec hcond" aria-labelledby="hsCond">
+      <div class="hcondhead"><h4 id="hsCond">Conditions</h4><span class="hauto" id="heAuto" hidden>Recorded automatically</span></div>
+      <div id="heCondSum"></div>
       <div class="hmoon" id="heMoon"></div>
-    </div>
+      <p class="hwxmsg" id="heWxMsg" role="status"></p>
+      <div class="btnrow"><button class="btn sm" id="heWxGet" type="button">Refresh</button><button class="btn sm" id="heWxEdit" type="button" aria-expanded="false" aria-controls="heManual">Type them in</button></div>
+      <div class="hmanual" id="heManual" hidden>
+        <div class="hclbl">During your sit</div>
+        <div class="hgrid h3">
+          <label for="heSTemp"><span>Temp °F</span><input id="heSTemp" type="number" inputmode="numeric" step="1"></label>
+          <label for="heSWind"><span>Wind mph</span><input id="heSWind" type="number" inputmode="numeric" step="1" min="0"></label>
+          <label for="heSWdir"><span>Wind from</span><select id="heSWdir"></select></label>
+        </div>
+        <div class="hclbl">That day</div>
+        <div class="hgrid">
+          <label for="heHi"><span>High °F</span><input id="heHi" type="number" inputmode="numeric" step="1"></label>
+          <label for="heLo"><span>Low °F</span><input id="heLo" type="number" inputmode="numeric" step="1"></label>
+          <label for="heWind"><span>Avg wind mph</span><input id="heWind" type="number" inputmode="numeric" step="1" min="0"></label>
+          <label for="heWdir"><span>Wind from</span><select id="heWdir"></select></label>
+          <label for="hePres"><span>Pressure inHg</span><input id="hePres" type="number" inputmode="decimal" step="0.01"></label>
+          <label for="heTrend"><span>Pressure trend</span><select id="heTrend"><option value="">—</option><option value="rising">Rising</option><option value="steady">Steady</option><option value="falling">Falling</option></select></label>
+        </div>
+      </div>
+    </section>
+    <button class="btn primary hsave" id="heSave2" type="button">Save hunt</button>
     <button class="btn danger" id="heDelete" type="button" hidden>Delete this hunt</button>
   </div>
 </div>
@@ -2347,7 +2457,8 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     if (!tabs.some(t => t[0] === wFilter)) wFilter = 'all';
     $('wlFilters').innerHTML = tabs.map(([k, l, c]) => `<button type="button" role="tab" data-f="${k}" aria-selected="${k === wFilter}">${l} ${c}</button>`).join('');
     const rows = listRows();
-    $('wlItems').innerHTML = rows.map(m => `<li><button type="button" data-id="${esc(m.id)}"><span class="wbadge">${listBadge(m, 34)}</span><span class="t"><b>${esc(m.name || 'Untitled')}</b><small>${esc([relTxt(m), m.kind === 'wpt' ? (SYM[m.sym] || SYM.pin).label : kindTxt(m)].filter(Boolean).join(' · '))}</small></span></button></li>`).join('');
+    $('wlItems').innerHTML = rows.map(m => `<li><button type="button" class="wlrow" data-id="${esc(m.id)}"><span class="wbadge">${listBadge(m, 34)}</span><span class="t"><b>${esc(m.name || 'Untitled')}</b><small>${esc([relTxt(m), m.kind === 'wpt' ? (SYM[m.sym] || SYM.pin).label : kindTxt(m)].filter(Boolean).join(' · '))}</small></span></button><button type="button" class="wlmore" data-more="${esc(m.id)}" aria-label="More for ${esc(m.name || 'Untitled')}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5.5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="18.5" r="1.9"/></svg></button></li>`).join('');
+    $('wlHint').hidden = !rows.length;
     const none = !marks.length ? 'No waypoints yet. Tap + on the map to add one where you stand or at the crosshair, or import a GPX or KML file from another app.' : !rows.length ? 'Nothing matches your search.' : '';
     let em = document.getElementById('wlEmpty'); if (!em) { em = document.createElement('p'); em.id = 'wlEmpty'; em.className = 'wlempty'; $('wlItems').after(em); }
     em.textContent = none; em.hidden = !none;
@@ -2357,7 +2468,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     $('wlExport').disabled = !marks.length;
     const da = $('wlDeleteAll'); da.hidden = !marks.length; if (!da.dataset.armed) da.textContent = 'Delete all markups from this phone';
   }
-  function openList(){ closeDetail(); $('wlMsg').hidden = true; $('wlExportBox').hidden = true; $('wlPriv').hidden = !!store.get('wPrivSeen', false); renderList(); $('wList').hidden = false; }
+  function openList(){ closeDetail(); $('wlAct').hidden = true; actId = null; $('wlMsg').hidden = true; $('wlExportBox').hidden = true; $('wlPriv').hidden = !!store.get('wPrivSeen', false); renderList(); $('wList').hidden = false; }
   $('wlPrivOk').addEventListener('click', () => { store.set('wPrivSeen', true); $('wlPriv').hidden = true; });
   $('wlDeleteAll').addEventListener('click', async e => {
     const b = e.currentTarget;
@@ -2367,17 +2478,90 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     listMsg('All markups were deleted from this phone.');
   });
   $('wListBtn').addEventListener('click', () => { if (lmap) openList(); });
-  $('wlClose').addEventListener('click', () => { $('wList').hidden = true; });
+  $('wlClose').addEventListener('click', () => { $('wlAct').hidden = true; actId = null; $('wList').hidden = true; });
   $('wlFilters').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { wFilter = b.dataset.f; renderList(); } });
   $('wlSearch').addEventListener('input', renderList); $('wlSort').addEventListener('change', renderList);
   $('wlItems').addEventListener('click', e => {
+    const mo = e.target.closest('button[data-more]'); if (mo) { openAct(mo.dataset.more); return; }
     const b = e.target.closest('button[data-id]'); if (!b) return;
+    if (lpFired) { lpFired = false; e.preventDefault(); return; }
     const m = marks.find(x => x.id === b.dataset.id); if (!m) return;
+    goTo(m);
+  });
+  // ---- press and hold (or ⋯) on a list item: zoom, rename, edit, compass, log a hunt, share, delete ----
+  let actId = null, lpTimer = 0, lpFired = false, lpStart = null;
+  const IC = {
+    zoom:'<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/>',
+    ren:'<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>',
+    edit:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>',
+    comp:'<circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+    hunt:'<path d="M6.5 3.5h11a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5h-11z"/><path d="M4.5 7.5h3M4.5 12h3M4.5 16.5h3M11 9h5M11 12.5h5"/>',
+    share:'<circle cx="17.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="M8.7 10.8l6.6-4M8.7 13.2l6.6 4"/>',
+    del:'<path d="M4.5 7h15M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13M10 11v5.5M14 11v5.5"/>'
+  };
+  function openAct(id){
+    const m = marks.find(x => x.id === id); if (!m) return;
+    actId = id; const wp = m.kind === 'wpt', what = wp ? 'waypoint' : m.kind === 'trk' ? 'track' : 'area';
+    $('waBadge').innerHTML = listBadge(m, 40); $('waName').textContent = m.name || 'Untitled';
+    $('waMeta').textContent = [relTxt(m), wp ? (SYM[m.sym] || SYM.pin).label : kindTxt(m)].filter(Boolean).join(' · ');
+    const items = [['zoom', 'Zoom to ' + what], ['ren', 'Rename'], ['edit', 'Edit symbol, color and notes'], ['comp', 'Compass to it']]
+      .concat(wp ? [['hunt', 'Log a hunt here']] : []).concat([['share', 'Share as a GPX file'], ['del', 'Delete ' + what]]);
+    $('waList').innerHTML = items.map(([k, l]) => `<li><button type="button" data-a="${k}"${k === 'del' ? ' class="del"' : ''}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg><span>${esc(l)}</span></button></li>`).join('');
+    $('waList').hidden = false; $('waRen').hidden = true; $('wlAct').hidden = false;
+    setTimeout(() => { const b = $('waList').querySelector('button'); if (b) b.focus({ preventScroll:true }); }, 30);
+  }
+  function closeAct(){ $('wlAct').hidden = true; const id = actId; actId = null; const r = id && $('wlItems').querySelector(`button.wlmore[data-more="${CSS.escape(id)}"]`); if (r) r.focus({ preventScroll:true }); }
+  function goTo(m){
     $('wList').hidden = true; if (!showMarks) setMarks(true);
     if (m.kind === 'wpt') lmap.setView([m.lat, m.lon], Math.max(lmap.getZoom(), 15));
     else lmap.fitBounds(L.latLngBounds((m.kind === 'trk' ? m.segs.flat() : m.pts).map(p => [p[0], p[1]])), { padding:[40, 40], maxZoom:16 });
     selectMark(m.id);
+  }
+  $('wlAct').addEventListener('click', async e => {
+    if (e.target.closest('.asbg')) { closeAct(); return; }
+    const m = marks.find(x => x.id === actId); if (!m) { closeAct(); return; }
+    const b = e.target.closest('button[data-a]'); if (!b) return;
+    const a = b.dataset.a, what = m.kind === 'wpt' ? 'waypoint' : m.kind === 'trk' ? 'track' : 'area';
+    if (a === 'zoom') { closeAct(); goTo(m); }
+    else if (a === 'ren') { $('waList').hidden = true; $('waRen').hidden = false; const i = $('waInput'); i.value = m.name || ''; i.focus(); try { i.select(); } catch (err) {} }
+    else if (a === 'edit') { closeAct(); goTo(m); openEditor(m); }
+    else if (a === 'comp') { closeAct(); goTo(m); toolsPop(false); startCompass(); if (watchId == null) { startWatch(); follow = false; locBtnState(); } }
+    else if (a === 'hunt') { closeAct(); $('wList').hidden = true; showTab('hunts'); openHunt(null, { where:'w:' + m.id }); }
+    else if (a === 'share') {
+      const safe = (m.name || what).replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '-').slice(0, 60) || what;
+      const res = await deliver(safe + '.gpx', 'application/gpx+xml', toGPX([m])); if (res === 'cancel') return;
+      closeAct(); listMsg((res === 'shared' ? 'Shared ' : 'Saved ') + safe + '.gpx' + (res === 'saved' ? ' to your Downloads.' : '.'));
+    }
+    else if (a === 'del') {
+      if (!b.dataset.armed) { b.dataset.armed = '1'; b.querySelector('span').textContent = 'Tap again to delete “' + (m.name || 'Untitled') + '”'; return; }
+      try { await DB.del(m.id); } catch (err) { listMsg("Couldn't delete. Try again.", true); closeAct(); return; }
+      marks = marks.filter(x => x.id !== m.id); changed(1); if (selId === m.id) closeDetail();
+      closeAct(); drawMarks(); countText(); renderList(); listMsg('Deleted “' + (m.name || 'Untitled') + '”.');
+    }
   });
+  async function saveRename(){
+    const m = marks.find(x => x.id === actId); if (!m) { closeAct(); return; }
+    const nm = $('waInput').value.trim(); if (!nm) { $('waInput').focus(); return; }
+    if (nm === m.name) { closeAct(); return; }
+    const upd = { ...m, name:nm, updated:Date.now() };
+    try { await DB.put(upd); } catch (err) { listMsg("Couldn't save. This browser may be blocking storage.", true); closeAct(); return; }
+    const i = marks.findIndex(x => x.id === m.id); if (i >= 0) marks[i] = upd; changed(1); persist();
+    closeAct(); drawMarks(); renderList(); listMsg('Renamed to “' + nm + '”.');
+  }
+  $('waSave').addEventListener('click', saveRename);
+  $('waCancel').addEventListener('click', () => { $('waRen').hidden = true; $('waList').hidden = false; });
+  $('waInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); saveRename(); } });
+  $('wList').addEventListener('keydown', e => { if (e.key === 'Escape' && !$('wlAct').hidden) { e.stopPropagation(); closeAct(); } });
+  const lpCancel = () => { clearTimeout(lpTimer); lpTimer = 0; lpStart = null; document.querySelectorAll('#wlItems .press').forEach(x => x.classList.remove('press')); };
+  $('wlItems').addEventListener('pointerdown', e => {
+    const b = e.target.closest('button.wlrow'); if (!b || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    lpFired = false; lpStart = [e.clientX, e.clientY]; b.classList.add('press');
+    lpTimer = setTimeout(() => { lpTimer = 0; lpFired = true; b.classList.remove('press'); try { navigator.vibrate && navigator.vibrate(12); } catch (err) {} openAct(b.dataset.id); }, 480);
+  });
+  $('wlItems').addEventListener('pointermove', e => { if (lpStart && Math.hypot(e.clientX - lpStart[0], e.clientY - lpStart[1]) > 10) lpCancel(); });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => $('wlItems').addEventListener(t, lpCancel));
+  $('wList').querySelector('.wpbody').addEventListener('scroll', lpCancel, { passive:true });
+  $('wlItems').addEventListener('contextmenu', e => { const b = e.target.closest('li'); if (!b) return; e.preventDefault(); const r = b.querySelector('button.wlrow'); if (!lpFired && r) { lpFired = true; lpCancel(); openAct(r.dataset.id); } });
   function listMsg(t, err){ const el = $('wlMsg'); el.textContent = t; el.hidden = !t; el.classList.toggle('err', !!err); }
   document.querySelectorAll('[data-act=export]').forEach(b => b.addEventListener('click', () => { const box = $('wlExportBox'); box.hidden = !box.hidden; if (!box.hidden) box.scrollIntoView({ block:'nearest', behavior:'smooth' }); }));
 
@@ -2545,6 +2729,11 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
   // ===================== Hunt log (kept only on this phone) =====================
   const HSPECIES = [['deer', 'Deer'], ['small', 'Small game'], ['waterfowl', 'Waterfowl'], ['sturkey', 'Spring turkey'], ['other', 'Other']];
   const HTIMES = [['am', 'Morning'], ['mid', 'Midday'], ['pm', 'Evening'], ['all', 'All day']];
+  const HSEEN = { deer:[['bucks', 'Bucks', 'buck'], ['does', 'Does', 'doe'], ['fawns', 'Fawns', 'fawn']], sturkey:[['toms', 'Toms', 'tom'], ['jakes', 'Jakes', 'jake'], ['hens', 'Hens', 'hen']],
+    waterfowl:[['ducks', 'Ducks', 'duck'], ['geese', 'Geese', 'goose']], small:[['squirrels', 'Squirrels', 'squirrel'], ['rabbits', 'Rabbits', 'rabbit'], ['birds', 'Grouse & pheasants', 'grouse or pheasant']], other:[] };
+  const seenList = sp => (HSEEN[sp] || []).concat([['other', sp === 'other' ? 'Game seen' : 'Other game']]);
+  const HWHAT = { deer:['Buck', 'Doe', 'Button buck'], sturkey:['Tom', 'Jake'], waterfowl:['Mallard', 'Wood duck', 'Teal', 'Canada goose'], small:['Squirrel', 'Rabbit', 'Ruffed grouse', 'Pheasant'], other:[] };
+  const HWEAPONS = ['Bow', 'Crossbow', 'Rifle', 'Shotgun', 'Muzzleloader', 'Handgun', 'Other'];
   const hLabel = (list, id) => (list.find(x => x[0] === id) || [0, ''])[1];
   const HDB = (() => {
     let dbp = null;
@@ -2552,8 +2741,39 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     const tx = async (mode, fn) => { const db = await open(); return new Promise((res, rej) => { const t = db.transaction('hunts', mode), st = t.objectStore('hunts'); const rq = fn(st); t.oncomplete = () => res(rq && 'result' in rq ? rq.result : undefined); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error); }); };
     return { all:() => tx('readonly', st => st.getAll()), put:h => tx('readwrite', st => st.put(h)), putMany:hs => tx('readwrite', st => { hs.forEach(h => st.put(h)); }), del:id => tx('readwrite', st => st.delete(id)), clear:() => tx('readwrite', st => st.clear()) };
   })();
-  let hunts = [], hDraft = null, hNew = false, hFilter = 'all', hStorageOK = true, hSeq = 0, hAutoLoc = '';
-  HDB.all().then(a => { hunts = a || []; if (tab === 'hunts') renderHunts(); }).catch(() => { hStorageOK = false; });
+  let hunts = [], hDraft = null, hNew = false, hFilter = 'all', hStorageOK = true, hSeq = 0, hAutoLoc = '', hTimer = 0;
+  HDB.all().then(a => { hunts = a || []; if (tab === 'hunts') renderHunts(); else refreshPending(); }).catch(() => { hStorageOK = false; });
+
+  // ---- times (Central time, "HH:MM") ----
+  const toMin = t => { const m = /^(\d{1,2}):(\d{2})/.exec(t || ''); return m ? +m[1] * 60 + +m[2] : null; };
+  const hhmm = v => String(Math.floor(v / 60)).padStart(2, '0') + ':' + String(v % 60).padStart(2, '0');
+  const ampm = (v, suffix = true) => { const h = Math.floor(v / 60) % 24; return (h % 12 || 12) + ':' + String(v % 60).padStart(2, '0') + (suffix ? (h < 12 ? ' AM' : ' PM') : ''); };
+  const fmtT = t => { const v = toMin(t); return v == null ? '' : ampm(v); };
+  function sitTxt(h){
+    const a = toMin(h.start), b = toMin(h.end); if (a == null || b == null) return '';
+    return (a < 720) === (b < 720) ? ampm(a, false) + '–' + ampm(b) : ampm(a) + '–' + ampm(b);
+  }
+  // legal shooting hours for that hunt's date, place and species (used for the sit presets)
+  function legalFor(h){
+    const [y, m, d] = h.date.split('-').map(Number);
+    const lat = h.lat != null ? h.lat : state.loc ? state.loc.lat : null, lon = h.lon != null ? h.lon : state.loc ? state.loc.lon : null;
+    let area = 'south', zone = 'A';
+    if (lat != null) { const c = countyAt(lon, lat); area = c ? c.a : lat >= 44.9 ? 'north' : 'south'; zone = W.zoneForLon(lon); }
+    else { const R = resolve(); area = R.area; zone = R.zone; }
+    const sp = W.SPECIES.some(x => x.id === h.species) ? h.species : 'deer';
+    try { const r = W.shootingHours({ y, m, d, area, zone, speciesId:sp, conservative:false }); if (r && r.open != null && r.close != null) return { open:Math.round(r.open), close:Math.round(r.close) }; } catch (e) {}
+    return null;
+  }
+  function presetTimes(h){
+    const L = legalFor(h) || { open:390, close:1020 }, r5 = v => Math.round(v / 5) * 5;
+    let s, e;
+    if (h.tod === 'am') { s = L.open; e = r5(L.open + 180); }
+    else if (h.tod === 'mid') { s = 600; e = 840; }
+    else if (h.tod === 'pm') { s = r5(L.close - 180); e = L.close; }
+    else { s = L.open; e = L.close; }
+    if (hNew && h.date === todayStr()) { const now = chiNow().min; if (now > s + 15 && now < e) e = Math.floor(now / 5) * 5; }
+    h.start = hhmm(Math.max(0, s)); h.end = hhmm(Math.min(1439, e));
+  }
 
   // ---- moon phase (computed on the phone, no network) ----
   function moonFor(ds){
@@ -2569,11 +2789,25 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     return `<svg class="moon" width="${px}" height="${px}" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" class="mdark"/><path d="${lit}" class="mlit"/><circle cx="12" cy="12" r="9" class="mrim"/></svg>`;
   }
 
-  // ---- conditions for the day, from the nearest National Weather Service station ----
+  // ---- conditions from the nearest National Weather Service station: the whole day, and during the sit ----
   const dayBounds = ds => { const [y, m, d] = ds.split('-').map(Number), s = Date.UTC(y, m - 1, d) - W.chicagoOffset(y, m, d) * 60000; return [s, s + 864e5]; };
   const zIso = ms => new Date(ms).toISOString().replace(/\.\d+Z$/, 'Z');
   const todayStr = () => { const n = chiNow(); return `${n.y}-${String(n.m).padStart(2, '0')}-${String(n.d).padStart(2, '0')}`; };
-  async function fetchDayWx(lat, lon, ds){
+  const sitMs = h => { const a = toMin(h.start), b = toMin(h.end); if (a == null || b == null || b <= a) return null; const [s] = dayBounds(h.date); return [s + a * 6e4, s + b * 6e4]; };
+  function summarize(rows, thr){
+    const val = q => q && typeof q.value === 'number' ? q.value : null;
+    const mph = q => { const v = val(q); if (v == null) return null; return /m_s-1/.test(q.unitCode || '') && !/km/.test(q.unitCode || '') ? v * 2.23694 : v * 0.621371; };
+    const avg = a => a.reduce((t, v) => t + v, 0) / a.length, c2f = c => Math.round(c * 9 / 5 + 32);
+    const temps = rows.map(p => val(p.temperature)).filter(v => v != null);
+    const sp = rows.map(p => mph(p.windSpeed)).filter(v => v != null);
+    let sx = 0, sy = 0; rows.forEach(p => { const v = mph(p.windSpeed), dg = val(p.windDirection); if (v && dg != null) { sx += v * Math.sin(dg * Math.PI / 180); sy += v * Math.cos(dg * Math.PI / 180); } });
+    const pr = rows.map(p => val(p.seaLevelPressure) != null ? val(p.seaLevelPressure) : val(p.barometricPressure)).filter(v => v != null).map(v => v * 0.0002953);
+    const wind = sp.length ? Math.round(avg(sp)) : null, dp = pr.length > 1 ? pr[pr.length - 1] - pr[0] : 0;
+    return { n:temps.length, hi:temps.length ? c2f(Math.max(...temps)) : null, lo:temps.length ? c2f(Math.min(...temps)) : null, temp:temps.length ? c2f(avg(temps)) : null, wind,
+      wdir: wind === 0 ? 'Calm' : (sx || sy) ? DIR16[Math.round(((Math.atan2(sx, sy) * 180 / Math.PI + 360) % 360) / 22.5) % 16] : '',
+      pres: pr.length ? +avg(pr).toFixed(2) : null, trend: pr.length > 1 ? (dp > thr ? 'rising' : dp < -thr ? 'falling' : 'steady') : '' };
+  }
+  async function fetchDayWx(lat, lon, ds, sit){
     const [s, e] = dayBounds(ds), now = Date.now();
     if (s > now) return { state:'future' };
     if (now - s > 6.5 * 864e5) return { state:'old' };
@@ -2586,58 +2820,79 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
       const id = sf.properties.stationIdentifier;
       let ob; try { ob = await getJSON(`https://api.weather.gov/stations/${encodeURIComponent(id)}/observations?start=${zIso(s)}&end=${zIso(Math.min(e, now))}&limit=500`); } catch (err) { continue; }
       const rows = (ob.features || []).map(f => f.properties).filter(p => p && p.timestamp).sort((a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp));
-      const val = q => q && typeof q.value === 'number' ? q.value : null;
-      const temps = rows.map(p => val(p.temperature)).filter(v => v != null);
-      if (temps.length < 3) continue;
-      const mph = q => { const v = val(q); if (v == null) return null; return /m_s-1/.test(q.unitCode || '') && !/km/.test(q.unitCode || '') ? v * 2.23694 : v * 0.621371; };
-      const sp = rows.map(p => mph(p.windSpeed)).filter(v => v != null);
-      let sx = 0, sy = 0; rows.forEach(p => { const v = mph(p.windSpeed), dg = val(p.windDirection); if (v && dg != null) { sx += v * Math.sin(dg * Math.PI / 180); sy += v * Math.cos(dg * Math.PI / 180); } });
-      const pr = rows.map(p => val(p.seaLevelPressure) != null ? val(p.seaLevelPressure) : val(p.barometricPressure)).filter(v => v != null).map(v => v * 0.0002953);
-      const avg = a => a.reduce((t, v) => t + v, 0) / a.length, c2f = c => Math.round(c * 9 / 5 + 32);
-      const wind = sp.length ? Math.round(avg(sp)) : null, dp = pr.length > 1 ? pr[pr.length - 1] - pr[0] : 0;
-      return { state:'ok', place, wx:{ hi:c2f(Math.max(...temps)), lo:c2f(Math.min(...temps)), wind,
-        wdir: wind === 0 ? 'Calm' : (sx || sy) ? DIR16[Math.round(((Math.atan2(sx, sy) * 180 / Math.PI + 360) % 360) / 22.5) % 16] : '',
-        pres: pr.length ? +avg(pr).toFixed(2) : null, trend: pr.length > 1 ? (dp > .03 ? 'rising' : dp < -.03 ? 'falling' : 'steady') : '',
-        src:'nws', station:(sf.properties.name || id), stationId:id, n:rows.length, fetched:now, partial: now < e } };
+      const day = summarize(rows, .03);
+      if (day.n < 3) continue;
+      const station = sf.properties.name || id;
+      let sitWx = null;
+      if (sit && sit[0] <= now) {
+        // readings during the sit (stations report about hourly, so allow 20 minutes either side; else the nearest reading)
+        let w = rows.filter(p => { const t = Date.parse(p.timestamp); return t >= sit[0] - 12e5 && t <= sit[1] + 12e5; });
+        if (!w.length) { const mid = (sit[0] + Math.min(sit[1], now)) / 2, near = rows.map(p => [Math.abs(Date.parse(p.timestamp) - mid), p]).sort((a, b) => a[0] - b[0])[0]; if (near && near[0] < 54e5) w = [near[1]]; }
+        if (w.length) { const x = summarize(w, .02); if (x.n) sitWx = { temp:x.temp, tmin:x.lo, tmax:x.hi, wind:x.wind, wdir:x.wdir, pres:x.pres, trend:x.trend, n:w.length, src:'nws', partial: now < sit[1] }; }
+      }
+      return { state:'ok', place, sit:sitWx, wx:{ hi:day.hi, lo:day.lo, wind:day.wind, wdir:day.wdir, pres:day.pres, trend:day.trend, src:'nws', station, stationId:id, n:rows.length, fetched:now, partial: now < e } };
     }
     return { state:'nodata', place };
   }
 
   // ---- list ----
   const hDate = ds => { const [y, m, d] = ds.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d)); };
-  const hDateLong = ds => hDate(ds).toLocaleDateString('en-US', { timeZone:'UTC', weekday:'short', month:'short', day:'numeric', year:'numeric' });
   const TREND = { rising:'↑', falling:'↓', steady:'→' };
+  const hWind = x => x.wdir === 'Calm' || x.wind === 0 ? 'Calm' : ((x.wdir ? x.wdir + ' ' : '') + (x.wind != null ? x.wind + ' mph' : '')).trim();
   function wxLine(h){
     const x = h.wx || {}, p = [];
     if (x.hi != null || x.lo != null) p.push((x.hi != null ? 'High ' + x.hi + '°' : '') + (x.hi != null && x.lo != null ? ' / ' : '') + (x.lo != null ? 'Low ' + x.lo + '°' : ''));
-    if (x.wind != null || x.wdir) p.push(x.wdir === 'Calm' || x.wind === 0 ? 'Calm' : ((x.wdir ? x.wdir + ' ' : '') + (x.wind != null ? x.wind + ' mph' : '')).trim());
+    if (x.wind != null || x.wdir) p.push(hWind(x));
     if (x.pres != null) p.push((+x.pres).toFixed(2) + ' in' + (TREND[x.trend] ? ' ' + TREND[x.trend] : ''));
     return p.join(' · ');
   }
+  function sitLine(h){
+    const x = h.sitWx; if (!x) return '';
+    const p = [];
+    if (x.temp != null) p.push(x.temp + '°');
+    if (x.wind != null || x.wdir) p.push(hWind(x));
+    if (x.pres != null) p.push((+x.pres).toFixed(2) + ' in' + (TREND[x.trend] ? ' ' + TREND[x.trend] : ''));
+    return p.length ? 'Sit ' + p.join(', ') : '';
+  }
+  const dayShort = h => { const x = h.wx || {}; return x.hi != null && x.lo != null ? 'Day ' + x.hi + '°/' + x.lo + '°' : ''; };
+  function seenTxt(h){
+    const by = h.seenBy || {}, all = Object.keys(HSEEN).reduce((a, k) => a.concat(HSEEN[k]), []);
+    const p = Object.keys(by).filter(k => by[k] > 0).map(k => { const x = all.find(z => z[0] === k); return by[k] + ' ' + (k === 'other' ? (h.species === 'other' ? 'game' : 'other') : x ? (by[k] === 1 ? x[2] : x[1].toLowerCase()) : k); });
+    if (!p.length && h.seen != null) return h.seen + ' seen';
+    return p.join(' · ');
+  }
+  function killTxt(h){
+    const k = h.kill || {};
+    const p = [k.what, k.time ? fmtT(k.time) : '', k.yds != null ? k.yds + ' yd' : '', k.weapon].filter(Boolean);
+    return [p.join(' · '), h.harvestNote].filter(Boolean).join(' — ');
+  }
   function renderHunts(){
     const box = $('hBody'); if (!box) return;
-    const sorted = hunts.slice().sort((a, b) => a.date < b.date ? 1 : a.date > b.date ? -1 : (b.created || 0) - (a.created || 0));
+    const key = h => h.date + ' ' + (h.start || (h.tod === 'am' ? '06' : h.tod === 'mid' ? '11' : h.tod === 'pm' ? '15' : '00'));
+    const sorted = hunts.slice().sort((a, b) => key(a) < key(b) ? 1 : key(a) > key(b) ? -1 : (b.created || 0) - (a.created || 0));
     const used = HSPECIES.filter(([id]) => hunts.some(h => h.species === id));
     if (hFilter !== 'all' && !used.some(u => u[0] === hFilter)) hFilter = 'all';
     const rows = sorted.filter(h => hFilter === 'all' || h.species === hFilter);
     const kills = rows.filter(h => h.harvest).length;
     const chips = used.length > 1 ? `<div class="filters" id="hFilters">` + [['all', 'All']].concat(used).map(([id, l]) => `<button type="button" data-f="${id}" aria-selected="${id === hFilter}">${esc(l)}</button>`).join('') + `</div>` : '';
-    const items = rows.map(h => { const mn = moonFor(h.date), dt = hDate(h.date), wl = wxLine(h);
+    const items = rows.map(h => { const mn = moonFor(h.date), dt = hDate(h.date), wl = sitLine(h) ? [sitLine(h), dayShort(h)].filter(Boolean).join(' · ') : wxLine(h), st = sitTxt(h), seen = seenTxt(h), kt = h.harvest ? killTxt(h) : '';
+      const pend = !(h.wx && h.wx.src) && h.lat != null && Date.now() - dayBounds(h.date)[0] < 6.5 * 864e5;
       return `<li><button type="button" data-id="${esc(h.id)}"><span class="hdate"><b>${dt.toLocaleDateString('en-US', { timeZone:'UTC', month:'short' })}</b><i>${dt.getUTCDate()}</i><small>${dt.getUTCFullYear()}</small></span>
         <span class="t"><b>${esc(hLabel(HSPECIES, h.species))} · ${esc(hLabel(HTIMES, h.tod))}${h.harvest ? '<em class="hbadge">Harvest</em>' : ''}</b>
-        ${h.place ? `<small class="hplace">${esc(h.place)}</small>` : ''}
-        <small class="hwx">${moonSvg(mn.f, 15)}<span>${esc([wl, mn.name].filter(Boolean).join(' · '))}</span></small>
-        ${h.obs || h.harvestNote ? `<small class="hobs">${esc(h.harvest && h.harvestNote ? h.harvestNote + (h.obs ? ' — ' + h.obs : '') : h.obs)}</small>` : ''}</span></button></li>`; }).join('');
+        ${h.place || st ? `<small class="hplace">${esc([st, h.place].filter(Boolean).join(' · '))}</small>` : ''}
+        ${seen ? `<small class="hseen">Saw ${esc(seen)}</small>` : ''}
+        <small class="hwx">${moonSvg(mn.f, 15)}<span>${esc([pend ? 'Conditions will be added when you have a signal' : wl, mn.name].filter(Boolean).join(' · '))}</span></small>
+        ${kt || h.obs ? `<small class="hobs">${esc([kt, h.obs].filter(Boolean).join(' — '))}</small>` : ''}</span></button></li>`; }).join('');
     box.innerHTML = `
       <div class="hhead"><div><h2>Hunt log</h2><div class="hsum">${hunts.length ? rows.length + ' hunt' + (rows.length === 1 ? '' : 's') + ' · ' + kills + ' harvest' + (kills === 1 ? '' : 's') : 'No hunts logged yet'}</div></div><button class="btn primary" id="hAdd" type="button">Log a hunt</button></div>
       <p class="privline"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span>${hStorageOK ? 'Your hunt log is saved only on this phone. Never uploaded. Export a file to back it up.' : "This browser won't let the app save a hunt log."}</span></p>
       <div class="wlmsg" id="hMsg" role="status" hidden></div>
       ${chips}
-      ${hunts.length ? `<ul class="wlitems hitems" id="hItems">${items}</ul>` : `<div class="card hempty"><b>Keep a record of every sit.</b><p>Log what you saw and whether you filled a tag. The app adds the day's high and low, wind, barometric pressure and moon phase for that spot, so patterns show up over time.</p></div>`}
+      ${hunts.length ? `<ul class="wlitems hitems" id="hItems">${items}</ul>` : `<div class="card hempty"><b>Keep a record of every sit.</b><p>Log where you sat, what you saw and whether you filled a tag. The app records the wind, temperature and pressure during your sit, the day's high and low, and the moon phase, so patterns show up over time.</p></div>`}
       <div class="btnrow"><button class="btn sm" id="hImport" type="button">Import CSV</button><button class="btn sm" id="hExport" type="button" ${hunts.length ? '' : 'disabled'}>Export CSV</button></div>
       <input type="file" id="hFile" accept=".csv,text/csv" hidden>
       ${hunts.length ? '<button class="btn danger" id="hDeleteAll" type="button">Delete the whole hunt log from this phone</button>' : ''}`;
-    refreshPartial();
+    refreshPending();
   }
   function hMsg(t, err){ const el = $('hMsg'); if (!el) return; el.textContent = t; el.hidden = !t; el.classList.toggle('err', !!err); }
   $('hBody').addEventListener('click', async e => {
@@ -2653,84 +2908,162 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
       hunts = []; renderHunts(); hMsg('The hunt log was deleted from this phone.');
     }
   });
-  // hunts logged before the day ended get that day's final readings the next time the log is opened
-  let partialBusy = false;
-  async function refreshPartial(){
-    if (partialBusy || !navigator.onLine) return;
-    const due = hunts.filter(h => h.wx && h.wx.src === 'nws' && h.wx.partial && h.lat != null && Date.now() > dayBounds(h.date)[1] && Date.now() - dayBounds(h.date)[0] < 6.5 * 864e5).slice(0, 3);
-    if (!due.length) return; partialBusy = true; let any = false;
-    for (const h of due) { try { const r = await fetchDayWx(h.lat, h.lon, h.date); if (r.state === 'ok') { h.wx = r.wx; await HDB.put(h); any = true; } } catch (e) {} }
-    partialBusy = false; if (any && tab === 'hunts' && $('hEditor').hidden) renderHunts();
+  // Conditions are filled in automatically: hunts saved without a signal, or before the day (or sit) was over,
+  // get the readings the next time the app is open with a signal (the Weather Service keeps about a week).
+  const wxDue = h => {
+    if (h.lat == null || !h.date) return false;
+    const [s] = dayBounds(h.date), now = Date.now();
+    if (s > now || now - s > 6.5 * 864e5) return false;
+    const x = h.wx || {};
+    if (x.src === 'manual') return false;
+    return !x.src || !!x.partial || !!(h.sitWx && h.sitWx.src === 'nws' && h.sitWx.partial);
+  };
+  let pendBusy = false;
+  async function refreshPending(){
+    if (pendBusy || !navigator.onLine) return;
+    const due = hunts.filter(h => wxDue(h) && !(hDraft && hDraft.id === h.id) && !(h.wx && h.wx.partial && Date.now() < dayBounds(h.date)[1] && Date.now() - (h.wx.fetched || 0) < 36e5)).slice(0, 3);
+    if (!due.length) return; pendBusy = true; let any = false;
+    for (const h of due) {
+      try { const r = await fetchDayWx(h.lat, h.lon, h.date, sitMs(h));
+        if (r.state === 'ok') { h.wx = r.wx; if (!(h.sitWx && h.sitWx.src === 'manual')) h.sitWx = r.sit; await HDB.put(h); any = true; } } catch (e) {}
+    }
+    pendBusy = false; if (any && tab === 'hunts' && $('hEditor').hidden) renderHunts();
   }
+  addEventListener('online', () => refreshPending());
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') refreshPending(); });
 
   // ---- editor ----
   const segSet = (id, v) => document.querySelectorAll('#' + id + ' button').forEach(b => b.setAttribute('aria-checked', String(b.dataset.v === v)));
   $('heSpecies').innerHTML = HSPECIES.map(([id, l]) => `<button type="button" role="radio" data-v="${id}">${l}</button>`).join('');
   $('heTod').innerHTML = HTIMES.map(([id, l]) => `<button type="button" role="radio" data-v="${id}">${l}</button>`).join('');
-  $('heWdir').innerHTML = '<option value="">—</option><option>Calm</option>' + DIR16.map(d => `<option>${d}</option>`).join('');
+  const dirOpts = '<option value="">—</option><option>Calm</option>' + DIR16.map(d => `<option>${d}</option>`).join('');
+  $('heWdir').innerHTML = dirOpts; $('heSWdir').innerHTML = dirOpts;
+  $('heKWeapon').innerHTML = '<option value="">—</option>' + HWEAPONS.map(w => `<option>${w}</option>`).join('');
+  function refPt(){ return meLL && watchId != null ? meLL : state.loc ? [state.loc.lat, state.loc.lon] : null; }
   function whereOptions(){
-    const o = [];
+    const o = [], wp = marks.filter(m => m.kind === 'wpt'), r = refPt();
     if (state.loc) { const c = countyAt(state.loc.lon, state.loc.lat); o.push(['spot', 'My hunting spot' + (c ? ' (' + c.n + ' County)' : '')]); }
     o.push(['gps', 'Where I am now (GPS)']);
-    marks.filter(m => m.kind === 'wpt').sort((a, b) => (a.name || '').localeCompare(b.name || '', undefined, { numeric:true, sensitivity:'base' })).forEach(m => o.push(['w:' + m.id, 'Waypoint: ' + (m.name || 'Untitled')]));
+    if (r && wp.length) {
+      const near = wp.map(m => [dist(r, [m.lat, m.lon]), m]).filter(x => x[0] < 8000).sort((a, b) => a[0] - b[0]).slice(0, 6);
+      if (near.length) o.push(['grp', 'Nearest waypoints', near.map(([d, m]) => ['w:' + m.id, (m.name || 'Untitled') + ' · ' + miles(d)])]);
+    }
+    if (wp.length) o.push(['grp', 'All waypoints (A–Z)', wp.slice().sort((a, b) => (a.name || '').localeCompare(b.name || '', undefined, { numeric:true, sensitivity:'base' })).map(m => ['w:' + m.id, m.name || 'Untitled'])]);
     o.push(['none', 'No map location']);
     return o;
   }
-  function paintHunt(){
-    const h = hDraft, x = h.wx || {};
-    $('heDate').value = h.date; $('heDate').max = todayStr();
-    segSet('heSpecies', h.species); segSet('heTod', h.tod); segSet('heHarvest', h.harvest ? 'y' : 'n');
-    $('hePlace').value = h.place || ''; $('heObs').value = h.obs || ''; $('heSeen').value = h.seen != null ? h.seen : '';
-    $('heHarvestNote').value = h.harvestNote || ''; $('heHarvestRow').hidden = !h.harvest;
+  const optHtml = o => o.map(x => x[0] === 'grp' ? `<optgroup label="${esc(x[1])}">${optHtml(x[2])}</optgroup>` : `<option value="${esc(x[0])}">${esc(x[1])}</option>`).join('');
+  function paintSeen(){
+    const h = hDraft, by = h.seenBy || (h.seenBy = {});
+    $('heSeenBox').innerHTML = seenList(h.species).map(([k, l]) => `<div class="hcrow"><span id="hcl-${k}">${esc(l)}</span>
+      <button type="button" class="minus" data-k="${k}" data-d="-1" aria-label="One fewer ${esc(l.toLowerCase())}">−</button>
+      <input type="number" inputmode="numeric" min="0" max="9999" data-k="${k}" value="${by[k] || 0}" aria-labelledby="hcl-${k}">
+      <button type="button" class="plus" data-k="${k}" data-d="1" aria-label="One more ${esc(l.toLowerCase())}">+</button></div>`).join('');
+  }
+  function paintKill(){
+    const h = hDraft, k = h.kill || {};
+    $('heHarvestRow').hidden = !h.harvest;
+    $('heKList').innerHTML = (HWHAT[h.species] || []).map(w => `<option value="${esc(w)}"></option>`).join('');
+    $('heKWhat').value = k.what || ''; $('heKTime').value = k.time || ''; $('heKYds').value = k.yds != null ? k.yds : ''; $('heKWeapon').value = k.weapon || '';
+    $('heHarvestNote').value = h.harvestNote || '';
+  }
+  function paintTimes(){
+    const h = hDraft;
+    $('heStart').value = h.start || ''; $('heEnd').value = h.end || '';
+    const L = legalFor(h);
+    $('heLegal').textContent = L ? 'Legal shooting hours for ' + hLabel(HSPECIES, W.SPECIES.some(x => x.id === h.species) ? h.species : 'deer').toLowerCase() + ' that day: ' + ampm(L.open) + ' – ' + ampm(L.close) : '';
+  }
+  function paintCond(){
+    const h = hDraft, x = h.wx || {}, s = h.sitWx || null, dash = '—';
+    const tile = (v, l) => `<div><b>${v}</b><span>${l}</span></div>`;
+    const st = sitTxt(h);
+    $('heCondSum').innerHTML = `<div class="hclbl">During your sit${st ? ' · ' + esc(st) : ''}</div>
+      <div class="hcbig">${tile(s && s.temp != null ? s.temp + '°' : dash, 'Temp °F')}${tile(s && (s.wind != null || s.wdir) ? esc(hWind(s).replace(' mph', '')) : dash, 'Wind mph')}${tile(s && s.pres != null ? (+s.pres).toFixed(2) + (TREND[s.trend] ? ' ' + TREND[s.trend] : '') : dash, 'Pressure in')}</div>
+      <div class="hclbl">That day</div><div class="hcday">${esc(wxLine(h) || dash)}</div>`;
     const set = (id, v) => { $(id).value = v != null ? v : ''; };
     set('heHi', x.hi); set('heLo', x.lo); set('heWind', x.wind); $('heWdir').value = x.wdir || ''; set('hePres', x.pres != null ? (+x.pres).toFixed(2) : null); $('heTrend').value = x.trend || '';
+    set('heSTemp', s && s.temp); set('heSWind', s && s.wind); $('heSWdir').value = (s && s.wdir) || '';
+    const auto = x.src === 'nws', man = x.src === 'manual' || (s && s.src === 'manual');
+    const badge = $('heAuto'); badge.hidden = !(auto || man); badge.textContent = man ? 'Entered by hand' : 'Recorded automatically'; badge.classList.toggle('man', !!man);
     const mn = moonFor(h.date); $('heMoon').innerHTML = moonSvg(mn.f, 30) + `<div><b>${mn.name}</b><span>${mn.illum}% lit · worked out on your phone</span></div>`;
   }
+  function paintHunt(){
+    const h = hDraft;
+    $('heDate').value = h.date; $('heDate').max = todayStr();
+    segSet('heSpecies', h.species); segSet('heTod', h.tod); segSet('heHarvest', h.harvest ? 'y' : 'n');
+    $('hePlace').value = h.place || ''; $('heObs').value = h.obs || '';
+    paintTimes(); paintSeen(); paintKill(); paintCond();
+  }
   function wxStatus(t, warn){ const el = $('heWxMsg'); el.textContent = t; el.classList.toggle('warn', !!warn); }
+  function srcStatus(){
+    const h = hDraft, x = h.wx || {}, s = h.sitWx;
+    if (x.src === 'nws') return `From the ${x.station || 'National Weather Service'} weather station${x.n ? ', ' + x.n + ' readings' : ''}.` +
+      (x.partial ? ' The day isn’t over yet; the app adds the rest of the day’s readings automatically.' : '') + (h.start && !s && sitMs(h) && sitMs(h)[0] <= Date.now() ? ' No station reading fell within your sit.' : '');
+    if (x.src === 'manual') return 'Entered by hand.';
+    return '';
+  }
   async function autoWx(){
     const h = hDraft, seq = ++hSeq; if (!h) return;
-    if (h.lat == null) { wxStatus('Pick a location above to fill these in automatically, or type them in.'); return; }
-    wxStatus('Getting the day’s readings from the National Weather Service…');
-    let r; try { r = await fetchDayWx(h.lat, h.lon, h.date); } catch (e) { r = { state: navigator.onLine ? 'fail' : 'offline' }; }
+    if (h.lat == null) { wxStatus('Pick a map location above and these are filled in automatically.'); return; }
+    if ((h.wx || {}).src === 'manual') { wxStatus('Entered by hand. Tap Refresh to replace them with the station readings.'); return; }
+    wxStatus('Getting the readings from the National Weather Service…');
+    let r; try { r = await fetchDayWx(h.lat, h.lon, h.date, sitMs(h)); } catch (e) { r = { state: navigator.onLine ? 'fail' : 'offline' }; }
     if (seq !== hSeq || hDraft !== h) return;
     if (r.place && !String(h.where).startsWith('w:') && (!$('hePlace').value.trim() || $('hePlace').value === hAutoLoc)) { hAutoLoc = 'Near ' + r.place; $('hePlace').value = hAutoLoc; }
-    if (r.state === 'ok') { h.wx = r.wx; paintWxOnly(); wxStatus(`From ${r.wx.station}, ${r.wx.n} readings${r.wx.partial ? ' so far today. The app updates these after the day ends.' : ' that day.'}`); }
-    else if (r.state === 'old') wxStatus('The Weather Service keeps station readings for about a week. For older hunts, type in what you remember.', true);
+    if (r.state === 'ok') { h.wx = r.wx; h.sitWx = r.sit; paintCond(); wxStatus(srcStatus()); }
+    else if (r.state === 'old') wxStatus('The Weather Service keeps station readings for about a week. For older hunts, tap Type them in.', true);
     else if (r.state === 'future') wxStatus('That date is in the future.', true);
-    else if (r.state === 'offline') wxStatus('No signal. Save the hunt now; open it again with a signal within a week and tap Get conditions.', true);
-    else if (r.state === 'nodata') wxStatus('No nearby station has readings for that day. You can type them in.', true);
-    else wxStatus("Couldn't reach the National Weather Service. Tap Get conditions to try again, or type them in.", true);
+    else if (r.state === 'offline') wxStatus('No signal right now. Save the hunt; the conditions are added automatically the next time the app is open with a signal (within a week).', true);
+    else if (r.state === 'nodata') wxStatus('No nearby station has readings for that day. Tap Type them in to add them yourself.', true);
+    else wxStatus("Couldn't reach the National Weather Service. Save the hunt; the app tries again automatically, or tap Refresh.", true);
   }
-  function paintWxOnly(){ const keep = { place:$('hePlace').value, obs:$('heObs').value, seen:$('heSeen').value, hn:$('heHarvestNote').value }; paintHunt(); $('hePlace').value = keep.place; $('heObs').value = keep.obs; $('heSeen').value = keep.seen; $('heHarvestNote').value = keep.hn; }
+  const autoSoon = () => { clearTimeout(hTimer); hTimer = setTimeout(autoWx, 700); };
   function setWhere(v){
     const h = hDraft; h.where = v;
     if (v === 'spot' && state.loc) { h.lat = state.loc.lat; h.lon = state.loc.lon; }
     else if (v.startsWith('w:')) { const m = marks.find(x => x.id === v.slice(2)); if (m) { h.lat = m.lat; h.lon = m.lon; if (!$('hePlace').value.trim() || $('hePlace').value === hAutoLoc) { hAutoLoc = m.name || ''; $('hePlace').value = hAutoLoc; } } }
     else if (v === 'none') { h.lat = h.lon = null; }
     else if (v === 'gps') {
-      if (!navigator.geolocation) { wxStatus("This browser can't share your location.", true); return; }
+      if (!navigator.geolocation) { wxStatus("This browser can't share your location. Pick your hunting spot or a waypoint instead.", true); return; }
       wxStatus('Finding your location…');
-      navigator.geolocation.getCurrentPosition(p => { if (hDraft !== h) return; h.lat = p.coords.latitude; h.lon = p.coords.longitude; autoWx(); },
+      navigator.geolocation.getCurrentPosition(p => { if (hDraft !== h || h.where !== 'gps') return; h.lat = p.coords.latitude; h.lon = p.coords.longitude; if (h.timesAuto) { presetTimes(h); paintTimes(); } autoWx(); },
         () => { if (hDraft === h) wxStatus("Couldn't get your location. Pick your hunting spot or a waypoint instead.", true); }, { enableHighAccuracy:true, timeout:15000, maximumAge:60000 });
       return;
     }
+    if (h.timesAuto) { presetTimes(h); paintTimes(); }
     autoWx();
   }
-  function openHunt(h){
-    hNew = !h; hAutoLoc = '';
+  function openHunt(h, preset){
+    hNew = !h; hAutoLoc = ''; clearTimeout(hTimer);
     if (hNew) {
       const hr = Math.floor(chiNow().min / 60), sp = HSPECIES.some(x => x[0] === state.species) ? state.species : 'deer';
-      hDraft = { id:uid(), date:todayStr(), tod: hr < 11 ? 'am' : hr < 15 ? 'mid' : 'pm', species:sp, place:'', lat:null, lon:null, where:'none', obs:'', seen:null, harvest:false, harvestNote:'', wx:{}, created:Date.now() };
-    } else hDraft = JSON.parse(JSON.stringify(h));
+      hDraft = { id:uid(), date:todayStr(), tod: hr < 11 ? 'am' : hr < 15 ? 'mid' : 'pm', species:sp, place:'', lat:null, lon:null, where:'none', obs:'', seen:null, seenBy:{}, harvest:false, harvestNote:'', kill:{}, wx:{}, sitWx:null, created:Date.now(), timesAuto:true };
+      if (state.loc) { hDraft.lat = state.loc.lat; hDraft.lon = state.loc.lon; }
+      presetTimes(hDraft);
+    } else {
+      hDraft = JSON.parse(JSON.stringify(h)); hDraft.timesAuto = false;
+      if (!hDraft.seenBy) { hDraft.seenBy = {}; if (hDraft.seen != null) hDraft.seenBy.other = hDraft.seen; }
+      if (!hDraft.kill) hDraft.kill = {};
+    }
     const opts = whereOptions();
-    if (!hNew && hDraft.lat != null && !opts.some(o => o[0] === hDraft.where)) opts.unshift(['keep', 'Saved location']), hDraft.where = 'keep';
-    $('heWhere').innerHTML = opts.map(([v, l]) => `<option value="${esc(v)}">${esc(l)}</option>`).join('');
+    if (!hNew && hDraft.lat != null && !(hDraft.where === 'spot' && state.loc) && !String(hDraft.where).startsWith('w:')) opts.unshift(['keep', 'Saved location']), hDraft.where = 'keep';
+    if (!hNew && String(hDraft.where).startsWith('w:') && !marks.some(m => 'w:' + m.id === hDraft.where)) opts.unshift(['keep', 'Saved location (waypoint deleted)']), hDraft.where = 'keep';
+    $('heWhere').innerHTML = optHtml(opts);
     $('heTitle').textContent = hNew ? 'Log a hunt' : 'Edit hunt';
     const del = $('heDelete'); del.hidden = hNew; del.dataset.armed = ''; del.textContent = 'Delete this hunt';
+    $('heManual').hidden = true; $('heWxEdit').setAttribute('aria-expanded', 'false'); $('heWxEdit').textContent = 'Type them in';
     paintHunt(); wxStatus(''); $('hEditor').hidden = false; $('hEditor').querySelector('.wpbody').scrollTop = 0;
-    if (hNew) { const first = state.loc ? 'spot' : 'none'; $('heWhere').value = first; setWhere(first); }
-    else { $('heWhere').value = hDraft.where; const x = hDraft.wx || {};
-      wxStatus(x.src === 'nws' ? `From ${x.station || 'the National Weather Service'}${x.partial ? ' (part of the day)' : ''}.` : (x.hi != null || x.pres != null) ? 'Entered by hand.' : ''); }
+    if (hNew) {
+      // where: a chosen waypoint, else a waypoint you're standing at, else your hunting spot, else GPS
+      let first = preset && preset.where;
+      if (!first) { const r = meLL && watchId != null ? meLL : null, at = r && marks.filter(m => m.kind === 'wpt').map(m => [dist(r, [m.lat, m.lon]), m]).sort((a, b) => a[0] - b[0])[0];
+        first = at && at[0] < 150 ? 'w:' + at[1].id : state.loc ? 'spot' : navigator.geolocation ? 'gps' : 'none'; }
+      if (![...$('heWhere').options].some(o => o.value === first)) first = state.loc ? 'spot' : 'gps';
+      $('heWhere').value = first; setWhere(first);
+    } else {
+      $('heWhere').value = hDraft.where;
+      if (wxDue(hDraft) && navigator.onLine) autoWx(); else wxStatus(srcStatus() || (hDraft.lat == null ? 'Pick a map location above and these are filled in automatically.' : ''));
+    }
   }
   const numOrNull = (id, lo, hi) => { const t = $(id).value.trim(); if (t === '') return null; const v = +t; return isNaN(v) || v < lo || v > hi ? null : v; };
   function readWx(){
@@ -2738,32 +3071,75 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     const same = x.src === 'nws' && n.hi === x.hi && n.lo === x.lo && n.wind === x.wind && n.wdir === (x.wdir || '') && n.pres === (x.pres != null ? +(+x.pres).toFixed(2) : null) && n.trend === (x.trend || '');
     return same ? x : { ...n, src: (n.hi != null || n.lo != null || n.wind != null || n.pres != null || n.wdir) ? 'manual' : '' };
   }
-  $('heSpecies').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { hDraft.species = b.dataset.v; segSet('heSpecies', b.dataset.v); } });
-  $('heTod').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { hDraft.tod = b.dataset.v; segSet('heTod', b.dataset.v); } });
-  $('heHarvest').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { hDraft.harvest = b.dataset.v === 'y'; segSet('heHarvest', b.dataset.v); $('heHarvestRow').hidden = !hDraft.harvest; } });
-  $('heDate').addEventListener('change', e => { if (!e.target.value) { e.target.value = hDraft.date; return; } hDraft.date = e.target.value; hDraft.wx = {}; paintWxOnly(); autoWx(); });
-  $('heWhere').addEventListener('change', e => { if (e.target.value !== 'keep') { hDraft.wx = {}; paintWxOnly(); setWhere(e.target.value); } });
-  $('heWxGet').addEventListener('click', () => autoWx());
-  $('heCancel').addEventListener('click', () => { $('hEditor').hidden = true; hDraft = null; hSeq++; });
-  $('heSave').addEventListener('click', async () => {
-    const h = hDraft; h.place = $('hePlace').value.trim(); h.obs = $('heObs').value.trim(); h.seen = numOrNull('heSeen', 0, 9999);
-    h.harvestNote = h.harvest ? $('heHarvestNote').value.trim() : ''; h.wx = readWx(); h.updated = Date.now();
+  function readSit(){
+    const x = hDraft.sitWx, n = { temp:numOrNull('heSTemp', -80, 130), wind:numOrNull('heSWind', 0, 150), wdir:$('heSWdir').value };
+    if (x && x.temp === n.temp && x.wind === n.wind && (x.wdir || '') === n.wdir) return x;
+    if (n.temp == null && n.wind == null && !n.wdir) return null;
+    return { ...(x || {}), ...n, src:'manual', partial:false };
+  }
+  const changedTimes = () => { const h = hDraft; h.start = $('heStart').value; h.end = $('heEnd').value; h.timesAuto = false; if ((h.wx || {}).src !== 'manual' && !(h.sitWx && h.sitWx.src === 'manual')) h.sitWx = null; paintCond(); autoSoon(); };
+  $('heStart').addEventListener('change', changedTimes); $('heEnd').addEventListener('change', changedTimes);
+  $('heSpecies').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const h = hDraft; h.species = b.dataset.v; segSet('heSpecies', b.dataset.v); paintSeen(); $('heKList').innerHTML = (HWHAT[h.species] || []).map(w => `<option value="${esc(w)}"></option>`).join('');
+    if (h.timesAuto) { presetTimes(h); paintTimes(); paintCond(); autoSoon(); } else paintTimes(); });
+  $('heTod').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const h = hDraft; h.tod = b.dataset.v; segSet('heTod', b.dataset.v); h.timesAuto = true; presetTimes(h); paintTimes();
+    if ((h.wx || {}).src !== 'manual') h.sitWx = null; paintCond(); autoSoon(); });
+  $('heHarvest').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const h = hDraft; h.harvest = b.dataset.v === 'y'; segSet('heHarvest', b.dataset.v);
+    if (h.harvest && !$('heKWeapon').value) { const wm = store.get('hWeapon', {}); if (wm[h.species]) $('heKWeapon').value = wm[h.species]; }
+    $('heHarvestRow').hidden = !h.harvest; if (h.harvest) setTimeout(() => $('heHarvestRow').scrollIntoView({ block:'nearest', behavior:'smooth' }), 30); });
+  $('heSeenBox').addEventListener('click', e => { const b = e.target.closest('button[data-k]'); if (!b) return; const inp = $('heSeenBox').querySelector(`input[data-k="${b.dataset.k}"]`);
+    const v = Math.max(0, Math.min(9999, (parseInt(inp.value, 10) || 0) + +b.dataset.d)); inp.value = v; hDraft.seenBy[b.dataset.k] = v; });
+  $('heSeenBox').addEventListener('input', e => { const i = e.target.closest('input[data-k]'); if (i) { const v = parseInt(i.value, 10); hDraft.seenBy[i.dataset.k] = isNaN(v) ? 0 : Math.max(0, Math.min(9999, v)); } });
+  $('heSeenBox').addEventListener('focusin', e => { const i = e.target.closest('input[data-k]'); if (i) setTimeout(() => { try { i.select(); } catch (err) {} }, 0); });
+  $('heDate').addEventListener('change', e => { if (!e.target.value) { e.target.value = hDraft.date; return; } const h = hDraft; h.date = e.target.value; if ((h.wx || {}).src !== 'manual') { h.wx = {}; h.sitWx = null; } if (h.timesAuto) presetTimes(h); paintTimes(); paintCond(); autoWx(); });
+  $('heWhere').addEventListener('change', e => { if (e.target.value !== 'keep') { if ((hDraft.wx || {}).src !== 'manual') { hDraft.wx = {}; hDraft.sitWx = null; } paintCond(); setWhere(e.target.value); } });
+  $('heWxGet').addEventListener('click', () => { const h = hDraft; if ((h.wx || {}).src === 'manual') h.wx = {}; if (h.sitWx && h.sitWx.src === 'manual') h.sitWx = null; paintCond(); autoWx(); });
+  $('heWxEdit').addEventListener('click', e => { const m = $('heManual'), open = m.hidden; m.hidden = !open; e.currentTarget.setAttribute('aria-expanded', String(open)); e.currentTarget.textContent = open ? 'Done typing' : 'Type them in'; if (open) m.querySelector('input').focus(); });
+  $('heManual').addEventListener('change', () => { hDraft.wx = readWx(); hDraft.sitWx = readSit(); paintCond(); if (hDraft.wx.src === 'manual' || (hDraft.sitWx && hDraft.sitWx.src === 'manual')) wxStatus('Entered by hand.'); });
+  const closeHunt = () => { $('hEditor').hidden = true; hDraft = null; hSeq++; clearTimeout(hTimer); };
+  $('heCancel').addEventListener('click', closeHunt);
+  async function saveHunt(){
+    const h = hDraft; if (!h) return;
+    h.place = $('hePlace').value.trim(); h.obs = $('heObs').value.trim();
+    h.start = $('heStart').value; h.end = $('heEnd').value;
+    const keys = seenList(h.species).map(x => x[0]), by = {};
+    keys.forEach(k => { const v = +(h.seenBy[k] || 0); if (v > 0) by[k] = v; });
+    h.seenBy = by; const tot = Object.values(by).reduce((t, v) => t + v, 0); h.seen = Object.keys(by).length ? tot : null;
+    if (h.harvest) {
+      const yds = numOrNull('heKYds', 0, 2000);
+      h.kill = { what:$('heKWhat').value.trim(), time:$('heKTime').value, yds, weapon:$('heKWeapon').value };
+      h.harvestNote = $('heHarvestNote').value.trim();
+      if (h.kill.weapon) { const wm = store.get('hWeapon', {}); wm[h.species] = h.kill.weapon; store.set('hWeapon', wm); }
+    } else { h.kill = {}; h.harvestNote = ''; }
+    if (!$('heManual').hidden || (h.wx || {}).src === 'manual') { h.wx = readWx(); h.sitWx = readSit(); }
+    delete h.timesAuto; h.updated = Date.now();
     try { await HDB.put(h); } catch (e) { wxStatus("Couldn't save. This browser may be blocking storage.", true); return; }
     const i = hunts.findIndex(x => x.id === h.id); if (i >= 0) hunts[i] = h; else hunts.push(h);
-    persist(); $('hEditor').hidden = true; hDraft = null; hSeq++; renderHunts(); hMsg('Hunt saved on this phone.');
-  });
+    persist(); closeHunt(); renderHunts();
+    hMsg('Hunt saved on this phone.' + (wxDue(h) && !(h.wx && h.wx.src) ? ' Conditions will be added automatically when you have a signal.' : ''));
+  }
+  $('heSave').addEventListener('click', saveHunt); $('heSave2').addEventListener('click', saveHunt);
   $('heDelete').addEventListener('click', async e => {
     const b = e.currentTarget; if (!b.dataset.armed) { b.dataset.armed = '1'; b.textContent = 'Tap again to delete'; return; }
     try { await HDB.del(hDraft.id); } catch (err) { return; }
-    hunts = hunts.filter(x => x.id !== hDraft.id); $('hEditor').hidden = true; hDraft = null; renderHunts(); hMsg('Hunt deleted.');
+    hunts = hunts.filter(x => x.id !== hDraft.id); closeHunt(); renderHunts(); hMsg('Hunt deleted.');
   });
 
   // ---- export / import (CSV made on the phone) ----
-  const HCOLS = ['date', 'time_of_day', 'species', 'location', 'latitude', 'longitude', 'harvest', 'harvest_details', 'game_seen', 'observations', 'high_f', 'low_f', 'wind_avg_mph', 'wind_direction', 'pressure_inhg', 'pressure_trend', 'moon_phase', 'moon_lit_pct', 'conditions_source', 'id'];
+  const HCOLS = ['date', 'time_of_day', 'start_time', 'end_time', 'species', 'location', 'latitude', 'longitude', 'harvest', 'harvest_what', 'harvest_time', 'harvest_yards', 'harvest_weapon', 'harvest_details',
+    'game_seen', 'seen_detail', 'observations', 'sit_temp_f', 'sit_wind_mph', 'sit_wind_direction', 'sit_pressure_inhg', 'sit_pressure_trend',
+    'high_f', 'low_f', 'wind_avg_mph', 'wind_direction', 'pressure_inhg', 'pressure_trend', 'moon_phase', 'moon_lit_pct', 'conditions_source', 'id'];
+  const SEEN_ALL = Object.keys(HSEEN).reduce((a, k) => a.concat(HSEEN[k]), []).concat([['other', 'Other']]);
   function huntsCSV(){
     const q = v => { let t = v == null ? '' : String(v); if (/^[=+\-@]/.test(t) && isNaN(+t)) t = "'" + t; return /[",\n\r]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
-    const rows = hunts.slice().sort((a, b) => a.date < b.date ? -1 : 1).map(h => { const x = h.wx || {}, mn = moonFor(h.date);
-      return [h.date, hLabel(HTIMES, h.tod), hLabel(HSPECIES, h.species), h.place, h.lat != null ? (+h.lat).toFixed(5) : '', h.lon != null ? (+h.lon).toFixed(5) : '', h.harvest ? 'yes' : 'no', h.harvestNote, h.seen, h.obs, x.hi, x.lo, x.wind, x.wdir, x.pres != null ? (+x.pres).toFixed(2) : '', x.trend, mn.name, mn.illum, x.src === 'nws' ? 'NWS ' + (x.stationId || '') : x.src === 'manual' ? 'entered by hand' : '', h.id].map(q).join(','); });
+    const rows = hunts.slice().sort((a, b) => (a.date + (a.start || '')) < (b.date + (b.start || '')) ? -1 : 1).map(h => { const x = h.wx || {}, s = h.sitWx || {}, k = h.kill || {}, mn = moonFor(h.date), by = h.seenBy || {};
+      const sd = Object.keys(by).filter(n => by[n] > 0).map(n => (SEEN_ALL.find(z => z[0] === n) || [n, n])[1] + ' ' + by[n]).join('; ');
+      const vals = { date:h.date, time_of_day:hLabel(HTIMES, h.tod), start_time:h.start || '', end_time:h.end || '', species:hLabel(HSPECIES, h.species), location:h.place,
+        latitude:h.lat != null ? (+h.lat).toFixed(5) : '', longitude:h.lon != null ? (+h.lon).toFixed(5) : '', harvest:h.harvest ? 'yes' : 'no',
+        harvest_what:k.what, harvest_time:k.time, harvest_yards:k.yds, harvest_weapon:k.weapon, harvest_details:h.harvestNote, game_seen:h.seen, seen_detail:sd, observations:h.obs,
+        sit_temp_f:s.temp, sit_wind_mph:s.wind, sit_wind_direction:s.wdir, sit_pressure_inhg:s.pres != null ? (+s.pres).toFixed(2) : '', sit_pressure_trend:s.trend,
+        high_f:x.hi, low_f:x.lo, wind_avg_mph:x.wind, wind_direction:x.wdir, pressure_inhg:x.pres != null ? (+x.pres).toFixed(2) : '', pressure_trend:x.trend, moon_phase:mn.name, moon_lit_pct:mn.illum,
+        conditions_source:x.src === 'nws' ? 'NWS ' + (x.stationId || '') : x.src === 'manual' ? 'entered by hand' : '', id:h.id };
+      return HCOLS.map(c => q(vals[c])).join(','); });
     return '﻿' + [HCOLS.join(',')].concat(rows).join('\r\n');
   }
   async function exportHunts(){
@@ -2787,13 +3163,20 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
     const head = (rows.shift() || []).map(s => s.trim().toLowerCase()), col = n => head.indexOf(n);
     if (col('date') < 0 || col('species') < 0) { hMsg("That file isn't a hunt log exported from this app.", true); return; }
     const g = (r, n) => { const i = col(n); let v = i >= 0 && r[i] != null ? r[i] : ''; return v.startsWith("'") && /^'[=+\-@]/.test(v) ? v.slice(1) : v; }, nn = v => v === '' || isNaN(+v) ? null : +v;
+    const tm = v => /^\d{1,2}:\d{2}$/.test(v.trim()) ? hhmm(toMin(v.trim())) : '';
     const idOf = (list, label) => (list.find(x => x[1].toLowerCase() === label.trim().toLowerCase()) || [null])[0];
     const have = new Set(hunts.map(h => h.id)), fresh = [];
     for (const r of rows) { const date = g(r, 'date').trim(); if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || isNaN(hDate(date))) continue;
       const id = g(r, 'id').trim() || uid(); if (have.has(id)) continue; have.add(id);
-      const src = g(r, 'conditions_source'), lat = nn(g(r, 'latitude')), lon = nn(g(r, 'longitude'));
-      fresh.push({ id, date, tod:idOf(HTIMES, g(r, 'time_of_day')) || 'all', species:idOf(HSPECIES, g(r, 'species')) || 'other', place:g(r, 'location'), lat: lat != null && Math.abs(lat) <= 90 ? lat : null, lon: lon != null && Math.abs(lon) <= 180 ? lon : null, where:'keep',
-        harvest:/^y/i.test(g(r, 'harvest')), harvestNote:g(r, 'harvest_details'), seen:nn(g(r, 'game_seen')), obs:g(r, 'observations'),
+      const src = g(r, 'conditions_source'), lat = nn(g(r, 'latitude')), lon = nn(g(r, 'longitude')), species = idOf(HSPECIES, g(r, 'species')) || 'other';
+      const seenBy = {}; g(r, 'seen_detail').split(';').forEach(p => { const m = /^\s*(.+?)\s+(\d+)\s*$/.exec(p); if (!m) return; const k = (SEEN_ALL.find(z => z[1].toLowerCase() === m[1].toLowerCase()) || [null])[0]; if (k) seenBy[k] = +m[2]; });
+      const seen = nn(g(r, 'game_seen')); if (!Object.keys(seenBy).length && seen) seenBy.other = seen;
+      const st = { temp:nn(g(r, 'sit_temp_f')), wind:nn(g(r, 'sit_wind_mph')), wdir:g(r, 'sit_wind_direction'), pres:nn(g(r, 'sit_pressure_inhg')), trend:g(r, 'sit_pressure_trend') };
+      fresh.push({ id, date, tod:idOf(HTIMES, g(r, 'time_of_day')) || 'all', start:tm(g(r, 'start_time')), end:tm(g(r, 'end_time')), species, place:g(r, 'location'),
+        lat: lat != null && Math.abs(lat) <= 90 ? lat : null, lon: lon != null && Math.abs(lon) <= 180 ? lon : null, where:'keep',
+        harvest:/^y/i.test(g(r, 'harvest')), kill:{ what:g(r, 'harvest_what'), time:tm(g(r, 'harvest_time')), yds:nn(g(r, 'harvest_yards')), weapon:g(r, 'harvest_weapon') }, harvestNote:g(r, 'harvest_details'),
+        seen, seenBy, obs:g(r, 'observations'),
+        sitWx: st.temp != null || st.wind != null || st.wdir || st.pres != null ? { ...st, src:/^NWS/.test(src) ? 'nws' : 'manual' } : null,
         wx:{ hi:nn(g(r, 'high_f')), lo:nn(g(r, 'low_f')), wind:nn(g(r, 'wind_avg_mph')), wdir:g(r, 'wind_direction'), pres:nn(g(r, 'pressure_inhg')), trend:g(r, 'pressure_trend'), src:/^NWS/.test(src) ? 'nws' : src ? 'manual' : '', stationId:/^NWS /.test(src) ? src.slice(4) : '', station:/^NWS /.test(src) ? 'station ' + src.slice(4) : '' }, created:Date.now(), imported:Date.now() }); }
     try { if (fresh.length) await HDB.putMany(fresh); } catch (err) { hMsg("Couldn't save the imported hunts. This browser may be blocking storage.", true); return; }
     hunts = hunts.concat(fresh); persist(); renderHunts();
@@ -3074,7 +3457,7 @@ const GEO = {"bounds":[-92.886,42.492,-86.805,47.076],"counties":[{"n":"Door","a
 
   // Update check: an installed app is often resumed from memory instead of reloaded,
   // so look for a newer version on launch and whenever the app comes back to the screen.
-  const BUILD = '2026.11.16-1528';
+  const BUILD = '2026.11.19-1240';
   let checking = false;
   async function checkForUpdate(){
     if (PREVIEW || checking || !/^https?:$/.test(location.protocol) || !navigator.onLine) return;

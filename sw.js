@@ -1,5 +1,5 @@
 // WI Shooting Hours offline support. The build bumps the version so phones pick up a new worker.
-const CACHE='wish-'+'2026.11.16-1528', TILES='wish-tiles-v1', TILE_MAX=5000;
+const CACHE='wish-'+'2026.11.19-1240', TILES='wish-tiles-v1', TILE_MAX=5000;
 // Map images: USGS base maps and Wisconsin DNR public land. Property lines are not kept offline.
 const isTile=u=>(u.hostname==='basemap.nationalmap.gov'&&u.pathname.indexOf('/tile/')>0)||(u.hostname==='dnrmaps.wi.gov'&&/\/export$/.test(u.pathname));
 const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-512-maskable.png'];
